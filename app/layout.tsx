@@ -29,12 +29,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Neil Mitchell" }],
   creator: "Neil Mitchell",
-  // ─── CUSTOMIZE: Replace with your domain once deployed ──────────────────
-  metadataBase: new URL("https://neilmitchell.dev"),
+  metadataBase: new URL("https://neil-mitchell.netlify.app"),
   openGraph: {
     type: "website",
     locale: "en_CA",
-    url: "https://neilmitchell.dev",
+    url: "https://neil-mitchell.netlify.app",
     title: "Neil Mitchell — Journey Specialist, Product & Regulatory",
     description:
       "Product and journey professional at TD Insurance. 6+ years of progressive platform product experience — from claims operations to Guidewire PolicyCenter ownership.",
