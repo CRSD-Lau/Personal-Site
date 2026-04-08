@@ -46,9 +46,9 @@
     overflow-x: clip;
   }
 
-  /* Smooth scroll offset for sticky nav */
+  /* Smooth scroll offset for sticky nav — accounts for nav height + safe area */
   section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: calc(80px + env(safe-area-inset-top, 0px));
   }
 
   /* Selection color */
