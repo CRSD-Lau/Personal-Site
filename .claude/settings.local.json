@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npm run:*)",
+      "WebFetch(domain:www.linkedin.com)",
+      "WebSearch",
+      "mcp__Claude_Preview__preview_start",
+      "Bash(vercel --yes --prod)",
+      "Bash(gh repo:*)"
+    ]
+  }
+}

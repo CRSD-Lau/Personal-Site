@@ -1,0 +1,228 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── CSS Custom Properties — TD green theme ─────────────────────────── */
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #f8faf9;
+  --border: #e2ebe6;
+  --brand: #1b8640;
+  --brand-light: #f0faf4;
+  --muted: #6b7280;
+}
+
+.dark {
+  --background: #0a1410;
+  --foreground: #f0faf4;
+  --card: #0f1e17;
+  --border: #1a3426;
+  --brand: #4dab80;
+  --brand-light: #072e16;
+  --muted: #9ca3af;
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────────────────── */
+@layer base {
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "rlig" 1, "calt" 1;
+    overflow-x: hidden;
+  }
+
+  /* Smooth scroll offset for sticky nav */
+  section {
+    scroll-margin-top: 80px;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: rgba(27, 134, 64, 0.2);
+    color: inherit;
+  }
+
+  /* Focus visible ring */
+  :focus-visible {
+    outline: 2px solid var(--brand);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ─── Component Utilities ────────────────────────────────────────────────── */
+@layer components {
+  /* Section wrapper */
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Container */
+  .container-wide {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .container-narrow {
+    @apply max-w-4xl mx-auto;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-600 to-brand-400 bg-clip-text text-transparent;
+  }
+
+  .dark .gradient-text {
+    @apply from-brand-400 to-brand-300;
+  }
+
+  /* Card base */
+  .card {
+    @apply rounded-2xl border border-slate-200 bg-white shadow-soft transition-all duration-300;
+  }
+
+  .dark .card {
+    @apply border-slate-800 bg-slate-900;
+  }
+
+  .card-hover {
+    @apply hover:shadow-soft-lg hover:-translate-y-0.5;
+  }
+
+  /* Button base */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold
+           transition-all duration-200 focus-visible:outline-none focus-visible:ring-2
+           focus-visible:ring-brand-500 focus-visible:ring-offset-2 disabled:pointer-events-none
+           disabled:opacity-50 cursor-pointer;
+  }
+
+  .btn-primary {
+    @apply btn bg-brand-500 text-white shadow-soft hover:bg-brand-600 hover:shadow-brand-glow
+           active:scale-[0.98];
+  }
+
+  .btn-secondary {
+    @apply btn border border-slate-200 bg-white text-slate-700 shadow-soft-sm
+           hover:bg-slate-50 hover:border-slate-300 active:scale-[0.98];
+  }
+
+  .dark .btn-secondary {
+    @apply border-slate-700 bg-slate-900 text-slate-200 hover:bg-slate-800 hover:border-slate-600;
+  }
+
+  .btn-ghost {
+    @apply btn text-slate-600 hover:bg-slate-100 hover:text-slate-900 active:scale-[0.98];
+  }
+
+  .dark .btn-ghost {
+    @apply text-slate-400 hover:bg-slate-800 hover:text-slate-100;
+  }
+
+  /* Section heading */
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-widest text-brand-500;
+  }
+
+  .section-heading {
+    @apply text-3xl sm:text-4xl font-bold tracking-tight text-slate-900;
+  }
+
+  .dark .section-heading {
+    @apply text-slate-50;
+  }
+
+  .section-subheading {
+    @apply text-lg text-slate-600 leading-relaxed;
+  }
+
+  .dark .section-subheading {
+    @apply text-slate-400;
+  }
+}
+
+/* ─── Animation Utilities ────────────────────────────────────────────────── */
+@layer utilities {
+  /* Initial state for reveal animations (set by JS via data attributes) */
+  .reveal-hidden {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+
+  /* Stagger delays */
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
+  .delay-600 { transition-delay: 600ms; }
+  .delay-700 { transition-delay: 700ms; }
+  .delay-800 { transition-delay: 800ms; }
+
+  /* Subtle mesh gradient background — TD green tint */
+  .mesh-bg {
+    background-color: #f7faf8;
+    background-image:
+      radial-gradient(at 40% 20%, rgba(27, 134, 64, 0.07) 0px, transparent 50%),
+      radial-gradient(at 80% 0%,  rgba(13, 84, 41, 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 50%,  rgba(27, 134, 64, 0.04) 0px, transparent 50%);
+  }
+
+  .dark .mesh-bg {
+    background-color: #0a1410;
+    background-image:
+      radial-gradient(at 40% 20%, rgba(27, 134, 64, 0.14) 0px, transparent 50%),
+      radial-gradient(at 80% 0%,  rgba(13, 84, 41, 0.09) 0px, transparent 50%),
+      radial-gradient(at 0% 50%,  rgba(27, 134, 64, 0.07) 0px, transparent 50%);
+  }
+
+  /* Glassmorphism */
+  .glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .dark .glass {
+    background-color: rgba(11, 11, 20, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ─── Scrollbar Styling ───────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(27, 134, 64, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(27, 134, 64, 0.5);
+}
