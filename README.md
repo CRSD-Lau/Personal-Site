@@ -43,14 +43,69 @@ npm run start
 ## Deployment
 
 ### Netlify (primary)
+
+**Live URL:** https://neil-mitchell.netlify.app
+
 ```bash
 npm run build
 netlify deploy --dir=out --prod
 ```
 
+First time only — authenticate:
+```bash
+netlify login
+```
+
+---
+
 ### Vercel
+
+**Live URL:** https://neil-mitchell.vercel.app
+
+> **Note:** Vercel's Deployment Protection may require login to view the site.
+> To make it public: Vercel Dashboard → Project → Settings → Deployment Protection → Off.
+
+**First-time setup:**
+```bash
+npm install -g vercel
+vercel login
+vercel --prod
+```
+
+**Subsequent deploys:**
 ```bash
 vercel --prod
+```
+
+**Re-apply the clean URL alias after each deploy:**
+```bash
+vercel alias set <new-deployment-url>.vercel.app neil-mitchell.vercel.app
+```
+
+---
+
+### Git → Auto-deploy workflow
+
+For changes that should go through a PR:
+
+```bash
+# 1. Make your changes locally
+npm run dev                         # preview at localhost:3000
+
+# 2. Build and test
+npm run build
+
+# 3. Commit and push to your feature branch
+git add .
+git commit -m "describe your change"
+git push origin clean-branch
+
+# 4. Open a PR on GitHub, merge to main
+
+# 5. Redeploy manually after merge
+npm run build
+netlify deploy --dir=out --prod     # updates Netlify
+vercel --prod                       # updates Vercel
 ```
 
 ---
