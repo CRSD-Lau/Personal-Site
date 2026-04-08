@@ -5,17 +5,12 @@ const nextConfig: NextConfig = {
   // Fix workspace root detection on Windows with multiple lockfiles
   outputFileTracingRoot: path.join(__dirname),
 
-  // Enable static export for Vercel (optional, remove if using SSR features)
-  // output: 'export',
+  // Static HTML export — works on Netlify, GitHub Pages, Cloudflare Pages, etc.
+  output: "export",
 
-  // Image optimization
+  // Image optimization must be disabled for static export
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**",
-      },
-    ],
+    unoptimized: true,
   },
 };
 
