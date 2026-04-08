@@ -1,6 +1,7 @@
 // ─── Experience Section ───────────────────────────────────────────────────────
 // SOURCE: Neil_Mitchell_L10_Resume.PDF — Work Experience (all four roles)
 
+import Image from "next/image";
 import SectionReveal from "@/components/SectionReveal";
 
 const EXPERIENCE_DATA = {
@@ -152,12 +153,11 @@ export default function Experience() {
 
                       {/* Logo */}
                       <div
-                        className={`flex h-12 w-12 flex-shrink-0 items-center justify-center
-                                    rounded-2xl bg-gradient-to-br ${role.color}
-                                    text-white font-bold text-xs shadow-soft`}
+                        className="flex h-12 w-12 flex-shrink-0 items-center justify-center
+                                    rounded-2xl bg-white shadow-soft border border-slate-100 dark:border-slate-700 p-1"
                         aria-hidden="true"
                       >
-                        {role.logo}
+                        <Image src="/logo.png" alt="TD Insurance" width={40} height={40} className="object-contain" />
                       </div>
 
                       {/* Role info */}
