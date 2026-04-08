@@ -15,15 +15,15 @@ import Footer from "@/sections/Footer";
 
 export default function Home() {
   return (
-    <>
-      {/* Scroll progress bar at top of viewport */}
+    <div className="flex flex-col min-h-screen">
+      {/* Scroll progress bar — stays fixed via its own positioning */}
       <ScrollProgress />
 
-      {/* Sticky navigation */}
+      {/* Navigation — sticky is reliable on all real mobile browsers unlike fixed */}
       <Navigation />
 
       {/* Main content */}
-      <main>
+      <main className="flex-1">
         <Hero />
         <About />
         <Experience />
@@ -34,6 +34,6 @@ export default function Home() {
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }

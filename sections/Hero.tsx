@@ -84,7 +84,7 @@ export default function Hero() {
       </div>
 
       <div ref={heroRef} className="container-wide section-padding relative z-10 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-24 lg:py-32">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center pt-8 pb-24 lg:pt-10 lg:pb-32">
 
           {/* Left: text content */}
           <div className="flex flex-col gap-6 max-w-xl">
