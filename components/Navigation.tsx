@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Image from "next/image";
 import DarkModeToggle from "./DarkModeToggle";
 
 // ─── CUSTOMIZE: Nav links map to section IDs in each section file ──────────
@@ -89,15 +90,28 @@ export default function Navigation() {
             className="flex items-center gap-3 group focus-visible:outline-none"
             aria-label={`${SITE_NAME} — back to top`}
           >
-            {/* Avatar/Logo mark */}
+            {/* Avatar/Logo mark — profile photo on mobile, initials on desktop */}
             <span
-              className="flex h-9 w-9 items-center justify-center rounded-xl
+              className="sm:flex hidden h-9 w-9 items-center justify-center rounded-xl
                          bg-gradient-to-br from-brand-500 to-violet-600
                          text-sm font-bold text-white shadow-soft
                          group-hover:shadow-brand-glow transition-shadow duration-300"
               aria-hidden="true"
             >
               {SITE_INITIALS}
+            </span>
+            <span
+              className="sm:hidden flex h-9 w-9 overflow-hidden rounded-xl shadow-soft
+                         ring-2 ring-brand-500/40 group-hover:ring-brand-500/70 transition-all duration-300"
+              aria-hidden="true"
+            >
+              <Image
+                src="/profile.jpg"
+                alt={SITE_NAME}
+                width={36}
+                height={36}
+                className="object-cover object-top w-full h-full"
+              />
             </span>
             <span className="hidden sm:block text-sm font-semibold text-slate-900 dark:text-slate-100 tracking-tight">
               {SITE_NAME}
