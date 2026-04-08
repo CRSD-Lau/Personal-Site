@@ -57,15 +57,9 @@
   .header-safe-top {
     padding-top: 0px;
   }
-  .progress-safe-top {
-    top: 0px;
-  }
   @media (max-width: 639px) {
     .header-safe-top {
       padding-top: max(env(safe-area-inset-top, 0px), 28px);
-    }
-    .progress-safe-top {
-      top: max(env(safe-area-inset-top, 0px), 28px);
     }
   }
 
