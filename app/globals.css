@@ -51,15 +51,21 @@
     scroll-margin-top: calc(80px + env(safe-area-inset-top, 0px));
   }
 
-  /* Nav safe-area: on mobile use max() so we get at least 28px even when
-     Android Chrome defines env(safe-area-inset-top) but returns 0.
-     Desktop keeps 0 so no extra gap appears above the nav. */
+  /* Safe-area helpers: on mobile guarantee at least 28px clearance for
+     the status bar. Android Chrome defines env(safe-area-inset-top) but
+     returns 0, so max() ensures we always clear it. iOS uses real value. */
   .header-safe-top {
     padding-top: 0px;
+  }
+  .progress-safe-top {
+    top: 0px;
   }
   @media (max-width: 639px) {
     .header-safe-top {
       padding-top: max(env(safe-area-inset-top, 0px), 28px);
+    }
+    .progress-safe-top {
+      top: max(env(safe-area-inset-top, 0px), 28px);
     }
   }
 

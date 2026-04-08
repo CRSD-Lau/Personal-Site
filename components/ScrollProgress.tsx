@@ -17,7 +17,7 @@ export default function ScrollProgress() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[60] h-0.5"
+      className="progress-safe-top fixed left-0 right-0 z-[60] h-0.5"
       aria-hidden="true"
     >
       <div
