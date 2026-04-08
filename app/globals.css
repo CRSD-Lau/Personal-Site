@@ -36,13 +36,13 @@
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
+    overflow-x: hidden; /* clip horizontal overflow here — keeps position:fixed working on mobile */
   }
 
   body {
     background-color: var(--background);
     color: var(--foreground);
     font-feature-settings: "rlig" 1, "calt" 1;
-    overflow-x: hidden;
   }
 
   /* Smooth scroll offset for sticky nav */
