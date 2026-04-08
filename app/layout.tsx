@@ -75,7 +75,7 @@ export const viewport: Viewport = {
   ],
   width: "device-width",
   initialScale: 1,
-  // No viewport-fit:cover — let the browser keep content below the status bar automatically
+  viewportFit: "cover", // edge-to-edge Android/iOS — env(safe-area-inset-top) in header compensates
 };
 
 export default function RootLayout({
