@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
 import DarkModeToggle from "./DarkModeToggle";
+import ScrollProgress from "./ScrollProgress";
 
 // ─── CUSTOMIZE: Nav links map to section IDs in each section file ──────────
 const NAV_LINKS = [
@@ -69,13 +70,14 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`header-safe-top sticky top-0 w-full z-50 transition-all duration-300 ${
+        className={`header-safe-top relative sticky top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
             ? "glass shadow-soft-sm"
             : "bg-transparent"
         }`}
         role="banner"
       >
+        <ScrollProgress />
         <nav
           className={`container-wide section-padding flex items-center justify-between transition-all duration-300 ${
             isScrolled ? "py-2 sm:py-3" : "py-2 sm:py-5"

@@ -16,8 +16,9 @@ export default function ScrollProgress() {
   }, []);
 
   return (
+    // Absolute bottom of the header — always flush with the nav's bottom edge
     <div
-      className="progress-safe-top fixed left-0 right-0 z-[60] h-0.5"
+      className="absolute bottom-0 left-0 right-0 h-0.5"
       aria-hidden="true"
     >
       <div
