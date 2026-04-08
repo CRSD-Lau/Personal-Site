@@ -70,20 +70,29 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`header-safe-top relative sticky top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled
-            ? "glass shadow-soft-sm"
-            : "bg-transparent"
-        }`}
+        className="sticky top-0 w-full z-50 bg-transparent"
         role="banner"
       >
-        <ScrollProgress />
-        <nav
-          className={`container-wide section-padding flex items-center justify-between transition-all duration-300 ${
-            isScrolled ? "py-2 sm:py-3" : "py-2 sm:py-5"
-          }`}
-          aria-label="Main navigation"
-        >
+        {/* Transparent spacer = status-bar height on mobile, hidden on desktop.
+            Glass background starts BELOW here so it never covers the status bar. */}
+        <div
+          className="sm:hidden"
+          style={{ height: "max(env(safe-area-inset-top, 0px), 28px)" }}
+          aria-hidden="true"
+        />
+
+        {/* Nav band — this is the only part with a background */}
+        <div className={`relative transition-all duration-300 ${
+          isScrolled ? "glass shadow-soft-sm" : "bg-transparent"
+        }`}>
+          {/* Progress bar flush at the very top of the nav band */}
+          <ScrollProgress />
+          <nav
+            className={`container-wide section-padding flex items-center justify-between transition-all duration-300 ${
+              isScrolled ? "py-2 sm:py-3" : "py-2 sm:py-5"
+            }`}
+            aria-label="Main navigation"
+          >
           {/* Logo / Name */}
           <a
             href="#"
@@ -188,7 +197,8 @@ export default function Navigation() {
               )}
             </button>
           </div>
-        </nav>
+          </nav>
+        </div>{/* end nav band */}
       </header>
 
       {/* Mobile menu overlay */}

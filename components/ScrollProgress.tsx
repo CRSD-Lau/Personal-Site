@@ -16,9 +16,9 @@ export default function ScrollProgress() {
   }, []);
 
   return (
-    // Absolute bottom of the header — always flush with the nav's bottom edge
+    // Absolute top of the nav band — sits right at the boundary below the status-bar spacer
     <div
-      className="absolute bottom-0 left-0 right-0 h-0.5"
+      className="absolute top-0 left-0 right-0 h-0.5"
       aria-hidden="true"
     >
       <div

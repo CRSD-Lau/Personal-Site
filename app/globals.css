@@ -46,22 +46,7 @@
     overflow-x: clip;
   }
 
-  /* Smooth scroll offset for sticky nav + status bar height on edge-to-edge Android/iOS */
-  section {
-    scroll-margin-top: calc(80px + env(safe-area-inset-top, 0px));
-  }
-
-  /* Safe-area helpers: on mobile guarantee at least 28px clearance for
-     the status bar. Android Chrome defines env(safe-area-inset-top) but
-     returns 0, so max() ensures we always clear it. iOS uses real value. */
-  .header-safe-top {
-    padding-top: 0px;
-  }
-  @media (max-width: 639px) {
-    .header-safe-top {
-      padding-top: max(env(safe-area-inset-top, 0px), 28px);
-    }
-  }
+  /* Smooth scroll offset for sticky nav */
 
   /* Selection color */
   ::selection {
