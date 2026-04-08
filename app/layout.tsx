@@ -75,7 +75,7 @@ export const viewport: Viewport = {
   ],
   width: "device-width",
   initialScale: 1,
-  viewportFit: "cover", // allow content to extend under notch/status bar so we can handle safe-area ourselves
+  // No viewport-fit:cover — let the browser keep content below the status bar automatically
 };
 
 export default function RootLayout({
