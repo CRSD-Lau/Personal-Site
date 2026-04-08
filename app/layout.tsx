@@ -41,9 +41,9 @@ export const metadata: Metadata = {
     siteName: "Neil Mitchell",
     images: [
       {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
+        url: "/profile.jpg",
+        width: 800,
+        height: 800,
         alt: "Neil Mitchell — Journey Specialist, Product & Regulatory, TD Insurance",
       },
     ],
@@ -52,6 +52,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Neil Mitchell — Journey Specialist, Product & Regulatory",
     description: "Platform product professional at TD Insurance. Guidewire, delivery, and requirements.",
+    images: ["/profile.jpg"],
     // ─── CUSTOMIZE: Add your Twitter/X handle if you have one ───────────
     creator: "@neilmitchell",
   },
