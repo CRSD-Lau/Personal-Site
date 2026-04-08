@@ -74,7 +74,6 @@ export default function Navigation() {
             ? "glass shadow-soft-sm"
             : "bg-transparent"
         }`}
-        style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
         role="banner"
       >
         <nav
