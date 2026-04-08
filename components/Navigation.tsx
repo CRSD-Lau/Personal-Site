@@ -78,7 +78,7 @@ export default function Navigation() {
       >
         <nav
           className={`container-wide section-padding flex items-center justify-between transition-all duration-300 ${
-            isScrolled ? "py-3" : "py-5"
+            isScrolled ? "py-2 sm:py-3" : "py-2 sm:py-5"
           }`}
           aria-label="Main navigation"
         >
