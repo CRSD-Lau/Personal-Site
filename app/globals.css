@@ -46,9 +46,9 @@
     overflow-x: clip;
   }
 
-  /* Smooth scroll offset for sticky nav + status bar height on edge-to-edge Android/iOS */
+  /* Smooth scroll offset for sticky nav */
   section {
-    scroll-margin-top: calc(80px + env(safe-area-inset-top, 0px));
+    scroll-margin-top: 80px;
   }
 
   /* Selection color */
