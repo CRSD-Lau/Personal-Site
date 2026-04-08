@@ -51,6 +51,18 @@
     scroll-margin-top: calc(80px + env(safe-area-inset-top, 0px));
   }
 
+  /* Nav safe-area: on mobile use max() so we get at least 28px even when
+     Android Chrome defines env(safe-area-inset-top) but returns 0.
+     Desktop keeps 0 so no extra gap appears above the nav. */
+  .header-safe-top {
+    padding-top: 0px;
+  }
+  @media (max-width: 639px) {
+    .header-safe-top {
+      padding-top: max(env(safe-area-inset-top, 0px), 28px);
+    }
+  }
+
   /* Selection color */
   ::selection {
     background-color: rgba(27, 134, 64, 0.2);

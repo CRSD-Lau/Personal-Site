@@ -69,12 +69,11 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`sticky top-0 w-full z-50 transition-all duration-300 ${
+        className={`header-safe-top sticky top-0 w-full z-50 transition-all duration-300 ${
           isScrolled
             ? "glass shadow-soft-sm"
             : "bg-transparent"
         }`}
-        style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
         role="banner"
       >
         <nav
