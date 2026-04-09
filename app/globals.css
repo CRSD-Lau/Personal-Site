@@ -51,6 +51,12 @@
     scroll-margin-top: calc(80px + env(safe-area-inset-top, 0px));
   }
 
+  /* Nav safe-area padding — CSS class so the browser re-evaluates env()
+     on every viewport resize (address-bar show/hide), not just React renders */
+  .nav-safe-top {
+    padding-top: env(safe-area-inset-top, 0px);
+  }
+
   /* Selection color */
   ::selection {
     background-color: rgba(27, 134, 64, 0.2);
