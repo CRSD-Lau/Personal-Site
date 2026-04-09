@@ -68,18 +68,8 @@ export default function Navigation() {
 
   return (
     <>
-      {/* Fills the status-bar area (between screen top and nav top).
-          Fixed so it always covers that strip; height = 0 on desktop. */}
-      <div
-        className={`fixed top-0 left-0 right-0 z-[49] transition-all duration-300 ${
-          isScrolled ? "glass" : "bg-transparent"
-        }`}
-        style={{ height: "env(safe-area-inset-top, 0px)" }}
-        aria-hidden="true"
-      />
-
       <header
-        className={`sticky w-full z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled ? "glass shadow-soft-sm" : "bg-transparent"
         }`}
         style={{ top: "env(safe-area-inset-top, 0px)" }}
