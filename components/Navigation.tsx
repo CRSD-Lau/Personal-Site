@@ -28,7 +28,18 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+
+    // Force address bar to auto-hide on mobile: a 1px scroll is imperceptible
+    // but signals to the browser that there is scrollable content, triggering
+    // the address bar to slide away immediately on page load.
+    const t = setTimeout(() => {
+      if (window.scrollY === 0) window.scrollTo(0, 1);
+    }, 300);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(t);
+    };
   }, []);
 
   // ── Intersection observer to highlight active nav link ────────────────
