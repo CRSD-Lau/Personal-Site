@@ -2,7 +2,7 @@
 
 Personal professional website for Neil Mitchell, Journey Specialist – Product & Regulatory at TD Insurance.
 
-**Live site:** https://neil-mitchell.netlify.app
+**Live site:** https://neil-mitchell.vercel.app
 
 ---
 
@@ -11,7 +11,7 @@ Personal professional website for Neil Mitchell, Journey Specialist – Product 
 - [Next.js 15](https://nextjs.org/) — App Router, static export
 - [TypeScript](https://www.typescriptlang.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
-- Deployed on [Netlify](https://netlify.com)
+- Deployed on [Vercel](https://vercel.com)
 
 ---
 
@@ -33,37 +33,17 @@ npm run dev
 npm run build
 ```
 
-### Preview production build locally
-```bash
-npm run start
-```
-
 ---
 
 ## Deployment
 
-### Netlify (primary)
-
-**Live URL:** https://neil-mitchell.netlify.app
+**Live URL:** https://neil-mitchell.vercel.app
 
 ```bash
 npm run build
-netlify deploy --dir=out --prod
+vercel --prod
+vercel alias set <new-deployment-url>.vercel.app neil-mitchell.vercel.app
 ```
-
-First time only — authenticate:
-```bash
-netlify login
-```
-
----
-
-### Vercel
-
-**Live URL:** https://neil-mitchell.vercel.app
-
-> **Note:** Vercel's Deployment Protection may require login to view the site.
-> To make it public: Vercel Dashboard → Project → Settings → Deployment Protection → Off.
 
 **First-time setup:**
 ```bash
@@ -72,40 +52,27 @@ vercel login
 vercel --prod
 ```
 
-**Subsequent deploys:**
-```bash
-vercel --prod
-```
-
-**Re-apply the clean URL alias after each deploy:**
-```bash
-vercel alias set <new-deployment-url>.vercel.app neil-mitchell.vercel.app
-```
+> **Note:** If the site requires login to view, go to Vercel Dashboard → Project → Settings → Deployment Protection → Off.
 
 ---
 
-### Git → Auto-deploy workflow
-
-For changes that should go through a PR:
+### Deploy workflow
 
 ```bash
-# 1. Make your changes locally
+# 1. Make changes locally
 npm run dev                         # preview at localhost:3000
 
 # 2. Build and test
 npm run build
 
-# 3. Commit and push to your feature branch
+# 3. Commit and push
 git add .
 git commit -m "describe your change"
 git push origin clean-branch
 
-# 4. Open a PR on GitHub, merge to main
-
-# 5. Redeploy manually after merge
-npm run build
-netlify deploy --dir=out --prod     # updates Netlify
-vercel --prod                       # updates Vercel
+# 4. Deploy
+vercel --prod
+vercel alias set <new-url>.vercel.app neil-mitchell.vercel.app
 ```
 
 ---
@@ -137,6 +104,7 @@ vercel --prod                       # updates Vercel
 
 /public
   profile.jpg       # Headshot
+  logo.png          # TD shield logo (used in Experience section)
   resume.pdf        # Downloadable resume
 ```
 
@@ -163,7 +131,3 @@ vercel --prod                       # updates Vercel
 ## Resume Download
 
 Place the PDF at `/public/resume.pdf`. The download button in the Hero and Contact sections links to `/resume.pdf` automatically.
-
-To change the button label:
-- Hero: `sections/Hero.tsx` → `HERO_CONTENT.cta_secondary.label`
-- Contact: `sections/Contact.tsx` → `CONTACT_DATA.links` → Resume entry `label`
