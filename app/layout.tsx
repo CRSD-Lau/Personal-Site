@@ -75,7 +75,6 @@ export const viewport: Viewport = {
   ],
   width: "device-width",
   initialScale: 1,
-  viewportFit: "cover", // edge-to-edge Android/iOS — env(safe-area-inset-top) in header compensates
 };
 
 export default function RootLayout({
