@@ -70,7 +70,7 @@ export default function Navigation() {
     <>
       <header
         className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? "glass shadow-soft-sm" : "bg-transparent"
+          isScrolled ? "glass shadow-soft-sm" : "glass"
         }`}
         style={{ top: "env(safe-area-inset-top, 0px)" }}
         role="banner"
