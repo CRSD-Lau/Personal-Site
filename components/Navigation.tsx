@@ -73,6 +73,7 @@ export default function Navigation() {
         className={`relative sticky top-0 w-full z-50 transition-all duration-300 ${
           isScrolled ? "glass shadow-soft-sm" : "bg-transparent"
         }`}
+        style={{ paddingTop: "env(safe-area-inset-top, 0px)" }}
         role="banner"
       >
         <ScrollProgress />

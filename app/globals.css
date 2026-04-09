@@ -48,7 +48,7 @@
 
   /* Smooth scroll offset for sticky nav */
   section {
-    scroll-margin-top: 80px;
+    scroll-margin-top: calc(80px + env(safe-area-inset-top, 0px));
   }
 
   /* Selection color */
