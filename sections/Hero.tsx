@@ -64,7 +64,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center overflow-hidden mesh-bg"
+      className="relative min-h-dvh flex items-center overflow-hidden mesh-bg"
       aria-label="Introduction"
     >
       {/* Background decorative elements */}

@@ -69,10 +69,9 @@ export default function Navigation() {
   return (
     <>
       <header
-        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled ? "glass shadow-soft-sm" : "glass"
         }`}
-        style={{ top: "env(safe-area-inset-top, 0px)" }}
         role="banner"
       >
         <nav
