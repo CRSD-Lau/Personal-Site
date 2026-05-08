@@ -4,6 +4,10 @@ Personal professional website for Neil Mitchell, Journey Specialist – Product 
 
 **Live site:** https://neil-mitchell.vercel.app
 
+## Screenshot
+
+![Neil Mitchell personal website dark mode hero screenshot](docs/assets/readme-screenshot.png)
+
 ---
 
 ## Tech Stack
