@@ -4,8 +4,6 @@ Personal website for Neil Mitchell, Journey Specialist, Product and Regulatory a
 
 Live site: https://neil-mitchell.vercel.app
 
-Wiki: https://github.com/CRSD-Lau/Personal-Site/wiki
-
 ## Screenshot
 
 ![Neil Mitchell personal website dark mode hero screenshot](docs/assets/readme-screenshot.png)
