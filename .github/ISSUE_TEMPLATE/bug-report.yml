@@ -1,0 +1,51 @@
+name: Bug report
+description: Report a reproducible functional, responsive, or accessibility problem.
+title: "Fix: "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for helping improve the portfolio.
+
+  - type: input
+    id: page
+    attributes:
+      label: Page or section
+      description: Provide the URL or section name.
+      placeholder: "https://neil-mitchell.vercel.app/#experience"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Describe the problem and its effect.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open...
+        2. Select...
+        3. Observe...
+    validations:
+      required: true
+
+  - type: input
+    id: environment
+    attributes:
+      label: Browser and device
+      placeholder: "Chrome 126, Windows 11, 1440px"
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Screenshot or additional detail
+      description: Drag in screenshots or add any console output that does not contain private data.

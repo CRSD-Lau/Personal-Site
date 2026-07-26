@@ -1,112 +1,161 @@
-# Neil Mitchell Personal Website
+<div align="center">
+  <img src="./public/profile.webp" alt="Neil Mitchell" width="112" />
+  <h1>Neil Mitchell Career Portfolio</h1>
+  <p>
+    Project and delivery leadership for applied AI/ML engineering, grounded in seven years of
+    TD Insurance experience.
+  </p>
+  <p>
+    <a href="https://neil-mitchell.vercel.app"><strong>View the live portfolio</strong></a>
+    ·
+    <a href="https://neil-mitchell.vercel.app/resume.pdf">View the résumé</a>
+    ·
+    <a href="https://www.linkedin.com/in/neil-mitchell-a6038b171">LinkedIn</a>
+  </p>
+  <p>
+    <a href="https://github.com/CRSD-Lau/Personal-Site/actions/workflows/ci.yml">
+      <img src="https://github.com/CRSD-Lau/Personal-Site/actions/workflows/ci.yml/badge.svg?branch=main" alt="CI status" />
+    </a>
+    <a href="https://github.com/CRSD-Lau/Personal-Site/releases">
+      <img src="https://img.shields.io/github/v/release/CRSD-Lau/Personal-Site?display_name=tag&sort=semver" alt="Latest release" />
+    </a>
+    <a href="https://neil-mitchell.vercel.app">
+      <img src="https://img.shields.io/website?url=https%3A%2F%2Fneil-mitchell.vercel.app&label=production" alt="Production status" />
+    </a>
+    <img src="https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs" alt="Next.js 16" />
+    <img src="https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white" alt="TypeScript strict mode" />
+  </p>
+</div>
 
-Personal website for Neil Mitchell, Journey Specialist, Product and Regulatory at TD Insurance. The site presents Neil's product delivery experience, Guidewire work, skills, impact highlights, resume, and contact links.
+![Portfolio preview](./docs/assets/readme-screenshot.png)
 
-Live site: https://neil-mitchell.vercel.app
+## About
 
-## Screenshot
+This repository contains Neil Mitchell's personal career portfolio. It presents his current
+Project Manager II role in Applied AI/ML Engineering, his TD career path, delivery approach,
+technical capabilities, selected impact measures, and current résumé.
 
-![Neil Mitchell personal website dark mode hero screenshot](docs/assets/readme-screenshot.png)
+The portfolio is personal and unofficial. It is not a TD Bank Group or TD Insurance website.
 
-## Tech Stack
+## What the site includes
 
-- Next.js 15 with App Router and static export
-- TypeScript
-- Tailwind CSS
-- Vercel deployment
+| Area      | Purpose                                                                               |
+| --------- | ------------------------------------------------------------------------------------- |
+| Hero      | Current role, focus, headshot, résumé, and LinkedIn access                            |
+| Career    | Five TD roles across claims, vendor operations, digital servicing, product, and AI/ML |
+| Approach  | Six stages from business objective through learning and improvement                   |
+| Expertise | Delivery strengths, platform experience, and technical literacy                       |
+| Impact    | Career measures with count-up animation and supporting context                        |
+| Contact   | Direct contact options and a clear personal-site disclaimer                           |
 
-## Local Development
+## Technology
+
+- Next.js 16 App Router with static export
+- React 19 and strict TypeScript
+- Tailwind CSS 3 for the base layer
+- Semantic CSS for the design system and responsive layouts
+- Native React and browser APIs for theme preference, navigation, progress, and metric animation
+- Vercel for production hosting
+
+No UI, icon, or animation library is required.
+
+## Architecture
+
+```mermaid
+flowchart LR
+  Data["data/*.ts<br/>portfolio content"] --> Sections["sections/*.tsx<br/>page sections"]
+  Components["components/*.tsx<br/>shared UI"] --> Sections
+  Sections --> Page["app/page.tsx<br/>single-page composition"]
+  Tokens["app/globals.css<br/>design tokens and layouts"] --> Page
+  Page --> Build["Next.js static export"]
+  Build --> Out["out/"]
+  Out --> Vercel["Vercel production"]
+```
+
+Content is kept separate from presentation so career updates can be made in `data/` without
+rewriting component markup. See [Architecture](./docs/architecture.md) and
+[Content Guide](./docs/content-guide.md) for details.
+
+## Local development
+
+Requirements:
+
+- Node.js 20.19 or newer
+- npm 10 or newer
 
 ```bash
-npm install
+git clone https://github.com/CRSD-Lau/Personal-Site.git
+cd Personal-Site
+npm ci
 npm run dev
 ```
 
-Local dev runs at `http://localhost:3000`.
+Open `http://localhost:3000`.
 
-Build for production:
+### Commands
+
+| Command             | Purpose                                                       |
+| ------------------- | ------------------------------------------------------------- |
+| `npm run dev`       | Start the Next.js development server                          |
+| `npm run build`     | Create the static export in `out/`                            |
+| `npm run preview`   | Serve the exported site at `http://localhost:4174`            |
+| `npm run format`    | Format source, documentation, and repository files            |
+| `npm run lint`      | Run ESLint with warnings treated as failures                  |
+| `npm run typecheck` | Run the TypeScript compiler without emitting files            |
+| `npm test`          | Validate dates, titles, metrics, résumé links, and stale copy |
+| `npm run validate`  | Run every release gate, including a production build          |
+
+## Content and assets
+
+| Path                  | Responsibility                                                |
+| --------------------- | ------------------------------------------------------------- |
+| `data/profile.ts`     | Identity, current role, hero copy, links, and contact content |
+| `data/experience.ts`  | Career chronology, role summaries, and responsibilities       |
+| `data/approach.ts`    | Delivery stages and working principles                        |
+| `data/skills.ts`      | Capability groups and platform knowledge                      |
+| `data/impact.ts`      | Impact metrics and supporting stories                         |
+| `public/profile.webp` | Header and hero headshot                                      |
+| `public/logo.png`     | Official TD employer marker used beside TD roles              |
+| `public/resume.pdf`   | Public résumé downloaded from the site                        |
+
+Follow the evidence and wording rules in the [Content Guide](./docs/content-guide.md) before
+changing career claims or impact figures.
+
+## Résumé workflow
+
+The editable résumé source is
+[`documents/Neil-Mitchell-Resume.docx`](./documents/Neil-Mitchell-Resume.docx). The published
+copy is [`public/resume.pdf`](./public/resume.pdf).
+
+The build helper creates the DOCX and finalizes PDF metadata:
 
 ```bash
-npm run build
+python scripts/build-resume.py
+python scripts/build-resume.py --pdf-input path/to/converted.pdf
 ```
 
-## Deployment
+Microsoft Word or another compatible renderer is used between those commands to convert DOCX to
+PDF. The final PDF and DOCX must list `Neil Mitchell` as author and modifier.
 
-```bash
-npm run build
-vercel --prod
-vercel alias set <new-deployment-url>.vercel.app neil-mitchell.vercel.app
-```
+## Quality and release process
 
-First-time Vercel setup:
+Every push and pull request to `main` runs the same `npm run validate` gate used locally.
+Dependabot checks npm and GitHub Actions dependencies on a weekly schedule.
 
-```bash
-npm install -g vercel
-vercel login
-vercel --prod
-```
+Release history is recorded in [CHANGELOG.md](./CHANGELOG.md). The full publishing and rollback
+workflow is documented in [Deployment](./docs/deployment.md) and
+[Release Process](./docs/release-process.md).
 
-If the site requires login to view, turn off Deployment Protection in the Vercel project settings.
+## Contributing and security
 
-## Deploy Workflow
+- Read [CONTRIBUTING.md](./CONTRIBUTING.md) before proposing a change.
+- Report vulnerabilities through [GitHub private vulnerability reporting](./SECURITY.md).
+- Use the [project wiki](https://github.com/CRSD-Lau/Personal-Site/wiki) for operating guidance.
 
-```bash
-npm run dev
-npm run build
-git add .
-git commit -m "describe your change"
-git push origin clean-branch
-vercel --prod
-vercel alias set <new-url>.vercel.app neil-mitchell.vercel.app
-```
+## Licence and employer notice
 
-## Project Structure
+Copyright © 2026 Neil Mitchell. All rights reserved. See [LICENSE.md](./LICENSE.md).
 
-```text
-app/
-  layout.tsx        Root layout, metadata, fonts
-  page.tsx          Single-page entry point
-  globals.css       Tailwind base and custom utilities
-
-components/
-  Navigation.tsx    Sticky nav, mobile menu, active section highlight
-  DarkModeToggle.tsx
-  ScrollProgress.tsx
-  SectionReveal.tsx
-  AnimatedCounter.tsx
-
-sections/
-  Hero.tsx          Name, headline, photo, CTAs
-  About.tsx         Professional summary and working philosophy
-  Experience.tsx    Career timeline
-  Skills.tsx        Skill groups and capability tags
-  Impact.tsx        Key metrics and initiatives
-  WorkingStyle.tsx  Values and testimonial
-  Contact.tsx       Contact links and message form
-  Footer.tsx
-
-public/
-  profile.jpg       Headshot
-  logo.png          TD shield logo used in Experience
-  resume.pdf        Downloadable resume
-```
-
-## Content Updates
-
-| What | Where |
-|---|---|
-| Name, headline, bio | `sections/Hero.tsx`, `HERO_CONTENT` |
-| About text | `sections/About.tsx`, `ABOUT_CONTENT` |
-| Work experience | `sections/Experience.tsx`, `EXPERIENCE_DATA.roles` |
-| Skills | `sections/Skills.tsx`, `SKILLS_DATA` |
-| Impact metrics | `sections/Impact.tsx`, `IMPACT_DATA` |
-| Values | `sections/WorkingStyle.tsx`, `WORKING_STYLE` |
-| Contact details | `sections/Contact.tsx`, `CONTACT_DATA` |
-| Brand colours | `tailwind.config.ts`, `colors.brand` |
-| SEO metadata | `app/layout.tsx`, `metadata` |
-| Headshot | Replace `public/profile.jpg` |
-| Resume PDF | Replace `public/resume.pdf` |
-
-## Resume Download
-
-Place the PDF at `public/resume.pdf`. The download button in the Hero and Contact sections links to `/resume.pdf`.
+TD, TD Bank Group, TD Insurance, and related marks belong to their respective owners. Their names
+and logo appear only to describe employment history. This repository and website are personal and
+unofficial.

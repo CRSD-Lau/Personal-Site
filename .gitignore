@@ -4,6 +4,9 @@ node_modules/
 # Next.js build output
 /.next/
 /out/
+/artifacts/
+/output/
+/tmp/
 
 # production build
 /build
@@ -33,3 +36,13 @@ next-env.d.ts
 .claude/
 .netlify/static/
 .netlify/functions/
+
+# Local agent and specification tooling
+.agents/
+.specify/
+.cursor/skills/speckit-*/
+.trae/skills/speckit-*/
+
+# Python caches
+__pycache__/
+*.py[cod]

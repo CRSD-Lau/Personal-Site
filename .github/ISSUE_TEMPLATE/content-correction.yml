@@ -1,0 +1,44 @@
+name: Content correction
+description: Report an inaccurate title, date, metric, label, link, or résumé detail.
+title: "Correct: "
+labels:
+  - content
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Content area
+      options:
+        - Current role
+        - Career history
+        - Impact metric
+        - Expertise
+        - Résumé
+        - Link or contact detail
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current wording
+      description: Copy the text that needs correction.
+    validations:
+      required: true
+
+  - type: textarea
+    id: replacement
+    attributes:
+      label: Correct wording
+      description: Provide the accurate replacement and supporting context.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: private
+    attributes:
+      label: Privacy check
+      options:
+        - label: This report contains no confidential employer, customer, or personal information.
+          required: true
