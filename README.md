@@ -1,6 +1,5 @@
 <div align="center">
-  <img src="./public/profile.webp" alt="Neil Mitchell" width="112" />
-  <h1>Neil Mitchell Career Portfolio</h1>
+  <h1>Neil Mitchell - Career Portfolio</h1>
   <p>
     Project and delivery leadership for applied AI/ML engineering, grounded in seven years of
     TD Insurance experience.
