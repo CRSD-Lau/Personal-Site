@@ -7,6 +7,16 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Changed
+
+- Replaced the initials favicon with a round crop of Neil's headshot.
+- Simplified repository configuration and removed unused exports.
+
+### Removed
+
+- Obsolete deployment state, copied development-tool bundles, cached bytecode, and an unused source
+  image.
+
 ## [2.0.0] - 2026-07-26
 
 ### Added

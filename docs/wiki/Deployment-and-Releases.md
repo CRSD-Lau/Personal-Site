@@ -19,7 +19,7 @@
 7. Create the annotated version tag.
 8. Publish the GitHub release.
 9. Deploy the tagged commit to Vercel.
-10. Verify the live page, résumé, browser console, and responsive layouts.
+10. Verify the live page, headshot favicon, résumé, browser console, and responsive layouts.
 
 ## Rollback
 

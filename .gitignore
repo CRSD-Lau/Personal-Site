@@ -32,16 +32,6 @@ Thumbs.db
 
 # TypeScript
 *.tsbuildinfo
-next-env.d.ts
-.claude/
-.netlify/static/
-.netlify/functions/
-
-# Local agent and specification tooling
-.agents/
-.specify/
-.cursor/skills/speckit-*/
-.trae/skills/speckit-*/
 
 # Python caches
 __pycache__/

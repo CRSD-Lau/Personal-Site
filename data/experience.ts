@@ -17,7 +17,7 @@ export interface Experience {
   skills: string[];
 }
 
-export const experience: Experience[] = [
+const experience: Experience[] = [
   {
     id: "project-manager-ai2-2026",
     title: "Project Manager II",

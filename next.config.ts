@@ -1,10 +1,6 @@
 import type { NextConfig } from "next";
-import path from "path";
 
 const nextConfig: NextConfig = {
-  // Fix workspace root detection on Windows with multiple lockfiles.
-  outputFileTracingRoot: path.join(__dirname),
-
   // Static HTML export keeps the core portfolio available without a server.
   output: "export",
 

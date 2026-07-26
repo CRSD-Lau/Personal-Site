@@ -22,6 +22,7 @@ Vercel
 - `sections/` owns page-level compositions.
 - `components/` owns shared and interactive UI.
 - `app/globals.css` owns design tokens and responsive layouts.
+- `app/icon.png` provides the round headshot favicon.
 - `scripts/validate-content.mjs` protects high-risk career facts.
 - `scripts/build-resume.py` creates the résumé source and finalizes document metadata.
 

@@ -23,15 +23,6 @@ export function ArrowDownRightIcon(props: IconProps) {
   );
 }
 
-export function ArrowRightIcon(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M5 12h14" />
-      <path d="m13 6 6 6-6 6" />
-    </svg>
-  );
-}
-
 export function EmailIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
