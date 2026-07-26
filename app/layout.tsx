@@ -1,59 +1,54 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import Script from "next/script";
+import { profile, siteUrl } from "@/data/profile";
 import "./globals.css";
 
-// ─── CUSTOMIZE: Update font if desired ────────────────────────────────────
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
+const description =
+  "Project Manager II in Applied AI/ML Engineering at TD Bank Group, supporting TD Insurance. Experience across insurance, platforms, automation, and delivery.";
 
-// ─── CUSTOMIZE: Update your name, title, description, and domain ──────────
 export const metadata: Metadata = {
-  // SOURCE: Neil_Mitchell_L10_Resume.PDF
-  title: "Neil Mitchell — Journey Specialist, Product & Regulatory | TD Insurance",
-  description:
-    "Product and journey professional at TD Insurance with 6+ years of experience shaping platform requirements, leading cross-pod delivery, and driving Guidewire-based initiatives from intent to implementation.",
+  title: `${profile.name} | ${profile.headline}`,
+  description,
   keywords: [
-    "product owner",
-    "journey specialist",
+    "Applied AI/ML Engineering",
+    "AI Engineering Delivery",
+    "Project Management",
+    "TD Bank Group",
     "TD Insurance",
-    "Guidewire PolicyCenter",
-    "platform product",
-    "insurance",
-    "product delivery",
-    "backlog shaping",
-    "requirements engineering",
-    "New Brunswick",
+    "Kanban",
+    "Production Readiness",
+    "Insurance Technology",
+    "Guidewire",
+    "Saint John New Brunswick",
   ],
-  authors: [{ name: "Neil Mitchell" }],
-  creator: "Neil Mitchell",
-  metadataBase: new URL("https://neil-mitchell.netlify.app"),
+  authors: [{ name: profile.name, url: siteUrl }],
+  creator: profile.name,
+  publisher: profile.name,
+  metadataBase: new URL(siteUrl),
+  alternates: { canonical: "/" },
   openGraph: {
-    type: "website",
+    type: "profile",
     locale: "en_CA",
-    url: "https://neil-mitchell.netlify.app",
-    title: "Neil Mitchell — Journey Specialist, Product & Regulatory",
-    description:
-      "Product and journey professional at TD Insurance. 6+ years of progressive platform product experience — from claims operations to Guidewire PolicyCenter ownership.",
-    siteName: "Neil Mitchell",
+    url: siteUrl,
+    title: `${profile.name} | ${profile.headline}`,
+    description,
+    siteName: `${profile.name} Portfolio`,
+    firstName: "Neil",
+    lastName: "Mitchell",
     images: [
       {
-        url: "/profile.jpg",
-        width: 800,
-        height: 800,
-        alt: "Neil Mitchell — Journey Specialist, Product & Regulatory, TD Insurance",
+        url: "/profile.webp",
+        width: 960,
+        height: 1280,
+        alt: "Portrait of Neil Mitchell",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Neil Mitchell — Journey Specialist, Product & Regulatory",
-    description: "Platform product professional at TD Insurance. Guidewire, delivery, and requirements.",
-    images: ["/profile.jpg"],
-    // ─── CUSTOMIZE: Add your Twitter/X handle if you have one ───────────
-    creator: "@neilmitchell",
+    title: `${profile.name} | ${profile.headline}`,
+    description,
+    images: ["/profile.webp"],
   },
   robots: {
     index: true,
@@ -70,24 +65,32 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#0b0b14" },
+    { media: "(prefers-color-scheme: light)", color: "#f2f1ea" },
+    { media: "(prefers-color-scheme: dark)", color: "#091012" },
   ],
   width: "device-width",
   initialScale: 1,
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+const themeScript = `
+  (function () {
+    try {
+      var saved = localStorage.getItem("theme");
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.classList.toggle("dark", saved === "dark" || (!saved && prefersDark));
+    } catch (error) {}
+  })();
+`;
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    // suppressHydrationWarning prevents mismatch from dark mode class injection
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
-      </body>
+    <html lang="en-CA" suppressHydrationWarning>
+      <head>
+        <Script id="theme-preference" strategy="beforeInteractive">
+          {themeScript}
+        </Script>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

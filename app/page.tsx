@@ -1,42 +1,70 @@
-// ─── Root Page (Server Component) ────────────────────────────────────────────
-// This is the main single-page layout. Each section is imported as a separate
-// component. To customize content, edit each section file in /sections/.
-
 import Navigation from "@/components/Navigation";
 import ScrollProgress from "@/components/ScrollProgress";
-import Hero from "@/sections/Hero";
 import About from "@/sections/About";
-import Experience from "@/sections/Experience";
-import Skills from "@/sections/Skills";
-import Impact from "@/sections/Impact";
-import WorkingStyle from "@/sections/WorkingStyle";
+import Approach from "@/sections/Approach";
 import Contact from "@/sections/Contact";
+import Experience from "@/sections/Experience";
 import Footer from "@/sections/Footer";
+import Hero from "@/sections/Hero";
+import Impact from "@/sections/Impact";
+import Skills from "@/sections/Skills";
+import { profile, siteUrl } from "@/data/profile";
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: profile.name,
+  url: siteUrl,
+  image: `${siteUrl}/profile.webp`,
+  jobTitle: profile.roleTitle,
+  description: profile.introduction,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Saint John",
+    addressRegion: "New Brunswick",
+    addressCountry: "CA",
+  },
+  worksFor: {
+    "@type": "Organization",
+    name: "TD Bank Group",
+  },
+  sameAs: [profile.social.linkedin],
+  knowsAbout: [
+    "Applied AI/ML engineering delivery",
+    "Project management",
+    "Insurance technology",
+    "Guidewire",
+    "Kanban",
+    "Production readiness",
+  ],
+};
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-dvh">
-      {/* Scroll progress bar — fixed top-0, z-[60], sits above the nav */}
+    <div className="site-frame">
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
       <ScrollProgress />
-
-      {/* Navigation — fixed to visual viewport so address-bar collapse never shifts it */}
       <Navigation />
 
-      {/* Placeholder reserves flow space for the fixed nav (52px) */}
-      <div style={{ height: "52px" }} aria-hidden="true" />
-
-      {/* Main content */}
-      <main className="flex-1">
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <About />
         <Experience />
+        <Approach />
         <Skills />
         <Impact />
-        <WorkingStyle />
         <Contact />
       </main>
 
       <Footer />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(personSchema).replace(/</g, "\\u003c"),
+        }}
+      />
     </div>
   );
 }

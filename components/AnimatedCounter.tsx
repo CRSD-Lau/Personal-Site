@@ -1,64 +1,99 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 interface AnimatedCounterProps {
-  end: number;
-  duration?: number; // ms
-  suffix?: string;
-  prefix?: string;
+  value: string;
+  duration?: number;
+  delay?: number;
 }
 
-// ── Counts up from 0 to `end` when the element enters the viewport ────────
+function parseMetric(value: string) {
+  const match = value.match(/^([^0-9]*)([\d,]+)(.*)$/);
+
+  if (!match) {
+    return { end: 0, prefix: "", suffix: value };
+  }
+
+  return {
+    prefix: match[1],
+    end: Number(match[2].replaceAll(",", "")),
+    suffix: match[3],
+  };
+}
+
+const numberFormatter = new Intl.NumberFormat("en-CA");
+
 export default function AnimatedCounter({
-  end,
-  duration = 1800,
-  suffix = "",
-  prefix = "",
+  value,
+  duration = 1600,
+  delay = 0,
 }: AnimatedCounterProps) {
-  const [count, setCount] = useState(0);
-  const [hasStarted, setHasStarted] = useState(false);
-  const ref = useRef<HTMLSpanElement>(null);
+  const { end, prefix, suffix } = useMemo(() => parseMetric(value), [value]);
+  const [count, setCount] = useState(end);
+  const counterRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
+    const counter = counterRef.current;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!counter || reduceMotion || !("IntersectionObserver" in window)) {
+      setCount(end);
+      return;
+    }
+
+    let animationFrame = 0;
+    let delayTimer = 0;
+    setCount(0);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true);
-          observer.unobserve(el);
+        if (!entry.isIntersecting) return;
+
+        observer.disconnect();
+
+        const animate = () => {
+          const startedAt = performance.now();
+
+          const update = (currentTime: number) => {
+            const progress = Math.min((currentTime - startedAt) / duration, 1);
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+
+            setCount(Math.round(easedProgress * end));
+
+            if (progress < 1) {
+              animationFrame = requestAnimationFrame(update);
+            }
+          };
+
+          animationFrame = requestAnimationFrame(update);
+        };
+
+        if (delay > 0) {
+          delayTimer = window.setTimeout(animate, delay);
+        } else {
+          animate();
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.4, rootMargin: "0px 0px -8% 0px" },
     );
 
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, [hasStarted]);
+    observer.observe(counter);
 
-  useEffect(() => {
-    if (!hasStarted) return;
-
-    const startTime = performance.now();
-    const step = (currentTime: number) => {
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      // Ease-out cubic
-      const eased = 1 - Math.pow(1 - progress, 3);
-      setCount(Math.round(eased * end));
-      if (progress < 1) requestAnimationFrame(step);
+    return () => {
+      observer.disconnect();
+      cancelAnimationFrame(animationFrame);
+      window.clearTimeout(delayTimer);
     };
-
-    requestAnimationFrame(step);
-  }, [hasStarted, end, duration]);
+  }, [delay, duration, end]);
 
   return (
-    <span ref={ref}>
-      {prefix}
-      {count}
-      {suffix}
+    <span ref={counterRef} role="text" aria-label={value}>
+      <span aria-hidden="true">
+        {prefix}
+        {numberFormatter.format(count)}
+        {suffix}
+      </span>
     </span>
   );
 }
