@@ -1,5 +1,4 @@
-export type CapabilityLevel =
-  "Core delivery strength" | "Platform experience" | "Technical literacy";
+type CapabilityLevel = "Core delivery strength" | "Platform experience" | "Technical literacy";
 
 export interface CapabilityGroup {
   id: string;

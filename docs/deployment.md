@@ -41,12 +41,13 @@ used when the Git integration is not available.
 After Vercel reports a ready deployment:
 
 1. Confirm the root page returns HTTP 200.
-2. Confirm `/resume.pdf` returns HTTP 200 and `application/pdf`.
-3. Check the browser console for runtime errors.
-4. Confirm the hero shows the current role and no decorative TD logo.
-5. Confirm all five experience entries retain their official employer markers.
-6. Confirm navigation, theme switching, résumé, LinkedIn, and email actions work.
-7. Check phone and desktop screenshots for clipping or horizontal overflow.
+2. Confirm the page advertises the round headshot favicon and the icon returns `image/png`.
+3. Confirm `/resume.pdf` returns HTTP 200 and `application/pdf`.
+4. Check the browser console for runtime errors.
+5. Confirm the hero shows the current role and no decorative TD logo.
+6. Confirm all five experience entries retain their official employer markers.
+7. Confirm navigation, theme switching, résumé, LinkedIn, and email actions work.
+8. Check phone and desktop screenshots for clipping or horizontal overflow.
 
 ## Rollback
 

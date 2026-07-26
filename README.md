@@ -114,6 +114,7 @@ Open `http://localhost:3000`.
 | `data/approach.ts`    | Delivery stages and working principles                        |
 | `data/skills.ts`      | Capability groups and platform knowledge                      |
 | `data/impact.ts`      | Impact metrics and supporting stories                         |
+| `app/icon.png`        | Round headshot favicon                                        |
 | `public/profile.webp` | Header and hero headshot                                      |
 | `public/logo.png`     | Official TD employer marker used beside TD roles              |
 | `public/resume.pdf`   | Public résumé downloaded from the site                        |
