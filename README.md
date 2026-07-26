@@ -26,7 +26,7 @@
   </p>
 </div>
 
-![Portfolio preview](./docs/assets/readme-screenshot.png)
+![Portfolio preview](./docs/assets/readme-screenshot.jpg)
 
 ## About
 
