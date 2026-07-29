@@ -18,7 +18,7 @@ npm ci
 npm run dev
 ```
 
-Node.js 20.19 or newer is required.
+Node.js 24.x and npm 11 or newer are required.
 
 ## Content standards
 

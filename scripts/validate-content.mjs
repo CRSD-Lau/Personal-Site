@@ -14,7 +14,6 @@ const rootFiles = [
   "package.json",
   "package-lock.json",
   "next.config.ts",
-  "tailwind.config.ts",
   "tsconfig.json",
   "eslint.config.mjs",
   ".github/PULL_REQUEST_TEMPLATE.md",
@@ -65,12 +64,35 @@ const profileSource = readFileSync("data/profile.ts", "utf8");
 const layoutSource = readFileSync("app/layout.tsx", "utf8");
 const systemGraphSource = readFileSync("components/SystemGraph.tsx", "utf8");
 const experienceComponentSource = readFileSync("sections/Experience.tsx", "utf8");
+const ciSource = readFileSync(".github/workflows/ci.yml", "utf8");
 const currentRoleCount = experienceSource.match(/current:\s*true/g)?.length ?? 0;
 const releaseVersion = readFileSync("VERSION", "utf8").trim();
 const packageManifest = JSON.parse(readFileSync("package.json", "utf8"));
 const packageLock = JSON.parse(readFileSync("package-lock.json", "utf8"));
+const devDependencies = packageManifest.devDependencies ?? {};
 
 assert(currentRoleCount === 1, `Expected one current role, found ${currentRoleCount}.`);
+assert(
+  packageManifest.engines?.node === "24.x",
+  "The local and production Node runtime must be 24.x.",
+);
+assert(ciSource.includes("node-version: 24"), "GitHub Actions must use Node 24.");
+assert(
+  devDependencies["@typescript/native"]?.startsWith("npm:typescript@"),
+  "The TypeScript 7 native compiler alias is missing.",
+);
+assert(
+  devDependencies.typescript?.startsWith("npm:@typescript/typescript6@"),
+  "The TypeScript 6 compatibility API alias is missing.",
+);
+assert(!("tailwindcss" in devDependencies), "Unused Tailwind CSS is still installed.");
+assert(!("autoprefixer" in devDependencies), "Unused Autoprefixer is still installed.");
+assert(
+  !("postcss" in devDependencies),
+  "PostCSS should remain a transitive override, not a direct tool.",
+);
+assert(!existsSync("tailwind.config.ts"), "Legacy Tailwind configuration is still present.");
+assert(!existsSync("postcss.config.js"), "Legacy PostCSS configuration is still present.");
 assert(experienceSource.includes('title: "Project Manager II"'), "Current role title is missing.");
 assert(
   experienceSource.includes('startDate: "2026-07"'),

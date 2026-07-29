@@ -50,13 +50,16 @@ The portfolio is personal and unofficial. It is not a TD Bank Group or TD Insura
 ## Technology
 
 - Next.js 16 App Router with static export
-- React 19 and strict TypeScript
-- Tailwind CSS 3 for the base layer
-- Semantic CSS for the design system and responsive layouts
+- React 19 with the TypeScript 7 compiler and TypeScript 6 compatibility API
+- Purpose-built CSS for normalization, design tokens, and responsive layouts
 - Native React and browser APIs for theme preference, navigation, progress, and metric animation
 - Vercel for production hosting
 
 No UI, icon, or animation library is required.
+
+TypeScript 7 supplies the native `tsc` command. The official TypeScript 6 compatibility package is
+kept under the `typescript` package name so Next.js and `typescript-eslint` can continue using the
+compiler API during the TypeScript 7.0 transition.
 
 ## Architecture
 
@@ -79,8 +82,8 @@ rewriting component markup. See [Architecture](./docs/architecture.md) and
 
 Requirements:
 
-- Node.js 20.19 or newer
-- npm 10 or newer
+- Node.js 24.x
+- npm 11 or newer
 
 ```bash
 git clone https://github.com/CRSD-Lau/Personal-Site.git

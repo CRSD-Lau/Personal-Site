@@ -2,8 +2,8 @@
 
 ## Requirements
 
-- Node.js 20.19 or newer
-- npm 10 or newer
+- Node.js 24.x
+- npm 11 or newer
 
 ## Setup
 
