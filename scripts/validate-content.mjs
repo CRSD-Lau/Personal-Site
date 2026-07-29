@@ -167,11 +167,10 @@ assert(!existsSync("app/icon.svg"), "Legacy initials favicon is still present.")
 assert(existsSync("app/manifest.ts"), "Web app manifest route is missing.");
 assert(existsSync("app/robots.ts"), "Robots route is missing.");
 assert(existsSync("app/sitemap.ts"), "Sitemap route is missing.");
-assert(existsSync("app/opengraph-image.alt.txt"), "Social preview alternative text is missing.");
-assert(existsSync("app/opengraph-image.png"), "Social preview image is missing.");
+assert(existsSync("public/opengraph-image.png"), "Social preview image is missing.");
 
-if (existsSync("app/opengraph-image.png")) {
-  const socialImage = readFileSync("app/opengraph-image.png");
+if (existsSync("public/opengraph-image.png")) {
+  const socialImage = readFileSync("public/opengraph-image.png");
   const isPng =
     socialImage.length >= 24 &&
     socialImage.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));

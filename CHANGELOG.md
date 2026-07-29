@@ -11,9 +11,10 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Fixed
 
-- Made the Open Graph and X social image URL explicitly absolute so Vercel Preview and Production
-  builds emit consistent production-domain metadata.
-- Restored reliable branch preview deployments without weakening the production metadata checks.
+- Made the Open Graph and X social image URL explicitly absolute.
+- Served the social image as a stable public asset so Vercel Preview and Production builds emit
+  consistent production-domain metadata.
+- Restored reliable branch previews without weakening the production metadata checks.
 
 ## [2.1.0] - 2026-07-29
 
