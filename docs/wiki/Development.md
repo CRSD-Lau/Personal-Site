@@ -5,6 +5,9 @@
 - Node.js 24.x
 - npm 11 or newer
 
+TypeScript 7 provides the native `tsc` command. The `typescript` package name intentionally resolves
+to the official TypeScript 6 compatibility API required by Next.js and `typescript-eslint`.
+
 ## Setup
 
 ```bash

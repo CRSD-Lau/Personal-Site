@@ -203,6 +203,10 @@ assert(
   readFileSync("CHANGELOG.md", "utf8").includes(`## [${releaseVersion}]`),
   `CHANGELOG.md is missing release ${releaseVersion}.`,
 );
+assert(
+  existsSync(`docs/release-notes/v${releaseVersion}.md`),
+  `Release notes are missing for ${releaseVersion}.`,
+);
 
 if (failures.length > 0) {
   console.error("Content validation failed:");

@@ -58,6 +58,16 @@ The current role is derived from `experience.ts` instead of repeated manually.
 Files in `sections/` own page-level compositions. Files in `components/` own reusable or interactive
 elements such as navigation, theme preference, impact counters, icons, and the current-role card.
 
+### Build toolchain
+
+- Node.js 24 is used for local development, GitHub Actions, and Vercel production builds.
+- TypeScript 7 supplies the native `tsc` command.
+- The official TypeScript 6 compatibility package remains available under the `typescript` package
+  name for Next.js and `typescript-eslint` until TypeScript 7 exposes its replacement compiler API.
+- The design system is purpose-built CSS. Tailwind CSS and Autoprefixer are not part of the runtime
+  or build pipeline.
+- Next.js's transitive PostCSS dependency is pinned to a patched release through npm overrides.
+
 ### Client behaviour
 
 The exported page works without client-side data fetching. Small client components provide:

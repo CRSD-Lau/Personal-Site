@@ -26,11 +26,11 @@ The version must match in:
 5. Run `npm run validate`.
 6. Verify the local static export in a browser.
 7. Commit to `main` with a Conventional Commit message.
-8. Push and wait for GitHub Actions.
-9. Tag the exact validated commit.
-10. Publish the GitHub release.
-11. Deploy that commit to Vercel.
-12. Run production canary checks.
+8. Push and wait for GitHub Actions and Vercel.
+9. Confirm production is serving the exact pushed commit.
+10. Run production canary checks.
+11. Tag the exact validated and deployed commit.
+12. Publish the GitHub release.
 13. Update the GitHub wiki if operating guidance changed.
 
 ## Release notes
@@ -50,8 +50,8 @@ Avoid copying raw commit messages without explaining user impact.
 Use an annotated tag:
 
 ```bash
-git tag -a v2.0.0 -m "Neil Mitchell Portfolio v2.0.0"
-git push origin v2.0.0
+git tag -a vX.Y.Z -m "Neil Mitchell Portfolio vX.Y.Z"
+git push origin vX.Y.Z
 ```
 
 Do not move or reuse a published version tag.

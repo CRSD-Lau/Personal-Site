@@ -28,6 +28,14 @@ Vercel
 - `scripts/validate-content.mjs` protects high-risk career facts.
 - `scripts/build-resume.py` creates the résumé source and finalizes document metadata.
 
+## Toolchain
+
+- Node.js 24 is shared across local development, GitHub Actions, and Vercel.
+- TypeScript 7 provides the native compiler.
+- The official TypeScript 6 compatibility API supports Next.js and `typescript-eslint` during the
+  TypeScript 7 transition.
+- Purpose-built CSS provides normalization, tokens, and responsive layouts without Tailwind CSS.
+
 There is no database, application API, authentication layer, or server-side contact form.
 
 For the full technical record, see

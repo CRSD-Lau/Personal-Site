@@ -29,12 +29,15 @@ Confirm:
 
 1. Commit the validated release on `main`.
 2. Push `main` to GitHub.
-3. Wait for the `CI` workflow to pass.
-4. Create an annotated version tag.
-5. Publish the matching GitHub release.
+3. Wait for the `CI` workflow and the automatic Vercel production deployment.
+4. Confirm the ready Vercel deployment uses the pushed `main` commit.
+5. Run the production verification checklist.
+6. Create an annotated version tag on that exact commit.
+7. Publish the matching GitHub release.
+8. Synchronize the checked-in `docs/wiki/` pages to the GitHub wiki when operating guidance changes.
 
-Vercel should deploy the production branch automatically. A manual production deployment may be
-used when the Git integration is not available.
+A manual production deployment may be used only when the Git integration is unavailable. Never tag
+or publish a release when CI or production verification has failed.
 
 ## Production verification
 

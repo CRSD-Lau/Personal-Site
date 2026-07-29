@@ -7,18 +7,38 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [2.1.0] - 2026-07-29
+
+### Added
+
+- Added a 1200 x 630 editorial social preview with complete Open Graph and X metadata for
+  `https://neilmitchell.ca`.
+- Added native App Router manifest, robots, and sitemap routes.
+- Added release checks for the Node 24 runtime, TypeScript 7 compiler transition, and removal of
+  obsolete CSS tooling.
+
 ### Changed
 
 - Moved canonical, social, and repository links to `https://neilmitchell.ca`.
-- Added a 1200 x 630 editorial social preview and complete Open Graph and X metadata.
-- Added native App Router manifest, robots, and sitemap routes.
 - Replaced the initials favicon with a round crop of Neil's headshot.
-- Simplified repository configuration and removed unused exports.
+- Refined the header Connect action and refreshed the repository preview.
+- Standardized local development, GitHub Actions, and Vercel builds on Node.js 24.
+- Adopted the TypeScript 7 native compiler with the official TypeScript 6 compatibility API for
+  Next.js and `typescript-eslint`.
+- Replaced Tailwind's unused base layer with explicit CSS normalization while preserving the
+  rendered design.
+- Simplified repository configuration, dependency management, and operating documentation.
 
 ### Removed
 
+- Tailwind CSS, Autoprefixer, direct PostCSS tooling, and their obsolete configuration files.
 - Obsolete deployment state, copied development-tool bundles, cached bytecode, and an unused source
   image.
+
+### Security
+
+- Pinned Next.js's transitive PostCSS dependency to `8.5.24` and verified a zero-vulnerability npm
+  audit.
 
 ## [2.0.0] - 2026-07-26
 
@@ -58,5 +78,6 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Percentage skill bars and unsupported performance claims.
 - Obsolete journey-role wording and stale six-year career references.
 
-[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.0.0...HEAD
+[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.0...HEAD
+[2.1.0]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/CRSD-Lau/Personal-Site/releases/tag/v2.0.0

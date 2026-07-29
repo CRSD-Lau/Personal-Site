@@ -15,11 +15,13 @@
 3. Update `VERSION`, package metadata, and `CHANGELOG.md`.
 4. Run `npm run validate`.
 5. Commit and push `main`.
-6. Wait for GitHub Actions CI.
-7. Create the annotated version tag.
-8. Publish the GitHub release.
-9. Deploy the tagged commit to Vercel.
-10. Verify the live page, headshot favicon, résumé, browser console, and responsive layouts.
+6. Wait for GitHub Actions CI and the automatic Vercel deployment.
+7. Confirm production serves the pushed `main` commit.
+8. Verify the live page, social metadata, headshot favicon, résumé, browser console, and responsive
+   layouts.
+9. Create the annotated version tag on the verified commit.
+10. Publish the GitHub release.
+11. Synchronize these operating pages to the GitHub wiki.
 
 ## Rollback
 
