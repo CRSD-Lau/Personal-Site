@@ -7,6 +7,14 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [2.1.1] - 2026-07-29
+
+### Fixed
+
+- Made the Open Graph and X social image URL explicitly absolute so Vercel Preview and Production
+  builds emit consistent production-domain metadata.
+- Restored reliable branch preview deployments without weakening the production metadata checks.
+
 ## [2.1.0] - 2026-07-29
 
 ### Added
@@ -78,6 +86,7 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Percentage skill bars and unsupported performance claims.
 - Obsolete journey-role wording and stale six-year career references.
 
-[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.0...HEAD
+[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.1...HEAD
+[2.1.1]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/CRSD-Lau/Personal-Site/releases/tag/v2.0.0

@@ -4,7 +4,7 @@ import { profile, siteMetadata, siteUrl } from "@/data/profile";
 import "./globals.css";
 
 const socialImage = {
-  url: siteMetadata.socialImage.path,
+  url: new URL(siteMetadata.socialImage.path, siteUrl).toString(),
   width: siteMetadata.socialImage.width,
   height: siteMetadata.socialImage.height,
   alt: siteMetadata.socialImage.alt,
