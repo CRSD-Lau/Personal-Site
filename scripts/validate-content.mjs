@@ -161,6 +161,11 @@ assert(
 );
 assert(profileSource.includes("available: true"), "Current résumé status is not explicit.");
 assert(profileSource.includes('lastUpdated: "July 2026"'), "Résumé update date is stale.");
+assert(
+  profileSource.includes('email: "neil_mitchell89@hotmail.com"'),
+  "The public contact email is incorrect.",
+);
+assert(!profileSource.includes("@tdinsurance.com"), "The public contact still uses a TD email.");
 assert(existsSync("public/resume.pdf"), "Current résumé PDF is missing.");
 assert(existsSync("app/icon.png"), "Round headshot favicon is missing.");
 assert(!existsSync("app/icon.svg"), "Legacy initials favicon is still present.");

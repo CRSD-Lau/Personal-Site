@@ -7,7 +7,9 @@ from pathlib import Path
 from docx import Document
 from docx.enum.style import WD_STYLE_TYPE
 from docx.enum.text import WD_BREAK
+from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from docx.shared import Inches, Pt, RGBColor
 from pypdf import PdfReader, PdfWriter
 
@@ -108,6 +110,53 @@ def add_paragraph(
     return paragraph
 
 
+def add_hyperlink(
+    paragraph,
+    text: str,
+    url: str,
+    *,
+    name: str = "Calibri",
+    size: int = 10,
+) -> None:
+    relationship_id = paragraph.part.relate_to(url, RT.HYPERLINK, is_external=True)
+
+    hyperlink = OxmlElement("w:hyperlink")
+    hyperlink.set(qn("r:id"), relationship_id)
+
+    run = OxmlElement("w:r")
+    run_properties = OxmlElement("w:rPr")
+
+    run_fonts = OxmlElement("w:rFonts")
+    run_fonts.set(qn("w:ascii"), name)
+    run_fonts.set(qn("w:hAnsi"), name)
+    run_fonts.set(qn("w:eastAsia"), name)
+    run_properties.append(run_fonts)
+
+    font_size = OxmlElement("w:sz")
+    font_size.set(qn("w:val"), str(size * 2))
+    run_properties.append(font_size)
+
+    font_size_complex = OxmlElement("w:szCs")
+    font_size_complex.set(qn("w:val"), str(size * 2))
+    run_properties.append(font_size_complex)
+
+    color = OxmlElement("w:color")
+    color.set(qn("w:val"), "000000")
+    run_properties.append(color)
+
+    underline = OxmlElement("w:u")
+    underline.set(qn("w:val"), "none")
+    run_properties.append(underline)
+
+    run.append(run_properties)
+
+    text_element = OxmlElement("w:t")
+    text_element.text = text
+    run.append(text_element)
+    hyperlink.append(run)
+    paragraph._p.append(hyperlink)
+
+
 def add_role(
     document: Document,
     title: str,
@@ -153,11 +202,14 @@ def build_resume(output_path: Path) -> None:
     properties.last_modified_by = AUTHOR
     properties.title = "Neil Mitchell Resume"
     properties.subject = "Professional resume"
-    properties.keywords = "project management, applied AI, machine learning, insurance"
+    properties.keywords = (
+        "project management, applied AI, machine learning, LLM workflows, automation, "
+        "software development, insurance technology"
+    )
     properties.comments = "Updated July 2026"
     properties.created = datetime(2026, 7, 26, tzinfo=timezone.utc)
-    properties.modified = datetime(2026, 7, 26, tzinfo=timezone.utc)
-    properties.revision = 1
+    properties.modified = datetime(2026, 7, 29, tzinfo=timezone.utc)
+    properties.revision = 4
 
     add_paragraph(document, AUTHOR, size=16, bold=True, space_after=8, keep_with_next=True)
     add_paragraph(
@@ -167,14 +219,17 @@ def build_resume(output_path: Path) -> None:
         space_after=8,
         keep_with_next=True,
     )
-    add_paragraph(
-        document,
-        "Saint John, New Brunswick | 506-639-9083 | neil_mitchell89@hotmail.com",
-        size=10,
-        space_after=16,
-        keep_with_next=True,
-        style="Resume Metadata",
+    contact = document.add_paragraph(style="Resume Metadata")
+    contact.paragraph_format.space_before = Pt(0)
+    contact.paragraph_format.space_after = Pt(16)
+    contact.paragraph_format.keep_with_next = True
+    contact.paragraph_format.line_spacing = 1
+    contact_details = contact.add_run(
+        "Saint John, New Brunswick | 506-639-9083 | "
+        "neil_mitchell89@hotmail.com | "
     )
+    set_run_font(contact_details, size=10)
+    add_hyperlink(contact, "neilmitchell.ca", "https://neilmitchell.ca")
 
     document.add_paragraph("PROFESSIONAL SUMMARY", style="Heading 1")
     add_paragraph(
@@ -285,13 +340,23 @@ def build_resume(output_path: Path) -> None:
     document.add_paragraph("TECHNICAL SKILLS", style="Heading 1")
     add_paragraph(
         document,
-        "Platforms & Tools: Guidewire PolicyCenter, Guidewire ClaimCenter, Guidewire "
-        "BillingCenter, Jira, Confluence, GitHub, GitHub Copilot, Microsoft 365, Tableau",
+        "AI & Automation: LLM and agent workflows, OpenAI and Anthropic API integration, "
+        "prompt and tool design, AI-assisted development (Codex and GitHub Copilot), Python "
+        "and VBA automation",
+        size=10,
     )
-    add_paragraph(document, "Programming: Java, C#, C++, Python, VBA, Lua")
     add_paragraph(
         document,
-        "Databases: MySQL, Microsoft SQL Server, Excel, Access, Azure SQL",
+        "Development: Python, TypeScript/JavaScript, Kotlin, Java, C#, C++, VBA, Lua; "
+        "Next.js, React, FastAPI, Jetpack Compose, GitHub Actions, Docker, Vercel",
+        size=10,
+    )
+    add_paragraph(
+        document,
+        "Enterprise & Data: Guidewire PolicyCenter, ClaimCenter, BillingCenter; Jira, "
+        "Confluence, GitHub; SQL, PostgreSQL, MySQL, Microsoft SQL Server, Azure SQL, "
+        "SQLite, Excel, Access, Tableau",
+        size=10,
         space_after=6,
     )
 
@@ -300,6 +365,7 @@ def build_resume(output_path: Path) -> None:
         document,
         "Sports | Fitness | Travel | Family | Product Strategy | Software Development | "
         "Community Volunteering | Mentorship | Disability & Inclusion",
+        size=10,
     )
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -325,7 +391,7 @@ def finalize_pdf(input_path: Path, output_path: Path) -> None:
             "/Producer": AUTHOR,
             "/LastModifiedBy": AUTHOR,
             "/Modifier": AUTHOR,
-            "/ModDate": "D:20260726000000-03'00'",
+            "/ModDate": "D:20260729000000-03'00'",
         }
     )
     writer.add_metadata(metadata)

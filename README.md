@@ -43,7 +43,7 @@ The portfolio is personal and unofficial. It is not a TD Bank Group or TD Insura
 | Hero      | Current role, focus, headshot, résumé, and LinkedIn access                            |
 | Career    | Five TD roles across claims, vendor operations, digital servicing, product, and AI/ML |
 | Approach  | Six stages from business objective through learning and improvement                   |
-| Expertise | Delivery strengths, platform experience, and technical literacy                       |
+| Expertise | Delivery strengths, platform experience, and hands-on technical practice              |
 | Impact    | Career measures with count-up animation and supporting context                        |
 | Contact   | Direct contact options and a clear personal-site disclaimer                           |
 

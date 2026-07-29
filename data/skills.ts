@@ -1,4 +1,5 @@
-type CapabilityLevel = "Core delivery strength" | "Platform experience" | "Technical literacy";
+type CapabilityLevel =
+  "Core delivery strength" | "Platform experience" | "Hands-on technical practice";
 
 export interface CapabilityGroup {
   id: string;
@@ -24,7 +25,9 @@ export const capabilityGroups: CapabilityGroup[] = [
       "Production Readiness",
       "Validation Coordination",
       "Risk and Dependency Management",
-      "AI-assisted Workflows",
+      "LLM and Agent Workflows",
+      "Prompt and Tool Design",
+      "AI-assisted Development",
     ],
   },
   {
@@ -65,23 +68,20 @@ export const capabilityGroups: CapabilityGroup[] = [
   {
     id: "tools-technical",
     index: "04",
-    name: "Tools and Technical Literacy",
-    level: "Technical literacy",
+    name: "Development and Technical Tools",
+    level: "Hands-on technical practice",
     summary:
-      "Enough technical fluency to ask useful questions, follow implementation detail, and improve the flow of work.",
+      "Building and testing practical software, automation, and AI workflows across web, mobile, data, and local tools.",
     capabilities: [
-      "Jira",
-      "Confluence",
-      "GitHub",
-      "GitHub Copilot",
-      "Microsoft 365",
-      "Tableau",
       "Python",
-      "SQL",
-      "VBA",
-      "Data Analysis",
-      "Automation",
-      "AI/ML Concepts",
+      "TypeScript and JavaScript",
+      "Next.js and React",
+      "FastAPI and API Integration",
+      "Kotlin and Jetpack Compose",
+      "GitHub Actions",
+      "Vercel and Docker",
+      "SQL and Data",
+      "VBA Automation",
     ],
   },
 ];

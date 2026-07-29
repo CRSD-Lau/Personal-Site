@@ -12,7 +12,8 @@ export default function Skills() {
             </h2>
           </div>
           <p className="section-description">
-            I lead technical delivery with experience across insurance operations and platforms.
+            I lead technical delivery and bring hands-on experience across AI workflows, software
+            development, automation, insurance operations, and enterprise platforms.
           </p>
         </header>
 
