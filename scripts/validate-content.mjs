@@ -62,6 +62,7 @@ const experienceSource = readFileSync("data/experience.ts", "utf8");
 const impactSource = readFileSync("data/impact.ts", "utf8");
 const profileSource = readFileSync("data/profile.ts", "utf8");
 const layoutSource = readFileSync("app/layout.tsx", "utf8");
+const resumeBuilderSource = readFileSync("scripts/build-resume.py", "utf8");
 const systemGraphSource = readFileSync("components/SystemGraph.tsx", "utf8");
 const experienceComponentSource = readFileSync("sections/Experience.tsx", "utf8");
 const ciSource = readFileSync(".github/workflows/ci.yml", "utf8");
@@ -166,6 +167,10 @@ assert(
   "The public contact email is incorrect.",
 );
 assert(!profileSource.includes("@tdinsurance.com"), "The public contact still uses a TD email.");
+assert(
+  !resumeBuilderSource.includes("506-639-9083"),
+  "The public résumé builder still includes the private phone number.",
+);
 assert(existsSync("public/resume.pdf"), "Current résumé PDF is missing.");
 assert(existsSync("app/icon.png"), "Round headshot favicon is missing.");
 assert(!existsSync("app/icon.svg"), "Legacy initials favicon is still present.");

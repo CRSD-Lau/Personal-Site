@@ -209,7 +209,7 @@ def build_resume(output_path: Path) -> None:
     properties.comments = "Updated July 2026"
     properties.created = datetime(2026, 7, 26, tzinfo=timezone.utc)
     properties.modified = datetime(2026, 7, 29, tzinfo=timezone.utc)
-    properties.revision = 4
+    properties.revision = 5
 
     add_paragraph(document, AUTHOR, size=16, bold=True, space_after=8, keep_with_next=True)
     add_paragraph(
@@ -225,8 +225,7 @@ def build_resume(output_path: Path) -> None:
     contact.paragraph_format.keep_with_next = True
     contact.paragraph_format.line_spacing = 1
     contact_details = contact.add_run(
-        "Saint John, New Brunswick | 506-639-9083 | "
-        "neil_mitchell89@hotmail.com | "
+        "Saint John, New Brunswick | neil_mitchell89@hotmail.com | "
     )
     set_run_font(contact_details, size=10)
     add_hyperlink(contact, "neilmitchell.ca", "https://neilmitchell.ca")
