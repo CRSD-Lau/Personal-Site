@@ -9,6 +9,6 @@
 
 ---
 
-[Live portfolio](https://neil-mitchell.vercel.app)
+[Live portfolio](https://neilmitchell.ca)
 
 [Repository](https://github.com/CRSD-Lau/Personal-Site)

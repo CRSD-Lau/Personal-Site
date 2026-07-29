@@ -4,5 +4,5 @@ contact_links:
     url: https://github.com/CRSD-Lau/Personal-Site/security/advisories/new
     about: Report security issues privately.
   - name: Live portfolio
-    url: https://neil-mitchell.vercel.app
+    url: https://neilmitchell.ca
     about: Open the current production website.

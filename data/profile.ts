@@ -1,6 +1,21 @@
 import { currentExperience } from "./experience";
 
-export const siteUrl = "https://neil-mitchell.vercel.app";
+export const siteUrl = "https://neilmitchell.ca";
+
+export const siteMetadata = {
+  name: "Neil Mitchell",
+  title: "Neil Mitchell | Applied AI/ML Project Manager",
+  description:
+    "Project Manager II leading applied AI/ML engineering initiatives from planning through production readiness.",
+  socialDescription: "Project and delivery leadership for applied AI/ML engineering initiatives.",
+  locale: "en_CA",
+  socialImage: {
+    path: "/opengraph-image.png",
+    width: 1200,
+    height: 630,
+    alt: "Neil Mitchell, Project Manager II, Applied AI/ML Engineering",
+  },
+} as const;
 
 export const navigation = [
   { label: "About", href: "#about" },

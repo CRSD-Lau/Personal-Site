@@ -5,9 +5,9 @@
     TD Insurance experience.
   </p>
   <p>
-    <a href="https://neil-mitchell.vercel.app"><strong>View the live portfolio</strong></a>
+    <a href="https://neilmitchell.ca"><strong>View the live portfolio</strong></a>
     ·
-    <a href="https://neil-mitchell.vercel.app/resume.pdf">View the résumé</a>
+    <a href="https://neilmitchell.ca/resume.pdf">View the résumé</a>
     ·
     <a href="https://www.linkedin.com/in/neil-mitchell-a6038b171">LinkedIn</a>
   </p>
@@ -18,8 +18,8 @@
     <a href="https://github.com/CRSD-Lau/Personal-Site/releases">
       <img src="https://img.shields.io/github/v/release/CRSD-Lau/Personal-Site?display_name=tag&sort=semver" alt="Latest release" />
     </a>
-    <a href="https://neil-mitchell.vercel.app">
-      <img src="https://img.shields.io/website?url=https%3A%2F%2Fneil-mitchell.vercel.app&label=production" alt="Production status" />
+    <a href="https://neilmitchell.ca">
+      <img src="https://img.shields.io/website?url=https%3A%2F%2Fneilmitchell.ca&label=production" alt="Production status" />
     </a>
     <img src="https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs" alt="Next.js 16" />
     <img src="https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white" alt="TypeScript strict mode" />
@@ -106,17 +106,21 @@ Open `http://localhost:3000`.
 
 ## Content and assets
 
-| Path                  | Responsibility                                                |
-| --------------------- | ------------------------------------------------------------- |
-| `data/profile.ts`     | Identity, current role, hero copy, links, and contact content |
-| `data/experience.ts`  | Career chronology, role summaries, and responsibilities       |
-| `data/approach.ts`    | Delivery stages and working principles                        |
-| `data/skills.ts`      | Capability groups and platform knowledge                      |
-| `data/impact.ts`      | Impact metrics and supporting stories                         |
-| `app/icon.png`        | Round headshot favicon                                        |
-| `public/profile.webp` | Header and hero headshot                                      |
-| `public/logo.png`     | Official TD employer marker used beside TD roles              |
-| `public/resume.pdf`   | Public résumé downloaded from the site                        |
+| Path                      | Responsibility                                                |
+| ------------------------- | ------------------------------------------------------------- |
+| `data/profile.ts`         | Identity, current role, hero copy, links, and contact content |
+| `data/experience.ts`      | Career chronology, role summaries, and responsibilities       |
+| `data/approach.ts`        | Delivery stages and working principles                        |
+| `data/skills.ts`          | Capability groups and platform knowledge                      |
+| `data/impact.ts`          | Impact metrics and supporting stories                         |
+| `app/icon.png`            | Round headshot favicon                                        |
+| `app/opengraph-image.png` | Social preview image for link embeds                          |
+| `app/manifest.ts`         | Install metadata and app icon declaration                     |
+| `app/robots.ts`           | Search crawler policy and sitemap discovery                   |
+| `app/sitemap.ts`          | Canonical production URL for search indexing                  |
+| `public/profile.webp`     | Header and hero headshot                                      |
+| `public/logo.png`         | Official TD employer marker used beside TD roles              |
+| `public/resume.pdf`       | Public résumé downloaded from the site                        |
 
 Follow the evidence and wording rules in the [Content Guide](./docs/content-guide.md) before
 changing career claims or impact figures.

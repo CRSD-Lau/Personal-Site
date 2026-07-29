@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "description": "Neil Mitchell's career portfolio for applied AI/ML delivery and TD experience.",
   "private": true,
-  "homepage": "https://neil-mitchell.vercel.app",
+  "homepage": "https://neilmitchell.ca",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/CRSD-Lau/Personal-Site.git"
@@ -22,7 +22,7 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && node scripts/validate-build.mjs",
     "start": "node scripts/serve-static.mjs 3000",
     "preview": "node scripts/serve-static.mjs 4174",
     "format": "prettier --write \"app/**/*.{ts,tsx,css}\" \"components/**/*.{ts,tsx}\" \"data/**/*.ts\" \"sections/**/*.tsx\" \"docs/**/*.md\" \".github/**/*.{md,yml,yaml}\" \"scripts/**/*.mjs\" README.md CHANGELOG.md CONTRIBUTING.md SECURITY.md CODE_OF_CONDUCT.md LICENSE.md package.json next.config.ts tailwind.config.ts tsconfig.json eslint.config.mjs .prettierrc.json",

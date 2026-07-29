@@ -38,6 +38,8 @@ The production artifact is the `out/` directory created by `npm run build`.
 - `app/page.tsx` composes the single-page portfolio and emits Person structured data.
 - `app/globals.css` owns design tokens, responsive layouts, motion, and accessibility states.
 - `app/icon.png` provides the round headshot favicon.
+- `app/opengraph-image.png` provides the 1200 x 630 social preview.
+- `app/manifest.ts`, `app/robots.ts`, and `app/sitemap.ts` emit static discovery metadata.
 
 ### Content model
 

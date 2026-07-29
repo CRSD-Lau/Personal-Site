@@ -3,7 +3,7 @@
 ## Production target
 
 - Platform: Vercel
-- Production URL: <https://neil-mitchell.vercel.app>
+- Production URL: <https://neilmitchell.ca>
 - Production branch: `main`
 - Build command: `npm run build`
 - Output: static export in `out/`
@@ -41,13 +41,17 @@ used when the Git integration is not available.
 After Vercel reports a ready deployment:
 
 1. Confirm the root page returns HTTP 200.
-2. Confirm the page advertises the round headshot favicon and the icon returns `image/png`.
-3. Confirm `/resume.pdf` returns HTTP 200 and `application/pdf`.
-4. Check the browser console for runtime errors.
-5. Confirm the hero shows the current role and no decorative TD logo.
-6. Confirm all five experience entries retain their official employer markers.
-7. Confirm navigation, theme switching, résumé, LinkedIn, and email actions work.
-8. Check phone and desktop screenshots for clipping or horizontal overflow.
+2. Confirm `www.neilmitchell.ca` redirects to the canonical apex domain.
+3. Confirm Open Graph and X metadata use `https://neilmitchell.ca`.
+4. Confirm `/opengraph-image.png` returns HTTP 200 as a 1200 x 630 PNG.
+5. Confirm `/robots.txt`, `/sitemap.xml`, and `/manifest.webmanifest` return HTTP 200.
+6. Confirm the page advertises the round headshot favicon and the icon returns `image/png`.
+7. Confirm `/resume.pdf` returns HTTP 200 and `application/pdf`.
+8. Check the browser console for runtime errors.
+9. Confirm the hero shows the current role and no decorative TD logo.
+10. Confirm all five experience entries retain their official employer markers.
+11. Confirm navigation, theme switching, résumé, LinkedIn, and email actions work.
+12. Check phone and desktop screenshots for clipping or horizontal overflow.
 
 ## Rollback
 

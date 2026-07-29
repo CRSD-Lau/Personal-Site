@@ -3,7 +3,7 @@
 ## Production
 
 - Platform: Vercel
-- URL: <https://neil-mitchell.vercel.app>
+- URL: <https://neilmitchell.ca>
 - Branch: `main`
 - Build: `npm run build`
 - Output: `out/`

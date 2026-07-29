@@ -23,6 +23,8 @@ Vercel
 - `components/` owns shared and interactive UI.
 - `app/globals.css` owns design tokens and responsive layouts.
 - `app/icon.png` provides the round headshot favicon.
+- `app/opengraph-image.png` provides the 1200 x 630 social preview.
+- `app/manifest.ts`, `app/robots.ts`, and `app/sitemap.ts` emit discovery metadata.
 - `scripts/validate-content.mjs` protects high-risk career facts.
 - `scripts/build-resume.py` creates the résumé source and finalizes document metadata.
 

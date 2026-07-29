@@ -1,14 +1,19 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { profile, siteUrl } from "@/data/profile";
+import { profile, siteMetadata, siteUrl } from "@/data/profile";
 import "./globals.css";
 
-const description =
-  "Project Manager II in Applied AI/ML Engineering at TD Bank Group, supporting TD Insurance. Experience across insurance, platforms, automation, and delivery.";
+const socialImage = {
+  url: siteMetadata.socialImage.path,
+  width: siteMetadata.socialImage.width,
+  height: siteMetadata.socialImage.height,
+  alt: siteMetadata.socialImage.alt,
+};
 
 export const metadata: Metadata = {
-  title: `${profile.name} | ${profile.headline}`,
-  description,
+  title: siteMetadata.title,
+  description: siteMetadata.description,
+  applicationName: siteMetadata.name,
   keywords: [
     "Applied AI/ML Engineering",
     "AI Engineering Delivery",
@@ -27,28 +32,19 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   alternates: { canonical: "/" },
   openGraph: {
-    type: "profile",
-    locale: "en_CA",
-    url: siteUrl,
-    title: `${profile.name} | ${profile.headline}`,
-    description,
-    siteName: `${profile.name} Portfolio`,
-    firstName: "Neil",
-    lastName: "Mitchell",
-    images: [
-      {
-        url: "/profile.webp",
-        width: 960,
-        height: 1280,
-        alt: "Portrait of Neil Mitchell",
-      },
-    ],
+    type: "website",
+    locale: siteMetadata.locale,
+    url: "/",
+    title: siteMetadata.title,
+    description: siteMetadata.socialDescription,
+    siteName: siteMetadata.name,
+    images: [socialImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} | ${profile.headline}`,
-    description,
-    images: ["/profile.webp"],
+    title: siteMetadata.title,
+    description: siteMetadata.socialDescription,
+    images: [socialImage],
   },
   robots: {
     index: true,

@@ -13,7 +13,7 @@ body:
     attributes:
       label: Page or section
       description: Provide the URL or section name.
-      placeholder: "https://neil-mitchell.vercel.app/#experience"
+      placeholder: "https://neilmitchell.ca/#experience"
     validations:
       required: true
 

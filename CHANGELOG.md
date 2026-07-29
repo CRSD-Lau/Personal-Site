@@ -9,6 +9,9 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Changed
 
+- Moved canonical, social, and repository links to `https://neilmitchell.ca`.
+- Added a 1200 x 630 editorial social preview and complete Open Graph and X metadata.
+- Added native App Router manifest, robots, and sitemap routes.
 - Replaced the initials favicon with a round crop of Neil's headshot.
 - Simplified repository configuration and removed unused exports.
 

@@ -12,6 +12,7 @@ const rootFiles = [
   "LICENSE.md",
   "VERSION",
   "package.json",
+  "package-lock.json",
   "next.config.ts",
   "tailwind.config.ts",
   "tsconfig.json",
@@ -36,6 +37,7 @@ const files = [...roots.flatMap(collectFiles), ...rootFiles];
 const contents = files.map((file) => ({ file, text: readFileSync(file, "utf8") }));
 const combined = contents.map(({ text }) => text).join("\n");
 const failures = [];
+const retiredProductionHost = ["neil-mitchell", ".vercel.app"].join("");
 
 function assert(condition, message) {
   if (!condition) failures.push(message);
@@ -60,6 +62,7 @@ for (const phrase of stalePhrases) {
 const experienceSource = readFileSync("data/experience.ts", "utf8");
 const impactSource = readFileSync("data/impact.ts", "utf8");
 const profileSource = readFileSync("data/profile.ts", "utf8");
+const layoutSource = readFileSync("app/layout.tsx", "utf8");
 const systemGraphSource = readFileSync("components/SystemGraph.tsx", "utf8");
 const experienceComponentSource = readFileSync("sections/Experience.tsx", "utf8");
 const currentRoleCount = experienceSource.match(/current:\s*true/g)?.length ?? 0;
@@ -96,6 +99,29 @@ assert(
 );
 assert(profileSource.includes('value: "7+"'), "Seven-year tenure statistic is missing.");
 assert(profileSource.includes('value: "5"'), "Five-role career statistic is missing.");
+assert(
+  profileSource.includes('export const siteUrl = "https://neilmitchell.ca"'),
+  "The canonical production domain is incorrect.",
+);
+assert(
+  profileSource.includes('title: "Neil Mitchell | Applied AI/ML Project Manager"'),
+  "The required page and social title is missing.",
+);
+assert(
+  profileSource.includes(
+    '"Project Manager II leading applied AI/ML engineering initiatives from planning through production readiness."',
+  ),
+  "The required page description is missing.",
+);
+assert(
+  profileSource.includes(
+    '"Project and delivery leadership for applied AI/ML engineering initiatives."',
+  ),
+  "The required social description is missing.",
+);
+assert(layoutSource.includes('type: "website"'), "Open Graph type must be website.");
+assert(layoutSource.includes('card: "summary_large_image"'), "The X card type is incorrect.");
+assert(!combined.includes(retiredProductionHost), "Found the retired Vercel production URL.");
 assert(impactSource.includes('value: "11"'), "Eleven-initiative impact metric is missing.");
 assert(
   impactSource.includes('label: "Product initiatives delivered"'),
@@ -116,6 +142,28 @@ assert(profileSource.includes('lastUpdated: "July 2026"'), "Résumé update date
 assert(existsSync("public/resume.pdf"), "Current résumé PDF is missing.");
 assert(existsSync("app/icon.png"), "Round headshot favicon is missing.");
 assert(!existsSync("app/icon.svg"), "Legacy initials favicon is still present.");
+assert(existsSync("app/manifest.ts"), "Web app manifest route is missing.");
+assert(existsSync("app/robots.ts"), "Robots route is missing.");
+assert(existsSync("app/sitemap.ts"), "Sitemap route is missing.");
+assert(existsSync("app/opengraph-image.alt.txt"), "Social preview alternative text is missing.");
+assert(existsSync("app/opengraph-image.png"), "Social preview image is missing.");
+
+if (existsSync("app/opengraph-image.png")) {
+  const socialImage = readFileSync("app/opengraph-image.png");
+  const isPng =
+    socialImage.length >= 24 &&
+    socialImage.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+
+  assert(isPng, "Social preview must be a PNG.");
+
+  if (isPng) {
+    assert(
+      socialImage.readUInt32BE(16) === 1200 && socialImage.readUInt32BE(20) === 630,
+      "Social preview must be exactly 1200 x 630.",
+    );
+  }
+}
+
 assert(!systemGraphSource.includes('src="/logo.png"'), "Hero card still contains the TD logo.");
 assert(
   experienceComponentSource.includes('src="/logo.png"'),
