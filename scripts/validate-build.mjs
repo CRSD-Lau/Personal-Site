@@ -54,9 +54,14 @@ assert(readMeta("twitter:image")?.startsWith(socialImageUrl), "twitter:image is 
 assert(!html.includes("twitter:site"), "A Twitter site handle must not be emitted.");
 assert(!html.includes("twitter:creator"), "A Twitter creator handle must not be emitted.");
 assert(!html.includes(retiredProductionHost), "The exported page contains the retired URL.");
+assert(
+  readLink("icon")?.split("?")[0] === "/favicon.ico",
+  "The stable root favicon link is missing.",
+);
 assert(readLink("manifest") === "/manifest.webmanifest", "The manifest link is missing.");
 
 for (const path of [
+  "out/favicon.ico",
   "out/icon.png",
   "out/manifest.webmanifest",
   "out/opengraph-image.png",

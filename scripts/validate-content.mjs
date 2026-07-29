@@ -173,6 +173,7 @@ assert(
 );
 assert(existsSync("public/resume.pdf"), "Current résumé PDF is missing.");
 assert(existsSync("app/icon.png"), "Round headshot favicon is missing.");
+assert(existsSync("app/favicon.ico"), "Stable root favicon is missing.");
 assert(!existsSync("app/icon.svg"), "Legacy initials favicon is still present.");
 assert(existsSync("app/manifest.ts"), "Web app manifest route is missing.");
 assert(existsSync("app/robots.ts"), "Robots route is missing.");
@@ -193,6 +194,30 @@ if (existsSync("public/opengraph-image.png")) {
       "Social preview must be exactly 1200 x 630.",
     );
   }
+}
+
+if (existsSync("app/favicon.ico")) {
+  const favicon = readFileSync("app/favicon.ico");
+  const isIco =
+    favicon.length >= 6 && favicon.readUInt16LE(0) === 0 && favicon.readUInt16LE(2) === 1;
+  const imageCount = isIco ? favicon.readUInt16LE(4) : 0;
+  const dimensions = [];
+
+  for (let index = 0; index < imageCount; index += 1) {
+    const entryOffset = 6 + index * 16;
+    if (entryOffset + 16 > favicon.length) break;
+
+    dimensions.push({
+      width: favicon[entryOffset] || 256,
+      height: favicon[entryOffset + 1] || 256,
+    });
+  }
+
+  assert(isIco, "The stable root favicon is not a valid ICO file.");
+  assert(
+    dimensions.some(({ width, height }) => width === height && width >= 48),
+    "The stable root favicon needs a square image at least 48 x 48.",
+  );
 }
 
 assert(!systemGraphSource.includes('src="/logo.png"'), "Hero card still contains the TD logo.");
