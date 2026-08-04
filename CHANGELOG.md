@@ -7,6 +7,42 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [2.2.0] - 2026-08-03
+
+### Added
+
+- Added an integrated Works section to the main portfolio and a reusable `/works` project index.
+- Published the Deep Live Cam Studio case study with fixed audit metrics, original evidence visuals,
+  repository artwork, technical methodology, transferable skills, attribution, and responsible-use
+  guidance.
+- Added project-specific canonical metadata, social previews, CreativeWork structured data, and
+  sitemap coverage.
+- Added release validation for project content, static routes, metadata, attribution boundaries,
+  preview provenance, and exported assets.
+- Added a stable root favicon for search engines and crawlers.
+
+### Changed
+
+- Made shared navigation route-aware while preserving home-page section highlighting and mobile
+  keyboard behaviour.
+- Extended the static preview server to resolve exported nested routes without trailing slashes.
+- Documented the typed project-content model, publication boundaries, and future-project workflow.
+- Expanded the public technical profile and résumé to reflect hands-on AI workflows, software
+  development, automation, and the portfolio URL.
+
+### Fixed
+
+- Reset cross-route case-study navigation to the top while keeping smooth home-page anchor scrolling.
+- Returned the Works header link on subpages to the main portfolio's Works section.
+- Matched the case-study governance spacing and project-card corners to the site's shared panel system.
+- Renumbered Contact after inserting Works into the home-page sequence.
+- Removed the private phone number from the published résumé.
+
+### Security
+
+- Updated the transitive `brace-expansion` dependency to `5.0.9`, resolving the high-severity
+  denial-of-service advisory reported by `npm audit`.
+
 ## [2.1.1] - 2026-07-29
 
 ### Fixed
@@ -87,7 +123,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Percentage skill bars and unsupported performance claims.
 - Obsolete journey-role wording and stale six-year career references.
 
-[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.1...HEAD
+[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.0...HEAD
+[2.2.0]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.1...v2.2.0
 [2.1.1]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.0.0...v2.1.0
 [2.0.0]: https://github.com/CRSD-Lau/Personal-Site/releases/tag/v2.0.0
