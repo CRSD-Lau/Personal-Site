@@ -100,12 +100,24 @@ assert(
 );
 assert(ciSource.includes("node-version: 24"), "GitHub Actions must use Node 24.");
 assert(
-  devDependencies["@typescript/native"]?.startsWith("npm:typescript@"),
+  devDependencies["@types/node"]?.startsWith("^24."),
+  "The Node type definitions must match the Node 24 production runtime.",
+);
+assert(
+  devDependencies["@typescript/native"]?.startsWith("npm:typescript@^7."),
   "The TypeScript 7 native compiler alias is missing.",
+);
+assert(
+  packageLock.packages?.["node_modules/@typescript/native"]?.version?.startsWith("7."),
+  "The lockfile must resolve the native compiler alias to TypeScript 7.",
 );
 assert(
   devDependencies.typescript === "^6.0.3",
   "The TypeScript 6 compiler API required by Next.js and typescript-eslint is missing.",
+);
+assert(
+  packageLock.packages?.["node_modules/typescript"]?.version?.startsWith("6.0."),
+  "The lockfile must resolve the Next.js compiler API to TypeScript 6.0.",
 );
 assert(
   packageManifest.scripts?.typecheck === "node node_modules/@typescript/native/bin/tsc --noEmit",
