@@ -7,7 +7,7 @@ This wiki documents how the portfolio is structured, edited, validated, released
 - Website: <https://neilmitchell.ca>
 - Repository: <https://github.com/CRSD-Lau/Personal-Site>
 - Production branch: `main`
-- Current release: `v2.2.0`
+- Current release: `v2.2.1`
 
 ## Guides
 
