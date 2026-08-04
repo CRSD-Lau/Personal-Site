@@ -8,6 +8,7 @@ import Footer from "@/sections/Footer";
 import Hero from "@/sections/Hero";
 import Impact from "@/sections/Impact";
 import Skills from "@/sections/Skills";
+import Works from "@/sections/Works";
 import { profile, siteUrl } from "@/data/profile";
 
 const personSchema = {
@@ -55,6 +56,7 @@ export default function Home() {
         <Approach />
         <Skills />
         <Impact />
+        <Works />
         <Contact />
       </main>
 

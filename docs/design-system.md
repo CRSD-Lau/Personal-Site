@@ -74,6 +74,11 @@ Status is always paired with text or position. Colour is never the only signal.
 - Delivery approach: six practical stages with quiet visual connectors
 - Capability matrix: labelled rows with non-numeric confidence groups
 - Impact field: verified metrics with explanatory context
+- Project card: rounded editorial panel with a reviewed preview, concise evidence framing, and one
+  case-study action
+- Evidence visuals: original release-flow and growth graphics with complete semantic text
+- Governance panel: deep-green attribution and responsible-use surface with clearly separated
+  repository actions
 - Contact panel: topics, direct links, and résumé state
 
 ## Buttons and navigation
@@ -93,6 +98,8 @@ Status is always paired with text or position. Colour is never the only signal.
 - Career and impact values exist in static HTML.
 - Focus rings use a three-pixel high-contrast outline.
 - Core content does not rely on JavaScript or motion.
+- Project metrics use definition-list semantics, and evidence graphics retain text equivalents.
+- Dark-theme green actions and chart labels retain dark foreground text for contrast.
 - The reviewed current résumé is linked from the hero and contact panel.
 - The former contact form was removed because it reported success without sending a message.
 

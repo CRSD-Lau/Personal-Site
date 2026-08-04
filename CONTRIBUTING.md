@@ -29,6 +29,10 @@ Node.js 24.x and npm 11 or newer are required.
 - Use `MM` for millions in finance-related figures.
 - Use official supplied employer assets only. Do not recreate or approximate brand marks.
 - Keep the personal-site disclaimer visible.
+- Keep independent-project evidence fixed, dated, and separate from employer claims.
+- Link derivative projects to their repository, licence, compliance notes, and original upstream
+  source; record the provenance and terms of any reused project asset.
+- Never add private audit folders, model files, runtime binaries, faces, or personal media.
 
 See [docs/content-guide.md](./docs/content-guide.md) for the full editing checklist.
 

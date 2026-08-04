@@ -7,7 +7,7 @@ This wiki documents how the portfolio is structured, edited, validated, released
 - Website: <https://neilmitchell.ca>
 - Repository: <https://github.com/CRSD-Lau/Personal-Site>
 - Production branch: `main`
-- Current release: `v2.1.0`
+- Current release: `v2.2.0`
 
 ## Guides
 
@@ -25,6 +25,8 @@ This wiki documents how the portfolio is structured, edited, validated, released
 4. Employer assets are used only where they identify real career entries.
 5. Accessibility and responsive behaviour are release requirements.
 6. Production deploys use validated, versioned commits from `main`.
+7. Independent work keeps employer claims, project licences, provenance, and responsible-use
+   boundaries explicit.
 
 ## Personal-site notice
 

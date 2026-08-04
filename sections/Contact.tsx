@@ -16,7 +16,7 @@ export default function Contact() {
 
         <div className="contact__layout">
           <div>
-            <p className="eyebrow">06 / Contact</p>
+            <p className="eyebrow">07 / Contact</p>
             <h2 id="contact-title" className="contact__title">
               {profile.contact.heading}
             </h2>
