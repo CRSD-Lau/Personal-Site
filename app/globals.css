@@ -3180,6 +3180,10 @@ button {
     border-bottom: 1px solid var(--color-border);
   }
 
+  .project-release-flow li:not(:first-child) {
+    padding-left: 0;
+  }
+
   .project-release-flow li::before {
     width: 1px;
     grid-row: 1 / span 3;

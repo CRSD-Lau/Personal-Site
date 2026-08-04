@@ -354,6 +354,12 @@ assert(
   "The mobile delivery map must reserve a rail column so its divider cannot overlap copy.",
 );
 assert(
+  /@media \(max-width: 560px\)[\s\S]*?\.project-release-flow li:not\(:first-child\)\s*\{[^}]*padding-left:\s*0;/.test(
+    globalStylesSource,
+  ),
+  "Every mobile release-flow step must clear inherited desktop indentation.",
+);
+assert(
   navigationSource.includes("{menuOpen && (") && navigationSource.includes("closeMenu();"),
   "The mobile menu must remain conditionally rendered and close after navigation.",
 );

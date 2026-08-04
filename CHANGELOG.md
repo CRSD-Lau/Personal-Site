@@ -15,6 +15,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
   headings or body copy.
 - Added an explicit Works-route scroll reset so mobile navigation opens `/works` and project case
   studies at the top instead of retaining the previous page's position.
+- Cleared inherited desktop padding from every mobile case-study timeline step so `Responsible use`
+  aligns with the shared rail.
 - Added regression validation for the mobile rail and route-reset contracts.
 
 ## [2.2.0] - 2026-08-03
