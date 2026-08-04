@@ -45,6 +45,7 @@ The portfolio is personal and unofficial. It is not a TD Bank Group or TD Insura
 | Approach  | Six stages from business objective through learning and improvement                   |
 | Expertise | Delivery strengths, platform experience, and hands-on technical practice              |
 | Impact    | Career measures with count-up animation and supporting context                        |
+| Works     | Independent technical case studies with clear evidence and attribution boundaries     |
 | Contact   | Direct contact options and a clear personal-site disclaimer                           |
 
 ## Technology
@@ -65,11 +66,15 @@ compiler API during the TypeScript 7.0 transition.
 
 ```mermaid
 flowchart LR
-  Data["data/*.ts<br/>portfolio content"] --> Sections["sections/*.tsx<br/>page sections"]
-  Components["components/*.tsx<br/>shared UI"] --> Sections
-  Sections --> Page["app/page.tsx<br/>single-page composition"]
-  Tokens["app/globals.css<br/>design tokens and layouts"] --> Page
-  Page --> Build["Next.js static export"]
+  Career["career data"] --> Sections["home-page sections"]
+  Projects["data/projects.ts"] --> Sections
+  Projects --> Works["/works + static case studies"]
+  Components["shared components"] --> Sections
+  Components --> Works
+  Tokens["design tokens and layouts"] --> Sections
+  Tokens --> Works
+  Sections --> Build["Next.js static export"]
+  Works --> Build
   Build --> Out["out/"]
   Out --> Vercel["Vercel production"]
 ```
@@ -96,37 +101,40 @@ Open `http://localhost:3000`.
 
 ### Commands
 
-| Command             | Purpose                                                       |
-| ------------------- | ------------------------------------------------------------- |
-| `npm run dev`       | Start the Next.js development server                          |
-| `npm run build`     | Create the static export in `out/`                            |
-| `npm run preview`   | Serve the exported site at `http://localhost:4174`            |
-| `npm run format`    | Format source, documentation, and repository files            |
-| `npm run lint`      | Run ESLint with warnings treated as failures                  |
-| `npm run typecheck` | Run the TypeScript compiler without emitting files            |
-| `npm test`          | Validate dates, titles, metrics, résumé links, and stale copy |
-| `npm run validate`  | Run every release gate, including a production build          |
+| Command             | Purpose                                                              |
+| ------------------- | -------------------------------------------------------------------- |
+| `npm run dev`       | Start the Next.js development server                                 |
+| `npm run build`     | Create the static export in `out/`                                   |
+| `npm run preview`   | Serve the exported site at `http://localhost:4174`                   |
+| `npm run format`    | Format source, documentation, and repository files                   |
+| `npm run lint`      | Run ESLint with warnings treated as failures                         |
+| `npm run typecheck` | Run the TypeScript compiler without emitting files                   |
+| `npm test`          | Validate career facts, project evidence, links, licences, and assets |
+| `npm run validate`  | Run every release gate, including a production build                 |
 
 ## Content and assets
 
-| Path                      | Responsibility                                                |
-| ------------------------- | ------------------------------------------------------------- |
-| `data/profile.ts`         | Identity, current role, hero copy, links, and contact content |
-| `data/experience.ts`      | Career chronology, role summaries, and responsibilities       |
-| `data/approach.ts`        | Delivery stages and working principles                        |
-| `data/skills.ts`          | Capability groups and platform knowledge                      |
-| `data/impact.ts`          | Impact metrics and supporting stories                         |
-| `app/icon.png`            | Round headshot favicon                                        |
-| `app/opengraph-image.png` | Social preview image for link embeds                          |
-| `app/manifest.ts`         | Install metadata and app icon declaration                     |
-| `app/robots.ts`           | Search crawler policy and sitemap discovery                   |
-| `app/sitemap.ts`          | Canonical production URL for search indexing                  |
-| `public/profile.webp`     | Header and hero headshot                                      |
-| `public/logo.png`         | Official TD employer marker used beside TD roles              |
-| `public/resume.pdf`       | Public résumé downloaded from the site                        |
+| Path                                            | Responsibility                                                |
+| ----------------------------------------------- | ------------------------------------------------------------- |
+| `data/profile.ts`                               | Identity, current role, hero copy, links, and contact content |
+| `data/experience.ts`                            | Career chronology, role summaries, and responsibilities       |
+| `data/approach.ts`                              | Delivery stages and working principles                        |
+| `data/skills.ts`                                | Capability groups and platform knowledge                      |
+| `data/impact.ts`                                | Impact metrics and supporting stories                         |
+| `data/projects.ts`                              | Independent project records, evidence snapshots, and links    |
+| `app/icon.png`                                  | Round headshot favicon                                        |
+| `public/opengraph-image.png`                    | Social preview image for root-page link embeds                |
+| `public/works/deep-live-cam/social-preview.png` | Reviewed Deep Live Cam Studio repository artwork              |
+| `app/manifest.ts`                               | Install metadata and app icon declaration                     |
+| `app/robots.ts`                                 | Search crawler policy and sitemap discovery                   |
+| `app/sitemap.ts`                                | Canonical production URL for search indexing                  |
+| `public/profile.webp`                           | Header and hero headshot                                      |
+| `public/logo.png`                               | Official TD employer marker used beside TD roles              |
+| `public/resume.pdf`                             | Public résumé downloaded from the site                        |
 
 Follow the evidence and wording rules in the [Content Guide](./docs/content-guide.md) before
-changing career claims or impact figures.
+changing career claims, impact figures, or independent-project records. The project preview's
+separate source terms and provenance are recorded in [LICENSE.md](./LICENSE.md).
 
 ## Résumé workflow
 

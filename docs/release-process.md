@@ -25,9 +25,9 @@ The version must match in:
 4. Update `CHANGELOG.md`.
 5. Run `npm run validate`.
 6. Verify the local static export in a browser.
-7. Commit to `main` with a Conventional Commit message.
-8. Push and wait for GitHub Actions and Vercel.
-9. Confirm production is serving the exact pushed commit.
+7. Commit on a focused release branch with a Conventional Commit message and open a pull request.
+8. Wait for GitHub Actions, CodeQL, and Vercel Preview before merging to `main`.
+9. Confirm production is serving the exact merge commit.
 10. Run production canary checks.
 11. Tag the exact validated and deployed commit.
 12. Publish the GitHub release.

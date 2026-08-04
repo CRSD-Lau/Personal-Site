@@ -23,6 +23,7 @@ export const navigation = [
   { label: "Approach", href: "#approach" },
   { label: "Expertise", href: "#expertise" },
   { label: "Impact", href: "#impact" },
+  { label: "Works", href: "#works" },
   { label: "Contact", href: "#contact" },
 ] as const;
 

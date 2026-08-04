@@ -80,7 +80,7 @@ const themeScript = `
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-CA" suppressHydrationWarning>
+    <html lang="en-CA" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
         <Script id="theme-preference" strategy="beforeInteractive">
           {themeScript}

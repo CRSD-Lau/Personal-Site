@@ -14,7 +14,7 @@ export default function Footer() {
           <ul role="list">
             {navigation.map((item) => (
               <li key={item.href}>
-                <a href={item.href}>{item.label}</a>
+                <a href={item.href === "#works" ? "/works" : `/${item.href}`}>{item.label}</a>
               </li>
             ))}
           </ul>

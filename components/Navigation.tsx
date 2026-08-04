@@ -1,17 +1,21 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { navigation, profile } from "@/data/profile";
 import DarkModeToggle from "./DarkModeToggle";
 import { CloseIcon, MenuIcon } from "./Icons";
 
 export default function Navigation() {
+  const pathname = usePathname();
   const [activeSection, setActiveSection] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    if (pathname !== "/") return;
+
     const sections = document.querySelectorAll<HTMLElement>("main section[id]");
     const observer = new IntersectionObserver(
       (entries) => {
@@ -28,7 +32,7 @@ export default function Navigation() {
 
     sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   useEffect(() => {
     if (!menuOpen) return;
@@ -45,11 +49,22 @@ export default function Navigation() {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+  const isHome = pathname === "/";
+
+  const getHref = (href: string) => {
+    if (!href.startsWith("#")) return href;
+    return isHome ? href : `/${href}`;
+  };
+
+  const isCurrent = (href: string) => {
+    if (href === "#works" && pathname.startsWith("/works")) return true;
+    return isHome && activeSection === href.slice(1);
+  };
 
   return (
     <header className="site-header">
       <nav className="site-nav shell" aria-label="Main navigation">
-        <a className="wordmark" href="#hero">
+        <a className="wordmark" href={isHome ? "#hero" : "/"}>
           <span className="wordmark__portrait" aria-hidden="true">
             <Image src="/profile.webp" alt="" fill sizes="44px" />
           </span>
@@ -57,22 +72,19 @@ export default function Navigation() {
             <strong>{profile.name}</strong>
             <small>Project &amp; Delivery Leadership</small>
           </span>
-          <span className="sr-only">, back to top</span>
+          <span className="sr-only">{isHome ? ", back to top" : ", home"}</span>
         </a>
 
         <ul className="site-nav__links" role="list">
-          {navigation.map((item) => {
-            const sectionId = item.href.slice(1);
+          {navigation.map((item, index) => {
             return (
               <li key={item.href}>
                 <a
-                  href={item.href}
-                  aria-current={activeSection === sectionId ? "location" : undefined}
-                  onClick={() => setActiveSection(sectionId)}
+                  href={getHref(item.href)}
+                  aria-current={isCurrent(item.href) ? "location" : undefined}
+                  onClick={() => item.href.startsWith("#") && setActiveSection(item.href.slice(1))}
                 >
-                  <span aria-hidden="true">
-                    {String(navigation.indexOf(item) + 1).padStart(2, "0")}
-                  </span>
+                  <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                   {item.label}
                 </a>
               </li>
@@ -82,7 +94,7 @@ export default function Navigation() {
 
         <div className="site-nav__actions">
           <DarkModeToggle />
-          <a className="nav-contact" href="#contact">
+          <a className="nav-contact" href={isHome ? "#contact" : "/#contact"}>
             Connect
           </a>
           <button
@@ -105,9 +117,9 @@ export default function Navigation() {
             {navigation.map((item, index) => (
               <li key={item.href}>
                 <a
-                  href={item.href}
+                  href={getHref(item.href)}
                   onClick={() => {
-                    setActiveSection(item.href.slice(1));
+                    if (item.href.startsWith("#")) setActiveSection(item.href.slice(1));
                     closeMenu();
                   }}
                 >

@@ -27,17 +27,32 @@ const server = createServer(async (request, response) => {
     const url = new URL(request.url ?? "/", "http://localhost");
     const requestPath = decodeURIComponent(url.pathname);
     const relativePath = requestPath.endsWith("/") ? `${requestPath}index.html` : requestPath;
-    let filePath = resolve(root, `.${relativePath}`);
+    const htmlFallback = extname(requestPath)
+      ? undefined
+      : resolve(root, `.${requestPath.replace(/\/$/, "")}.html`);
+    const candidates = [resolve(root, `.${relativePath}`), htmlFallback].filter(Boolean);
+    let filePath;
 
-    if (filePath !== root && !filePath.startsWith(`${root}${sep}`)) {
-      response.writeHead(403).end("Forbidden");
-      return;
+    for (const candidate of candidates) {
+      if (candidate !== root && !candidate.startsWith(`${root}${sep}`)) {
+        response.writeHead(403).end("Forbidden");
+        return;
+      }
+
+      try {
+        const candidateStat = await stat(candidate);
+        const resolvedPath = candidateStat.isDirectory()
+          ? resolve(candidate, "index.html")
+          : candidate;
+        await stat(resolvedPath);
+        filePath = resolvedPath;
+        break;
+      } catch {
+        // Try the Next.js flat-route HTML fallback before returning a 404.
+      }
     }
 
-    if ((await stat(filePath)).isDirectory()) {
-      filePath = resolve(filePath, "index.html");
-    }
-
+    if (!filePath) throw new Error("Static file not found");
     const body = await readFile(filePath);
     const contentType = contentTypes[extname(filePath)] ?? "application/octet-stream";
     response.writeHead(200, {

@@ -27,12 +27,12 @@ Confirm:
 
 ## GitHub delivery
 
-1. Commit the validated release on `main`.
-2. Push `main` to GitHub.
-3. Wait for the `CI` workflow and the automatic Vercel production deployment.
-4. Confirm the ready Vercel deployment uses the pushed `main` commit.
-5. Run the production verification checklist.
-6. Create an annotated version tag on that exact commit.
+1. Commit the validated release on a focused branch and open a pull request to `main`.
+2. Wait for the pull-request `CI`, CodeQL, and Vercel Preview checks.
+3. Merge only after the required checks and preview review pass.
+4. Wait for the automatic Vercel production deployment from the merge commit.
+5. Confirm the ready deployment uses that exact `main` commit and run the production checklist.
+6. Create an annotated version tag on that exact verified commit.
 7. Publish the matching GitHub release.
 8. Synchronize the checked-in `docs/wiki/` pages to the GitHub wiki when operating guidance changes.
 
@@ -55,6 +55,14 @@ After Vercel reports a ready deployment:
 10. Confirm all five experience entries retain their official employer markers.
 11. Confirm navigation, theme switching, résumé, LinkedIn, and email actions work.
 12. Check phone and desktop screenshots for clipping or horizontal overflow.
+13. Confirm `/works` and `/works/deep-live-cam` return HTTP 200 and navigate to the intended top or
+    home-page section.
+14. Confirm both Works pages emit the expected canonical URL, Open Graph type, social preview, and
+    valid CollectionPage or CreativeWork structured data.
+15. Confirm `/works/deep-live-cam/social-preview.png` returns HTTP 200 and the case study links to the
+    repository, latest release, licence, compliance notes, and original upstream project.
+16. Confirm the independent project metadata contains no employer keywords and the case study shows
+    its fixed snapshot date, attribution, consent guidance, and technical-summary disclaimer.
 
 ## Rollback
 
