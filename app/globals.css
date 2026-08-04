@@ -2990,8 +2990,11 @@ button {
   .delivery-map__stages li,
   .delivery-map__stages li:nth-child(3),
   .delivery-map__stages li:nth-child(even) {
+    display: grid;
     min-height: 0;
-    padding: 1.4rem;
+    grid-template-columns: 2.5rem 1fr;
+    column-gap: 0.8rem;
+    padding: 1.2rem 0;
     border-right: 0;
     border-bottom: 1px solid var(--color-border);
   }
@@ -2999,15 +3002,28 @@ button {
   .delivery-map__stages li::after {
     width: 1px;
     height: auto;
-    inset: 0 auto 0 3.7rem;
+    inset: 0 auto 0 0.32rem;
+  }
+
+  .delivery-map__index {
+    grid-row: 1;
+    grid-column: 2;
   }
 
   .delivery-map__node {
-    margin: 1.2rem 0;
+    grid-row: 1 / span 3;
+    grid-column: 1;
+    margin: 0.2rem 0 0;
+  }
+
+  .delivery-map__stages h3,
+  .delivery-map__stages p {
+    grid-column: 2;
   }
 
   .delivery-map__stages h3 {
     min-height: 0;
+    margin: 0.55rem 0 0.8rem;
     text-align: left;
   }
 
@@ -3162,6 +3178,10 @@ button {
     padding: 1.2rem 0;
     border-right: 0;
     border-bottom: 1px solid var(--color-border);
+  }
+
+  .project-release-flow li:not(:first-child) {
+    padding-left: 0;
   }
 
   .project-release-flow li::before {

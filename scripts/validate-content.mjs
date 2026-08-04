@@ -76,6 +76,7 @@ const sitemapSource = readFileSync("app/sitemap.ts", "utf8");
 const resumeBuilderSource = readFileSync("scripts/build-resume.py", "utf8");
 const systemGraphSource = readFileSync("components/SystemGraph.tsx", "utf8");
 const navigationSource = readFileSync("components/Navigation.tsx", "utf8");
+const routeScrollResetSource = readFileSync("components/RouteScrollReset.tsx", "utf8");
 const worksPageSource = readFileSync("app/works/page.tsx", "utf8");
 const worksLayoutSource = readFileSync("app/works/layout.tsx", "utf8");
 const caseStudySource = readFileSync("app/works/[slug]/page.tsx", "utf8");
@@ -336,6 +337,27 @@ assert(
 assert(
   navigationSource.includes('isHome ? ", back to top" : ", home"'),
   "The wordmark accessible name must describe its route-aware destination.",
+);
+assert(
+  worksLayoutSource.includes("<RouteScrollReset />") &&
+    routeScrollResetSource.includes("useLayoutEffect") &&
+    routeScrollResetSource.includes("window.scrollTo(0, 0)"),
+  "Works route changes must synchronously reset retained mobile scroll positions.",
+);
+assert(
+  /@media \(max-width: 560px\)[\s\S]*?\.delivery-map__stages li[\s\S]*?grid-template-columns:\s*2\.5rem 1fr;/.test(
+    globalStylesSource,
+  ) &&
+    /@media \(max-width: 560px\)[\s\S]*?\.delivery-map__stages li::after[\s\S]*?inset:\s*0 auto 0 0\.32rem;/.test(
+      globalStylesSource,
+    ),
+  "The mobile delivery map must reserve a rail column so its divider cannot overlap copy.",
+);
+assert(
+  /@media \(max-width: 560px\)[\s\S]*?\.project-release-flow li:not\(:first-child\)\s*\{[^}]*padding-left:\s*0;/.test(
+    globalStylesSource,
+  ),
+  "Every mobile release-flow step must clear inherited desktop indentation.",
 );
 assert(
   navigationSource.includes("{menuOpen && (") && navigationSource.includes("closeMenu();"),

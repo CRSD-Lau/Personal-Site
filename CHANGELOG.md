@@ -7,6 +7,18 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [2.2.1] - 2026-08-04
+
+### Fixed
+
+- Reserved a dedicated mobile rail for the six-stage delivery map so its divider no longer crosses
+  headings or body copy.
+- Added an explicit Works-route scroll reset so mobile navigation opens `/works` and project case
+  studies at the top instead of retaining the previous page's position.
+- Cleared inherited desktop padding from every mobile case-study timeline step so `Responsible use`
+  aligns with the shared rail.
+- Added regression validation for the mobile rail and route-reset contracts.
+
 ## [2.2.0] - 2026-08-03
 
 ### Added
@@ -123,7 +135,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Percentage skill bars and unsupported performance claims.
 - Obsolete journey-role wording and stale six-year career references.
 
-[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.0...HEAD
+[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.1...HEAD
+[2.2.1]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.1...v2.2.0
 [2.1.1]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.0...v2.1.1
 [2.1.0]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.0.0...v2.1.0
