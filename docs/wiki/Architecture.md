@@ -34,9 +34,9 @@ Vercel
 ## Toolchain
 
 - Node.js 24 is shared across local development, GitHub Actions, and Vercel.
-- TypeScript 7 provides the native compiler.
-- The official TypeScript 6 compatibility API supports Next.js and `typescript-eslint` during the
-  TypeScript 7 transition.
+- TypeScript 7 provides the native compiler used by the explicit type-check command.
+- The standard TypeScript 6 package provides the compiler API used by Next.js and
+  `typescript-eslint` during the TypeScript 7 transition.
 - Purpose-built CSS provides normalization, tokens, and responsive layouts without Tailwind CSS.
 
 There is no database, application API, authentication layer, or server-side contact form.

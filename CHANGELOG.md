@@ -7,6 +7,24 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [2.2.2] - 2026-08-04
+
+### Changed
+
+- Updated Next.js and its matching ESLint integration to 16.3.0 while keeping React and React DOM
+  on their current 19.2.8 releases.
+- Updated the React, React DOM, browser-global, and TypeScript ESLint development definitions to
+  their current compatible releases.
+- Made the TypeScript 7 native type-check command explicit while retaining the TypeScript 6
+  compiler API required by Next.js and `typescript-eslint`.
+- Kept production, CI, and local contracts on Node.js 24 LTS and prevented Dependabot from proposing
+  mismatched Node or TypeScript major-version definitions.
+- Added release validation for the split TypeScript compiler and API contract.
+
+### Security
+
+- Re-ran the clean dependency audit after the toolchain refresh with zero known vulnerabilities.
+
 ## [2.2.1] - 2026-08-04
 
 ### Fixed
@@ -135,7 +153,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Percentage skill bars and unsupported performance claims.
 - Obsolete journey-role wording and stale six-year career references.
 
-[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.1...HEAD
+[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.2...HEAD
+[2.2.2]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.1...v2.2.2
 [2.2.1]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.1...v2.2.0
 [2.1.1]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.0...v2.1.1

@@ -69,9 +69,9 @@ current-role card.
 ### Build toolchain
 
 - Node.js 24 is used for local development, GitHub Actions, and Vercel production builds.
-- TypeScript 7 supplies the native `tsc` command.
-- The official TypeScript 6 compatibility package remains available under the `typescript` package
-  name for Next.js and `typescript-eslint` until TypeScript 7 exposes its replacement compiler API.
+- TypeScript 7 supplies the native compiler invoked by the project's explicit type-check command.
+- The standard TypeScript 6 package provides the compiler API used by Next.js and
+  `typescript-eslint` until TypeScript 7 exposes its replacement API.
 - The design system is purpose-built CSS. Tailwind CSS and Autoprefixer are not part of the runtime
   or build pipeline.
 - Next.js's transitive PostCSS dependency is pinned to a patched release through npm overrides.
