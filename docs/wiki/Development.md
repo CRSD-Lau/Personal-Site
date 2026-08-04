@@ -5,8 +5,8 @@
 - Node.js 24.x
 - npm 11 or newer
 
-TypeScript 7 provides the native `tsc` command. The `typescript` package name intentionally resolves
-to the official TypeScript 6 compatibility API required by Next.js and `typescript-eslint`.
+TypeScript 7 provides the native compiler invoked by `npm run typecheck`. The standard TypeScript 6
+package provides the compiler API required by Next.js and `typescript-eslint`.
 
 ## Setup
 

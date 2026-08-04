@@ -104,8 +104,12 @@ assert(
   "The TypeScript 7 native compiler alias is missing.",
 );
 assert(
-  devDependencies.typescript?.startsWith("npm:@typescript/typescript6@"),
-  "The TypeScript 6 compatibility API alias is missing.",
+  devDependencies.typescript === "^6.0.3",
+  "The TypeScript 6 compiler API required by Next.js and typescript-eslint is missing.",
+);
+assert(
+  packageManifest.scripts?.typecheck === "node node_modules/@typescript/native/bin/tsc --noEmit",
+  "The type-check command must invoke the TypeScript 7 native compiler explicitly.",
 );
 assert(!("tailwindcss" in devDependencies), "Unused Tailwind CSS is still installed.");
 assert(!("autoprefixer" in devDependencies), "Unused Autoprefixer is still installed.");

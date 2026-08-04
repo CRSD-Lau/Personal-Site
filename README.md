@@ -58,9 +58,9 @@ The portfolio is personal and unofficial. It is not a TD Bank Group or TD Insura
 
 No UI, icon, or animation library is required.
 
-TypeScript 7 supplies the native `tsc` command. The official TypeScript 6 compatibility package is
-kept under the `typescript` package name so Next.js and `typescript-eslint` can continue using the
-compiler API during the TypeScript 7.0 transition.
+TypeScript 7 supplies the native compiler invoked by `npm run typecheck`. The standard TypeScript 6
+package remains installed for the compiler API required by Next.js and `typescript-eslint` during
+the TypeScript 7.0 transition.
 
 ## Architecture
 
