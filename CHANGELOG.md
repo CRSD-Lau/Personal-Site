@@ -7,6 +7,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-09-05
+
 ### Changed
 
 - Redesigned all portfolio routes with locally hosted Manrope typography, a photographic hero,
@@ -17,12 +19,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
   disclosures while retaining complete summaries and dates.
 - Reworked the delivery approach, capability rows, project feature, case-study navigation,
   and closing contact section.
+- Simplified link buttons and removed decorative arrows, the hero scroll prompt, and the
+  standalone About signature after the final visual review.
 
 ### Fixed
 
 - Kept theme switching functional when browser storage is unavailable.
 - Retained meaningful metric values before their entrance animation.
 - Added readable print colours and a navigation fallback without JavaScript.
+- Corrected the capability label to ML Engineering Delivery.
 
 ### Security
 
@@ -175,7 +180,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Percentage skill bars and unsupported performance claims.
 - Obsolete journey-role wording and stale six-year career references.
 
-[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.2...HEAD
+[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v3.0.0...HEAD
+[3.0.0]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.2...v3.0.0
 [2.2.2]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.1...v2.2.2
 [2.2.1]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.0...v2.2.1
 [2.2.0]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.1.1...v2.2.0

@@ -132,7 +132,7 @@ Open `http://localhost:3000`.
 | `app/manifest.ts`                               | Install metadata and app icon declaration                     |
 | `app/robots.ts`                                 | Search crawler policy and sitemap discovery                   |
 | `app/sitemap.ts`                                | Canonical production URL for search indexing                  |
-| `public/profile.webp`                           | Header and hero headshot                                      |
+| `public/profile.webp`                           | Hero portrait                                                 |
 | `public/logo.png`                               | Official TD employer marker used beside TD roles              |
 | `public/resume.pdf`                             | Public résumé downloaded from the site                        |
 

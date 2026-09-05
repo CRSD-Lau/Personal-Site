@@ -9,7 +9,8 @@ Review date: 5 September 2026
 Redesigned the homepage, Works index, and Deep Live Cam Studio case study. The new
 presentation keeps the career portfolio central, with a photographic opening,
 clearer reading order, a more useful career chronology, and stronger project presentation.
-Changes are prepared locally on `codex/portfolio-redesign`. Production has not been deployed.
+This report records the local review for v3.0.0 on `codex/portfolio-redesign`.
+The matching GitHub release records production delivery and verification separately.
 
 ## Review findings and changes
 
@@ -99,4 +100,5 @@ Browser testing covered Chromium; Safari, Firefox, and physical devices were not
 The prepared export can be served with `npm run preview`. The review session uses
 `http://127.0.0.1:4318/`.
 
-Deployment and production verification remain separate from this local redesign.
+Production delivery follows `docs/release-process.md`, including hosted checks and
+verification of the exact deployed commit before the release is published.
