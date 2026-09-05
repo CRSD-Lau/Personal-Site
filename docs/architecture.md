@@ -42,7 +42,10 @@ The production artifact is the `out/` directory created by `npm run build`.
 - `app/works/page.tsx` renders the independent-project index; `app/works/[slug]/page.tsx` statically
   renders each declared case study with page-specific metadata and a CreativeWork schema whose
   software subject carries repository and licence data.
-- `app/globals.css` owns design tokens, responsive layouts, motion, and accessibility states.
+- `app/globals.css` provides shared layout primitives and existing case-study foundations.
+- `app/redesign.css` owns the refreshed tokens, local font, hero, navigation, about, impact,
+  contact, and accessibility states. `app/career.css` and `app/works-refresh.css` provide
+  the career and project presentation layers.
 - `app/icon.png` provides the round headshot favicon.
 - `public/opengraph-image.png` provides the 1200 x 630 root-page social preview.
 - `app/manifest.ts`, `app/robots.ts`, and `app/sitemap.ts` emit static discovery metadata.
@@ -88,10 +91,20 @@ The exported page works without client-side data fetching. Small client componen
 
 The Works pages use no client-side data fetching. Their project routes are produced from
 `generateStaticParams`, and the same typed project list supplies the index and sitemap. On the home page,
-Works follows Impact as a normal section anchor; from project routes, the header navigation returns to
+Works follows Experience as a normal section anchor; from project routes, the header navigation returns to
 that home-page section while the case-study back link and footer open the full Works index.
 
 Core content remains present in static HTML.
+
+Project and collection links use native document navigation. This avoids framework
+prefetch requests that require host-specific RSC rewrite rules and keeps the exported
+HTML routes portable across static hosts. The preview server supports gzip for text
+assets and retains no-store headers for reliable local iteration.
+
+Historical career responsibilities use native HTML disclosures, retaining their role summaries
+and dates in the initial view. They work without JavaScript. The hero uses finite CSS entrance
+animation; reduced motion shows the completed composition. Manrope is served locally and has
+no runtime dependency on an external font service.
 
 ## Quality controls
 

@@ -27,3 +27,11 @@ licensed through this repository.
 
 Other third-party dependencies and separately licensed materials remain subject to their own
 licences.
+
+## Manrope typeface
+
+The locally hosted Manrope variable font in `public/fonts/` is excluded from the
+all-rights-reserved terms above. It is distributed under the SIL Open Font License 1.1,
+with its original copyright and licence in `public/fonts/OFL-Manrope.txt`.
+The unmodified Latin font was obtained from Google Fonts; its upstream family is
+[Manrope](https://github.com/google/fonts/tree/main/ofl/manrope).

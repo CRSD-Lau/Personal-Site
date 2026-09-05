@@ -7,9 +7,9 @@ export default function Impact() {
       <div className="shell">
         <header className="section-intro section-intro--split">
           <div>
-            <p className="eyebrow">05 / Impact</p>
+            <p className="eyebrow">Work with measurable scope</p>
             <h2 id="impact-title" className="section-title">
-              A record of delivery at TD.
+              A track record that adds up.
             </h2>
           </div>
           <p className="section-description">

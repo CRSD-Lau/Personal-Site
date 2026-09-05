@@ -1,6 +1,4 @@
-import Link from "next/link";
 import type { Project } from "@/data/projects";
-import { ArrowDownRightIcon } from "./Icons";
 import ProjectPreview from "./ProjectPreview";
 
 type ProjectCardProps = {
@@ -11,23 +9,36 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project, index, priority = false }: ProjectCardProps) {
   return (
-    <article className="project-card">
-      <ProjectPreview project={project} priority={priority} />
+    <article
+      className="project-card project-card--featured"
+      aria-labelledby={`project-${project.slug}-${index}-title`}
+    >
+      <div className="project-card__visual">
+        <ProjectPreview project={project} priority={priority} />
+      </div>
       <div className="project-card__body">
-        <p className="project-card__index">{String(index + 1).padStart(2, "0")}</p>
         <div className="project-card__heading">
           <p>{project.eyebrow}</p>
-          <h3>{project.title}</h3>
+          <h3 id={`project-${project.slug}-${index}-title`}>{project.title}</h3>
           <span>{project.cardSummary}</span>
         </div>
+        <dl className="project-card__evidence">
+          {project.metrics.slice(0, 3).map((metric) => (
+            <div key={metric.label}>
+              <dt>{metric.label}</dt>
+              <dd>{metric.value}</dd>
+            </div>
+          ))}
+        </dl>
+        <p className="project-card__snapshot">Evidence snapshot: {project.audit.date}</p>
         <ul aria-label={`${project.title} technologies`}>
           {project.technologies.map((technology) => (
             <li key={technology}>{technology}</li>
           ))}
         </ul>
-        <Link className="project-card__link" href={`/works/${project.slug}`}>
-          Read case study <ArrowDownRightIcon />
-        </Link>
+        <a className="project-card__link" href={`/works/${project.slug}`}>
+          Read case study
+        </a>
       </div>
     </article>
   );

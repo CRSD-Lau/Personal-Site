@@ -253,7 +253,10 @@ assert(
   !worksSectionSource.includes("priority"),
   "The below-the-fold home project preview must not be preloaded.",
 );
-assert(contactSource.includes("07 / Contact"), "Contact section numbering must follow Works.");
+assert(
+  contactSource.includes('id="contact"') && contactSource.includes('id="contact-title"'),
+  "The Contact section must retain its navigation anchor and accessible heading.",
+);
 assert(
   !/\.case-study__governance\s*\{[^}]*padding-top:\s*0/.test(globalStylesSource),
   "The governance panel must retain the shared section top spacing.",

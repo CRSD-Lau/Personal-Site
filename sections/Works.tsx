@@ -1,4 +1,5 @@
 import ProjectCard from "@/components/ProjectCard";
+import { ArrowRightIcon } from "@/components/Icons";
 import { projects } from "@/data/projects";
 
 export default function Works() {
@@ -7,14 +8,16 @@ export default function Works() {
       <div className="shell">
         <header className="section-intro section-intro--split">
           <div>
-            <p className="eyebrow">06 / Works</p>
+            <p className="eyebrow">Selected independent work</p>
             <h2 id="works-title" className="section-title">
-              Independent work, held to the same delivery standard.
+              The thinking.
+              <br />
+              The work to back it up.
             </h2>
           </div>
           <p className="section-description">
-            Personal projects where I can show the full system: technical scope, release evidence,
-            responsible-use decisions, and what I learned by building it.
+            Outside my professional role, I build. These projects make my approach visible, from
+            technical decisions to release readiness and responsible delivery.
           </p>
         </header>
 
@@ -22,6 +25,14 @@ export default function Works() {
           {projects.slice(0, 1).map((project, index) => (
             <ProjectCard key={project.slug} project={project} index={index} />
           ))}
+        </div>
+        <div className="works__collection-link">
+          <p>Independent projects. Documented decisions. Practical delivery.</p>
+          {/* Native navigation supports static hosts without RSC rewrite rules. */}
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+          <a href="/works">
+            Explore all work <ArrowRightIcon />
+          </a>
         </div>
       </div>
     </section>

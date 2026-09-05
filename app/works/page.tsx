@@ -47,24 +47,27 @@ export default function WorksPage() {
         <div className="shell works-hero__layout">
           <div>
             <p className="eyebrow">Independent work</p>
-            <h1 id="works-title">Selected independent work.</h1>
+            <h1 id="works-title">
+              Ideas, made
+              <br />
+              <span>practical.</span>
+            </h1>
           </div>
-          <p>
-            Selected personal projects that show how I approach technical scope, release readiness,
-            evidence, and responsible delivery outside my professional role.
-          </p>
+          <div className="works-hero__intro">
+            <p>
+              A closer look at the things I build, the decisions behind them, and the evidence that
+              supports the result.
+            </p>
+            <span>Personal projects outside my professional role.</span>
+          </div>
         </div>
       </section>
 
       <section className="works-collection section" aria-labelledby="works-collection-title">
         <div className="shell">
-          <header className="works-collection__header">
-            <p className="eyebrow">01 / Case studies</p>
-            <h2 id="works-collection-title">Current work.</h2>
-            <p>
-              Each study is an independent project record, with its evidence and boundaries made
-              clear.
-            </p>
+          <header className="works-collection__label">
+            <h2 id="works-collection-title">Selected case studies</h2>
+            <span>{String(projects.length).padStart(2, "0")} / In focus</span>
           </header>
 
           <div className="project-grid">

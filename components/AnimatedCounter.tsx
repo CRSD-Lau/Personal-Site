@@ -44,7 +44,6 @@ export default function AnimatedCounter({
 
     let animationFrame = 0;
     let delayTimer = 0;
-    setCount(0);
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -88,7 +87,8 @@ export default function AnimatedCounter({
   }, [delay, duration, end]);
 
   return (
-    <span ref={counterRef} role="text" aria-label={value}>
+    <span ref={counterRef}>
+      <span className="sr-only">{value}</span>
       <span aria-hidden="true">
         {prefix}
         {numberFormatter.format(count)}
