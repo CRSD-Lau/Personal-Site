@@ -39,9 +39,6 @@ export default function SystemGraph() {
           <strong>{profile.name}</strong>
           <small>People. Perspective. Progress.</small>
         </span>
-        <span className="portrait-scene__arrow" aria-hidden="true">
-          ↗
-        </span>
       </figcaption>
     </figure>
   );

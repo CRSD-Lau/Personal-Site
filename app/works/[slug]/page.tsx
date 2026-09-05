@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { notFound } from "next/navigation";
-import { ArrowDownRightIcon } from "@/components/Icons";
+import { ArrowRightIcon } from "@/components/Icons";
 import ProjectGrowthChart from "@/components/ProjectGrowthChart";
 import ProjectPreview from "@/components/ProjectPreview";
 import ProjectReleaseFlow from "@/components/ProjectReleaseFlow";
@@ -98,7 +98,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 ))}
               </ul>
               <a className="case-study__start" href="#case-problem">
-                Inside the project <ArrowDownRightIcon />
+                Inside the project <ArrowRightIcon />
               </a>
             </div>
           </div>
@@ -242,19 +242,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
           <div className="case-study__actions">
             <a href={project.links.repository} target="_blank" rel="noreferrer">
-              View repository <ArrowDownRightIcon />
+              View repository <ArrowRightIcon />
             </a>
             <a href={project.links.releases} target="_blank" rel="noreferrer">
-              Latest release <ArrowDownRightIcon />
+              Latest release <ArrowRightIcon />
             </a>
             <a href={project.links.license} target="_blank" rel="noreferrer">
-              {project.licenseLabel} licence <ArrowDownRightIcon />
+              {project.licenseLabel} licence <ArrowRightIcon />
             </a>
             <a href={project.links.compliance} target="_blank" rel="noreferrer">
-              Compliance notes <ArrowDownRightIcon />
+              Compliance notes <ArrowRightIcon />
             </a>
             <a href={project.links.upstream} target="_blank" rel="noreferrer">
-              Original project <ArrowDownRightIcon />
+              Original project <ArrowRightIcon />
             </a>
           </div>
         </div>

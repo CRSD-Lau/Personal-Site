@@ -31,6 +31,9 @@ Projects use large original artwork beside concise evidence and a case-study lin
 Primary navigation contains About, Experience, Works, and Contact; the complete
 section navigation remains in the footer and mobile menu.
 
+Use simple horizontal arrows for action links. Omit decorative diagonal arrows from
+the portrait, career panel, signature, and section labels.
+
 ## Motion and access
 
 Finite CSS entrance motion and a drawn connection path. No scroll interception,

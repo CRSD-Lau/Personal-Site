@@ -27,9 +27,7 @@ export default function Approach() {
         >
           <div className="delivery-path__legend">
             <h3 id="delivery-map-title">Intent to implementation</h3>
-            <span>
-              Six connected steps <span aria-hidden="true">↗</span>
-            </span>
+            <span>Six connected steps</span>
           </div>
           <ol className="delivery-map__stages delivery-path__stages">
             {deliveryStages.map((stage) => (

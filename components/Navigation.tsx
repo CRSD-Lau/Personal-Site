@@ -93,7 +93,7 @@ export default function Navigation() {
         <div className="site-nav__actions">
           <DarkModeToggle />
           <a className="nav-contact" href="/resume.pdf" target="_blank" rel="noreferrer">
-            Résumé <span aria-hidden="true">↗</span>
+            Résumé
           </a>
           <button
             ref={menuButtonRef}

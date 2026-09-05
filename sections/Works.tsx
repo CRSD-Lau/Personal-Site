@@ -1,5 +1,5 @@
 import ProjectCard from "@/components/ProjectCard";
-import { ArrowDownRightIcon } from "@/components/Icons";
+import { ArrowRightIcon } from "@/components/Icons";
 import { projects } from "@/data/projects";
 
 export default function Works() {
@@ -31,7 +31,7 @@ export default function Works() {
           {/* Native navigation supports static hosts without RSC rewrite rules. */}
           {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
           <a href="/works">
-            Explore all work <ArrowDownRightIcon />
+            Explore all work <ArrowRightIcon />
           </a>
         </div>
       </div>

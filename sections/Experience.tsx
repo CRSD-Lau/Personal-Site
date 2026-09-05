@@ -91,9 +91,6 @@ function CurrentRole({ role }: { role: ExperienceRecord }) {
           <br />
           {role.employmentType}
         </p>
-        <span className="career-current__arrow" aria-hidden="true">
-          ↗
-        </span>
       </div>
       <div className="career-current__body">
         <p className="career-current__chapter">{role.chapter}</p>

@@ -12,7 +12,7 @@ export default function About() {
             perspective.
           </h2>
           <div className="about__signature" aria-hidden="true">
-            Neil Mitchell<span>↗</span>
+            Neil Mitchell
           </div>
         </div>
         <div className="about__story">

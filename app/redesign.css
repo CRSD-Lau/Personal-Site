@@ -495,11 +495,6 @@ section[id] {
 .portrait-scene__monogram > span {
   color: var(--hero-accent);
 }
-.portrait-scene__arrow {
-  margin-left: auto;
-  color: var(--hero-accent);
-  font-size: 2rem;
-}
 
 .about {
   background: var(--color-canvas);
@@ -525,10 +520,6 @@ section[id] {
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: -0.07em;
-}
-.about__signature span {
-  color: var(--color-signal);
-  font-size: 2.5rem;
 }
 .about__story > p {
   max-width: 64ch;
@@ -834,9 +825,6 @@ section[id] {
     font-size: 0.78rem;
   }
   .portrait-scene__monogram {
-    font-size: 1.6rem;
-  }
-  .portrait-scene__arrow {
     font-size: 1.6rem;
   }
   .hero__location {

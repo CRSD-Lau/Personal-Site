@@ -14,11 +14,11 @@ const base = {
   "aria-hidden": true,
 };
 
-export function ArrowDownRightIcon(props: IconProps) {
+export function ArrowRightIcon(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M7 7h10v10" />
-      <path d="M7 17 17 7" />
+      <path d="M5 12h14" />
+      <path d="m13 6 6 6-6 6" />
     </svg>
   );
 }

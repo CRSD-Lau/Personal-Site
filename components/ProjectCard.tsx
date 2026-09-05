@@ -1,5 +1,5 @@
 import type { Project } from "@/data/projects";
-import { ArrowDownRightIcon } from "./Icons";
+import { ArrowRightIcon } from "./Icons";
 import ProjectPreview from "./ProjectPreview";
 
 type ProjectCardProps = {
@@ -38,7 +38,7 @@ export default function ProjectCard({ project, index, priority = false }: Projec
           ))}
         </ul>
         <a className="project-card__link" href={`/works/${project.slug}`}>
-          Read case study <ArrowDownRightIcon />
+          Read case study <ArrowRightIcon />
         </a>
       </div>
     </article>

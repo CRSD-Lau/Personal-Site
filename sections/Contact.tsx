@@ -1,5 +1,5 @@
 import CopyEmailButton from "@/components/CopyEmailButton";
-import { ArrowDownRightIcon, LinkedInIcon } from "@/components/Icons";
+import { ArrowRightIcon, LinkedInIcon } from "@/components/Icons";
 import { profile } from "@/data/profile";
 
 export default function Contact() {
@@ -17,7 +17,7 @@ export default function Contact() {
             <p>{profile.contact.description}</p>
             <a className="contact__email" href={`mailto:${profile.social.email}`}>
               {profile.social.email}
-              <ArrowDownRightIcon />
+              <ArrowRightIcon />
             </a>
           </div>
         </div>
@@ -30,7 +30,7 @@ export default function Contact() {
           >
             <LinkedInIcon />
             <span>Connect on LinkedIn</span>
-            <ArrowDownRightIcon />
+            <ArrowRightIcon />
           </a>
           <CopyEmailButton email={profile.social.email} />
           {profile.resume.available && (
@@ -42,7 +42,7 @@ export default function Contact() {
               aria-label={`View résumé, updated ${profile.resume.lastUpdated}`}
             >
               <span>View résumé</span>
-              <ArrowDownRightIcon />
+              <ArrowRightIcon />
             </a>
           )}
           <span className="contact__note">{profile.status}</span>
