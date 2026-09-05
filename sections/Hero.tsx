@@ -1,5 +1,4 @@
 import SystemGraph from "@/components/SystemGraph";
-import { ArrowRightIcon } from "@/components/Icons";
 import { profile } from "@/data/profile";
 
 export default function Hero() {
@@ -21,7 +20,7 @@ export default function Hero() {
           <p className="hero__introduction">{profile.heroSummary}</p>
           <div className="hero__actions">
             <a className="button button--primary" href="#experience">
-              Explore my experience <ArrowRightIcon />
+              Explore my experience
             </a>
             {profile.resume.available && (
               <a
@@ -30,7 +29,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noreferrer"
               >
-                View résumé <ArrowRightIcon />
+                View résumé
               </a>
             )}
           </div>
@@ -45,9 +44,6 @@ export default function Hero() {
           {profile.organizationContext}
           <span>{profile.supportingContext}</span>
         </p>
-        <a href="#about">
-          A little context <span aria-hidden="true">↓</span>
-        </a>
         <p className="hero__location">{profile.location}</p>
       </div>
     </section>

@@ -319,10 +319,6 @@ section[id] {
   background: #26372d;
   color: var(--hero-ink);
 }
-.button svg {
-  width: 17px;
-  height: 17px;
-}
 .hero__work-link {
   display: inline-flex;
   align-items: center;
@@ -356,16 +352,6 @@ section[id] {
 .hero__footer p span {
   color: #92a69a;
   font-size: 0.65rem;
-}
-.hero__footer a {
-  display: flex;
-  gap: 1.6rem;
-  align-items: center;
-  min-height: 44px;
-}
-.hero__footer a span {
-  color: var(--hero-accent);
-  font-size: 1.4rem;
 }
 .hero__location {
   text-align: right;
@@ -510,16 +496,6 @@ section[id] {
 }
 .about__identity .section-title {
   font-size: clamp(3.2rem, 5.2vw, 5.2rem);
-}
-.about__signature {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-  color: var(--color-ink-muted);
-  margin-top: 3rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: -0.07em;
 }
 .about__story > p {
   max-width: 64ch;
@@ -931,9 +907,6 @@ section[id] {
     grid-template-columns: minmax(0, 1fr);
     gap: 2rem;
   }
-  .about__signature {
-    display: none;
-  }
   .about__identity .section-title {
     max-width: 10ch;
     font-size: clamp(2.6rem, 11vw, 3.4rem);
@@ -1056,7 +1029,6 @@ section[id] {
   .scroll-progress,
   .hero__actions,
   .hero__work-link,
-  .hero__footer a,
   .portrait-scene,
   .contact__actions,
   .site-footer nav {

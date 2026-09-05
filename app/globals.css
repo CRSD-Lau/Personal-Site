@@ -1781,10 +1781,6 @@ button {
   text-transform: uppercase;
 }
 
-.contact-action > svg:last-child {
-  margin-left: auto;
-}
-
 .contact-action--copy {
   border-radius: var(--radius-small);
 }
@@ -2162,12 +2158,6 @@ button {
 .dark .project-card__link:hover,
 .dark .case-study__actions a:hover {
   color: #071311;
-}
-
-.project-card__link svg,
-.case-study__actions svg {
-  width: 1.1rem;
-  height: 1.1rem;
 }
 
 .back-link {

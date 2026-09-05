@@ -31,8 +31,9 @@ Projects use large original artwork beside concise evidence and a case-study lin
 Primary navigation contains About, Experience, Works, and Contact; the complete
 section navigation remains in the footer and mobile menu.
 
-Use simple horizontal arrows for action links. Omit decorative diagonal arrows from
-the portrait, career panel, signature, and section labels.
+Keep button and pill links free of arrows. Simple horizontal arrows may accompany
+text links. Omit decorative arrows, the hero scroll prompt, and the standalone
+signature beneath the About heading.
 
 ## Motion and access
 

@@ -242,19 +242,19 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
           <div className="case-study__actions">
             <a href={project.links.repository} target="_blank" rel="noreferrer">
-              View repository <ArrowRightIcon />
+              View repository
             </a>
             <a href={project.links.releases} target="_blank" rel="noreferrer">
-              Latest release <ArrowRightIcon />
+              Latest release
             </a>
             <a href={project.links.license} target="_blank" rel="noreferrer">
-              {project.licenseLabel} licence <ArrowRightIcon />
+              {project.licenseLabel} licence
             </a>
             <a href={project.links.compliance} target="_blank" rel="noreferrer">
-              Compliance notes <ArrowRightIcon />
+              Compliance notes
             </a>
             <a href={project.links.upstream} target="_blank" rel="noreferrer">
-              Original project <ArrowRightIcon />
+              Original project
             </a>
           </div>
         </div>

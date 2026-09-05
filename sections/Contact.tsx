@@ -30,7 +30,6 @@ export default function Contact() {
           >
             <LinkedInIcon />
             <span>Connect on LinkedIn</span>
-            <ArrowRightIcon />
           </a>
           <CopyEmailButton email={profile.social.email} />
           {profile.resume.available && (
@@ -42,7 +41,6 @@ export default function Contact() {
               aria-label={`View résumé, updated ${profile.resume.lastUpdated}`}
             >
               <span>View résumé</span>
-              <ArrowRightIcon />
             </a>
           )}
           <span className="contact__note">{profile.status}</span>

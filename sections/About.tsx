@@ -11,9 +11,6 @@ export default function About() {
             <br />
             perspective.
           </h2>
-          <div className="about__signature" aria-hidden="true">
-            Neil Mitchell
-          </div>
         </div>
         <div className="about__story">
           <p className="about__lead">{profile.aboutLead}</p>
