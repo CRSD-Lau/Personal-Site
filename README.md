@@ -26,7 +26,7 @@
   </p>
 </div>
 
-![Portfolio preview](./docs/assets/readme-screenshot.jpg)
+![Portfolio preview](./docs/assets/portfolio-preview.png)
 
 ## About
 
@@ -38,15 +38,15 @@ The portfolio is personal and unofficial. It is not a TD Bank Group or TD Insura
 
 ## What the site includes
 
-| Area      | Purpose                                                                               |
-| --------- | ------------------------------------------------------------------------------------- |
-| Hero      | Current role, focus, headshot, résumé, and LinkedIn access                            |
-| Career    | Five TD roles across claims, vendor operations, digital servicing, product, and AI/ML |
-| Approach  | Six stages from business objective through learning and improvement                   |
-| Expertise | Delivery strengths, platform experience, and hands-on technical practice              |
-| Impact    | Career measures with count-up animation and supporting context                        |
-| Works     | Independent technical case studies with clear evidence and attribution boundaries     |
-| Contact   | Direct contact options and a clear personal-site disclaimer                           |
+| Area      | Purpose                                                                           |
+| --------- | --------------------------------------------------------------------------------- |
+| Hero      | Photographic introduction, current role, experience and résumé access             |
+| Career    | Featured current role and four native disclosures retaining the complete career   |
+| Approach  | Six stages from business objective through learning and improvement               |
+| Expertise | Delivery strengths, platform experience, and hands-on technical practice          |
+| Impact    | Career measures with count-up animation and supporting context                    |
+| Works     | Independent technical case studies with clear evidence and attribution boundaries |
+| Contact   | Direct contact options and a clear personal-site disclaimer                       |
 
 ## Technology
 
@@ -57,6 +57,10 @@ The portfolio is personal and unofficial. It is not a TD Bank Group or TD Insura
 - Vercel for production hosting
 
 No UI, icon, or animation library is required.
+
+The locally hosted Manrope variable font, photographic hero, and responsive presentation
+are documented in [DESIGN.md](./DESIGN.md). The audience and content principles are in
+[PRODUCT.md](./PRODUCT.md).
 
 TypeScript 7 supplies the native compiler invoked by `npm run typecheck`. The standard TypeScript 6
 package remains installed for the compiler API required by Next.js and `typescript-eslint` during

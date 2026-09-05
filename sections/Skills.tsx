@@ -2,33 +2,36 @@ import { capabilityGroups } from "@/data/skills";
 
 export default function Skills() {
   return (
-    <section id="expertise" className="section expertise" aria-labelledby="expertise-title">
+    <section
+      id="expertise"
+      className="section expertise expertise-refresh"
+      aria-labelledby="expertise-title"
+    >
       <div className="shell">
         <header className="section-intro section-intro--split">
           <div>
-            <p className="eyebrow">04 / Expertise</p>
+            <p className="eyebrow">Expertise</p>
             <h2 id="expertise-title" className="section-title">
-              Delivery leadership with technical depth.
+              Leadership, with technical depth.
             </h2>
           </div>
           <p className="section-description">
-            I lead technical delivery and bring hands-on experience across AI workflows, software
-            development, automation, insurance operations, and enterprise platforms.
+            Delivery is my core practice. Insurance experience and hands-on technical work give me
+            the context to ask better questions and connect the right people.
           </p>
         </header>
-
-        <div className="capability-matrix">
+        <div className="expertise-board">
           {capabilityGroups.map((group) => (
-            <article className="capability-row" key={group.id}>
-              <div className="capability-row__index" aria-hidden="true">
+            <article className="expertise-row" key={group.id}>
+              <span className="expertise-row__index" aria-hidden="true">
                 {group.index}
-              </div>
-              <div className="capability-row__heading">
-                <p>{group.level}</p>
+              </span>
+              <div className="expertise-row__heading">
+                <p className="expertise-row__level">{group.level}</p>
                 <h3>{group.name}</h3>
-                <span>{group.summary}</span>
+                <p className="expertise-row__description">{group.summary}</p>
               </div>
-              <ul className="capability-row__list">
+              <ul className="expertise-row__list" aria-label={group.name + " capabilities"}>
                 {group.capabilities.map((capability) => (
                   <li key={capability}>{capability}</li>
                 ))}

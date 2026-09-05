@@ -7,6 +7,28 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+### Changed
+
+- Redesigned all portfolio routes with locally hosted Manrope typography, a photographic hero,
+  pale lime and forest colours, and responsive light and dark themes.
+- Simplified primary navigation, made résumé access prominent, and moved independent work
+  immediately after the career section.
+- Featured the current role and made earlier role responsibilities available through native
+  disclosures while retaining complete summaries and dates.
+- Reworked the delivery approach, capability rows, project feature, case-study navigation,
+  and closing contact section.
+
+### Fixed
+
+- Kept theme switching functional when browser storage is unavailable.
+- Retained meaningful metric values before their entrance animation.
+- Added readable print colours and a navigation fallback without JavaScript.
+
+### Security
+
+- Updated the ESLint filesystem dependency to the patched `@humanfs/node` 0.16.8 release
+  and its required support packages; the clean dependency audit reports no known vulnerabilities.
+
 ## [2.2.2] - 2026-08-04
 
 ### Changed

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+
 import { notFound } from "next/navigation";
 import { ArrowDownRightIcon } from "@/components/Icons";
 import ProjectGrowthChart from "@/components/ProjectGrowthChart";
@@ -80,15 +80,29 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     <main id="main-content" className="case-study" tabIndex={-1}>
       <section className="case-study__hero" aria-labelledby="case-study-title">
         <div className="shell">
-          <Link className="back-link" href="/works">
+          {/* Native navigation supports static hosts without RSC rewrite rules. */}
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+          <a className="back-link" href="/works">
             <span aria-hidden="true">←</span> All works
-          </Link>
+          </a>
           <div className="case-study__hero-layout">
             <div>
               <p className="eyebrow">{project.eyebrow}</p>
               <h1 id="case-study-title">{project.title}</h1>
-              <p className="case-study__summary">{project.summary}</p>
             </div>
+            <div className="case-study__hero-intro">
+              <p className="case-study__summary">{project.summary}</p>
+              <ul className="case-study__technologies" aria-label="Project technologies">
+                {project.technologies.map((technology) => (
+                  <li key={technology}>{technology}</li>
+                ))}
+              </ul>
+              <a className="case-study__start" href="#case-problem">
+                Inside the project <ArrowDownRightIcon />
+              </a>
+            </div>
+          </div>
+          <div className="case-study__cover">
             <ProjectPreview project={project} linked={false} priority />
           </div>
           <dl className="case-study__facts">
@@ -108,24 +122,56 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="case-study__problem section" aria-labelledby="case-problem-title">
-        <div className="shell case-study__section-head case-study__section-head--split">
-          <div>
-            <p className="eyebrow">Problem</p>
-            <h2 id="case-problem-title">{project.problem.heading}</h2>
+      <nav className="case-study__contents" aria-label="In this case study">
+        <div className="shell">
+          <span>Inside the project</span>
+          <a href="#case-problem">The challenge</a>
+          <a href="#case-results">The evidence</a>
+          <a href="#case-delivery">The approach</a>
+          <a href="#case-governance">Attribution &amp; source</a>
+        </div>
+      </nav>
+
+      <section
+        id="case-problem"
+        className="case-study__problem section"
+        aria-labelledby="case-problem-title"
+      >
+        <div className="shell">
+          <div className="case-study__section-head case-study__section-head--split">
+            <div>
+              <p className="eyebrow">Problem / The challenge</p>
+              <h2 id="case-problem-title">{project.problem.heading}</h2>
+            </div>
+            <p>{project.problem.description}</p>
           </div>
-          <p>{project.problem.description}</p>
+          <div className="case-study__contribution">
+            <div>
+              <p className="eyebrow">My contribution</p>
+              <h3>What this demonstrates.</h3>
+              <p>{project.role}</p>
+            </div>
+            <ul>
+              {project.transferableSkills.map((skill) => (
+                <li key={skill}>{skill}</li>
+              ))}
+            </ul>
+          </div>
         </div>
       </section>
 
-      <section className="case-study__metrics section" aria-labelledby="case-metrics-title">
+      <section
+        id="case-results"
+        className="case-study__metrics section"
+        aria-labelledby="case-metrics-title"
+      >
         <div className="shell">
           <header className="case-study__section-head">
             <p className="eyebrow">Measured scope</p>
-            <h2 id="case-metrics-title">Evidence, not live counters.</h2>
+            <h2 id="case-metrics-title">A closer look at the work.</h2>
             <p>
-              These are fixed results from the published audit snapshot, rather than current GitHub
-              statistics.
+              Fixed results from the {project.audit.date} audit snapshot. These measures describe
+              the documented scope of the project and are not live GitHub statistics.
             </p>
           </header>
           <dl className="case-study__metric-grid">
@@ -140,7 +186,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="case-study__flow section" aria-labelledby="case-flow-title">
+      <section
+        id="case-delivery"
+        className="case-study__flow section"
+        aria-labelledby="case-flow-title"
+      >
         <div className="shell">
           <header className="case-study__section-head case-study__section-head--split">
             <div>
@@ -178,24 +228,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       </section>
 
-      <section className="case-study__skills section" aria-labelledby="case-skills-title">
-        <div className="shell case-study__skills-layout">
-          <div>
-            <p className="eyebrow">Transferable practice</p>
-            <h2 id="case-skills-title">What this demonstrates.</h2>
-          </div>
-          <ul>
-            {project.transferableSkills.map((skill, index) => (
-              <li key={skill}>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                {skill}
-              </li>
-            ))}
-          </ul>
-        </div>
-      </section>
-
-      <section className="case-study__governance section" aria-labelledby="case-governance-title">
+      <section
+        id="case-governance"
+        className="case-study__governance section"
+        aria-labelledby="case-governance-title"
+      >
         <div className="shell case-study__governance-frame">
           <div>
             <p className="eyebrow">Attribution and responsible use</p>

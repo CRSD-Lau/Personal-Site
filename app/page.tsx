@@ -53,10 +53,10 @@ export default function Home() {
         <Hero />
         <About />
         <Experience />
+        <Works />
         <Approach />
         <Skills />
         <Impact />
-        <Works />
         <Contact />
       </main>
 

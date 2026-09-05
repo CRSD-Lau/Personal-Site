@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { navigation, profile } from "@/data/profile";
@@ -12,6 +11,9 @@ export default function Navigation() {
   const [activeSection, setActiveSection] = useState("hero");
   const [menuOpen, setMenuOpen] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const primaryNavigation = navigation.filter((item) =>
+    ["#about", "#experience", "#works", "#contact"].includes(item.href),
+  );
 
   useEffect(() => {
     if (pathname !== "/") return;
@@ -65,9 +67,6 @@ export default function Navigation() {
     <header className="site-header">
       <nav className="site-nav shell" aria-label="Main navigation">
         <a className="wordmark" href={isHome ? "#hero" : "/"}>
-          <span className="wordmark__portrait" aria-hidden="true">
-            <Image src="/profile.webp" alt="" fill sizes="44px" />
-          </span>
           <span className="wordmark__text">
             <strong>{profile.name}</strong>
             <small>Project &amp; Delivery Leadership</small>
@@ -76,7 +75,7 @@ export default function Navigation() {
         </a>
 
         <ul className="site-nav__links" role="list">
-          {navigation.map((item, index) => {
+          {primaryNavigation.map((item) => {
             return (
               <li key={item.href}>
                 <a
@@ -84,7 +83,6 @@ export default function Navigation() {
                   aria-current={isCurrent(item.href) ? "location" : undefined}
                   onClick={() => item.href.startsWith("#") && setActiveSection(item.href.slice(1))}
                 >
-                  <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                   {item.label}
                 </a>
               </li>
@@ -94,8 +92,8 @@ export default function Navigation() {
 
         <div className="site-nav__actions">
           <DarkModeToggle />
-          <a className="nav-contact" href={isHome ? "#contact" : "/#contact"}>
-            Connect
+          <a className="nav-contact" href="/resume.pdf" target="_blank" rel="noreferrer">
+            Résumé <span aria-hidden="true">↗</span>
           </a>
           <button
             ref={menuButtonRef}
@@ -114,7 +112,7 @@ export default function Navigation() {
       {menuOpen && (
         <nav id="mobile-navigation" className="mobile-navigation" aria-label="Mobile navigation">
           <ul role="list">
-            {navigation.map((item, index) => (
+            {navigation.map((item) => (
               <li key={item.href}>
                 <a
                   href={getHref(item.href)}
@@ -123,7 +121,6 @@ export default function Navigation() {
                     closeMenu();
                   }}
                 >
-                  <span>{String(index + 1).padStart(2, "0")}</span>
                   {item.label}
                 </a>
               </li>
@@ -132,6 +129,15 @@ export default function Navigation() {
           <p>{profile.status}</p>
         </nav>
       )}
+      <noscript>
+        <nav className="no-script-nav shell" aria-label="Section navigation">
+          {primaryNavigation.map((item) => (
+            <a key={item.href} href={getHref(item.href)}>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </noscript>
     </header>
   );
 }

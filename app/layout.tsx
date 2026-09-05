@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 import { profile, siteMetadata, siteUrl } from "@/data/profile";
 import "./globals.css";
+import "./redesign.css";
+import "./career.css";
+import "./works-refresh.css";
 
 const socialImage = {
   url: new URL(siteMetadata.socialImage.path, siteUrl).toString(),
@@ -61,8 +64,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f2f1ea" },
-    { media: "(prefers-color-scheme: dark)", color: "#091012" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f5ef" },
+    { media: "(prefers-color-scheme: dark)", color: "#111b19" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -82,6 +85,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en-CA" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
+        <link
+          rel="preload"
+          href="/fonts/manrope-latin-variable.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
         <Script id="theme-preference" strategy="beforeInteractive">
           {themeScript}
         </Script>

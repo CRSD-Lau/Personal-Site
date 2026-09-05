@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+
 import type { Project } from "@/data/projects";
 
 type ProjectPreviewProps = {
@@ -27,9 +27,9 @@ export default function ProjectPreview({
   return (
     <figure className="project-preview">
       {linked ? (
-        <Link href={`/works/${project.slug}`} aria-label={`Read the ${project.title} case study`}>
+        <a href={`/works/${project.slug}`} aria-label={`Read the ${project.title} case study`}>
           {image}
-        </Link>
+        </a>
       ) : (
         <div>{image}</div>
       )}

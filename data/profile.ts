@@ -20,10 +20,10 @@ export const siteMetadata = {
 export const navigation = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
+  { label: "Works", href: "#works" },
   { label: "Approach", href: "#approach" },
   { label: "Expertise", href: "#expertise" },
   { label: "Impact", href: "#impact" },
-  { label: "Works", href: "#works" },
   { label: "Contact", href: "#contact" },
 ] as const;
 
@@ -40,6 +40,11 @@ export const profile = {
   location: currentExperience.location,
   status: "Open to professional conversations and knowledge sharing.",
   positioning: "I lead applied AI/ML projects from planning through production readiness.",
+  heroStatement: ["Complex work.", "Clear direction."],
+  heroSummary:
+    "I connect business context, technical teams, and the decisions that move applied AI/ML work forward.",
+  aboutLead:
+    "Good delivery starts with understanding the people, the problem, and the path between them.",
   currentRoleSummary:
     "I manage delivery plans and production readiness across applied AI/ML engineering projects.",
   introduction:

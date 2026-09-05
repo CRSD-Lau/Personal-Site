@@ -20,7 +20,11 @@ export default function DarkModeToggle() {
     const next = !isDark;
     setIsDark(next);
     document.documentElement.classList.toggle("dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
+    try {
+      localStorage.setItem("theme", next ? "dark" : "light");
+    } catch {
+      // Theme switching still works when storage is unavailable.
+    }
   };
 
   if (!mounted) {
