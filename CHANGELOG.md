@@ -7,6 +7,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [3.0.1] - 2026-09-05
+
+### Fixed
+
+- Removed the leftover shaded background behind the contact disclaimer so the text
+  blends into the contact section in both themes.
+
 ## [3.0.0] - 2026-09-05
 
 ### Changed
@@ -180,7 +187,8 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 - Percentage skill bars and unsupported performance claims.
 - Obsolete journey-role wording and stale six-year career references.
 
-[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v3.0.0...HEAD
+[Unreleased]: https://github.com/CRSD-Lau/Personal-Site/compare/v3.0.1...HEAD
+[3.0.1]: https://github.com/CRSD-Lau/Personal-Site/compare/v3.0.0...v3.0.1
 [3.0.0]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.2...v3.0.0
 [2.2.2]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.1...v2.2.2
 [2.2.1]: https://github.com/CRSD-Lau/Personal-Site/compare/v2.2.0...v2.2.1

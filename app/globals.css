@@ -1832,7 +1832,6 @@ button {
   margin: clamp(2rem, 4vw, 3.5rem) calc(-1 * var(--contact-frame-pad))
     calc(-1 * var(--contact-frame-pad));
   border-top: 1px solid rgba(238, 245, 239, 0.16);
-  background: rgba(0, 0, 0, 0.08);
   color: var(--color-inverse-muted);
   font-size: clamp(0.76rem, 0.72vw, 0.84rem);
   font-style: italic;
