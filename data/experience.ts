@@ -42,7 +42,7 @@ const experience: Experience[] = [
     ],
     skills: [
       "Applied AI/ML",
-      "AI Engineering Delivery",
+      "ML Engineering Delivery",
       "Project Management",
       "Kanban",
       "Risk Management",

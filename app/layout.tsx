@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   applicationName: siteMetadata.name,
   keywords: [
     "Applied AI/ML Engineering",
-    "AI Engineering Delivery",
+    "ML Engineering Delivery",
     "Project Management",
     "TD Bank Group",
     "TD Insurance",
