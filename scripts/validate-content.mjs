@@ -202,7 +202,7 @@ assert(
   "The current résumé is not linked.",
 );
 assert(profileSource.includes("available: true"), "Current résumé status is not explicit.");
-assert(profileSource.includes('lastUpdated: "July 2026"'), "Résumé update date is stale.");
+assert(profileSource.includes('lastUpdated: "September 2026"'), "Résumé update date is stale.");
 assert(
   profileSource.includes('email: "neil_mitchell89@hotmail.com"'),
   "The public contact email is incorrect.",
