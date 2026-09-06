@@ -36,7 +36,7 @@ components.
 The current supported impact measures are:
 
 - More than 80,000 invoices processed in a quarterly cycle
-- More than $55MM in quarterly accounts receivable activity
+- More than $55MM in quarterly accounts payable activity settling overdue vendor bills
 - More than seven years at TD
 - 11 product initiatives delivered across Digital Service Performance and SPARK
 

@@ -118,11 +118,11 @@ const experience: Experience[] = [
     location: "Saint John, New Brunswick",
     employmentType: "Full-time",
     chapter: "Vendor Operations",
-    shortSummary: "Managed large accounts receivable operations and built practical automation.",
+    shortSummary: "Managed vendor accounts payable operations and built practical automation.",
     summary:
-      "Managed a quarterly accounts receivable process covering more than 80,000 invoices and over $55 million in activity. Built VBA automation for aggregation and reconciliation, improving the flow and accuracy of operational work.",
+      "Managed a quarterly accounts payable process covering more than 80,000 invoices and over $55 million in overdue bills owed to the vendor network. Built VBA automation for aggregation and reconciliation, improving the flow and accuracy of operational work.",
     responsibilities: [
-      "Managed enterprise accounts receivable work on a quarterly cadence.",
+      "Managed enterprise accounts payable work to settle overdue vendor bills on a quarterly cadence.",
       "Built VBA automation for data aggregation and reconciliation.",
       "Improved cycle time, accuracy, and visibility across vendor operations.",
       "Led weekly progress reviews with partners across several business lines.",
@@ -131,7 +131,7 @@ const experience: Experience[] = [
     skills: [
       "Vendor Management",
       "VBA Automation",
-      "Accounts Receivable",
+      "Accounts Payable",
       "Data Reconciliation",
       "Operational Reporting",
     ],

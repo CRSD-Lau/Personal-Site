@@ -8,12 +8,12 @@ export const impactMetrics: ImpactMetric[] = [
   {
     value: "80,000+",
     label: "Invoices processed",
-    context: "Quarterly accounts receivable cycle managed in vendor operations.",
+    context: "Quarterly accounts payable cycle managed in vendor operations.",
   },
   {
     value: "$55MM+",
-    label: "Quarterly AR activity",
-    context: "Accounts receivable work coordinated across a large operational process.",
+    label: "Quarterly AP activity",
+    context: "Accounts payable work settling overdue bills owed to the vendor network.",
   },
   {
     value: "7+",
@@ -49,7 +49,7 @@ export const impactStories = [
       "Designed VBA workflows for large-scale aggregation and reconciliation, improving the consistency and flow of vendor operations.",
     points: [
       "More than 80,000 invoices in a quarterly cycle",
-      "Accounts receivable activity valued at more than $55 million",
+      "Accounts payable activity valued at more than $55 million",
       "Stronger visibility and fewer manual reconciliation steps",
     ],
   },

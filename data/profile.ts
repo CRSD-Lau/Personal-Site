@@ -72,7 +72,7 @@ export const profile = {
   },
   resume: {
     available: true,
-    lastUpdated: "July 2026",
+    lastUpdated: "September 2026",
     notice: "View current résumé",
   },
   contact: {

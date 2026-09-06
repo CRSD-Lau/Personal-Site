@@ -12,6 +12,7 @@ from docx.oxml.ns import qn
 from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from docx.shared import Inches, Pt, RGBColor
 from pypdf import PdfReader, PdfWriter
+from pypdf.xmp import XmpInformation
 
 
 AUTHOR = "Neil Mitchell"
@@ -206,10 +207,10 @@ def build_resume(output_path: Path) -> None:
         "project management, applied AI, machine learning, LLM workflows, automation, "
         "software development, insurance technology"
     )
-    properties.comments = "Updated July 2026"
+    properties.comments = datetime.now(timezone.utc).strftime("Updated %B %Y")
     properties.created = datetime(2026, 7, 26, tzinfo=timezone.utc)
-    properties.modified = datetime(2026, 7, 29, tzinfo=timezone.utc)
-    properties.revision = 5
+    properties.modified = datetime.now(timezone.utc)
+    properties.revision = 6
 
     add_paragraph(document, AUTHOR, size=16, bold=True, space_after=8, keep_with_next=True)
     add_paragraph(
@@ -302,8 +303,8 @@ def build_resume(output_path: Path) -> None:
         "CFLVS, TD Insurance | 04/2020 - 02/2024",
         "Vendor Management Office (VMO)",
         [
-            "Managed an enterprise Accounts Receivable process on a quarterly cadence, processing "
-            "80,000+ invoices totaling $55MM+ in outstanding payments.",
+            "Managed an enterprise Accounts Payable process on a quarterly cadence, processing "
+            "80,000+ invoices totaling $55MM+ in overdue bills owed to the vendor network.",
             "Designed and implemented VBA automation pipelines for data aggregation and "
             "reconciliation, improving cycle time and accuracy.",
             "Led weekly progress and delivery reviews with stakeholders across multiple business "
@@ -375,6 +376,7 @@ def finalize_pdf(input_path: Path, output_path: Path) -> None:
     reader = PdfReader(input_path)
     writer = PdfWriter()
     writer.clone_document_from_reader(reader)
+    modified_at = datetime.now(timezone.utc)
 
     metadata = {
         key: str(value)
@@ -390,10 +392,28 @@ def finalize_pdf(input_path: Path, output_path: Path) -> None:
             "/Producer": AUTHOR,
             "/LastModifiedBy": AUTHOR,
             "/Modifier": AUTHOR,
-            "/ModDate": "D:20260729000000-03'00'",
+            "/ModDate": modified_at.strftime("D:%Y%m%d%H%M%SZ"),
         }
     )
     writer.add_metadata(metadata)
+
+    if reader.xmp_metadata is not None:
+        original_xmp = reader.xmp_metadata
+        # Use one namespace-complete description instead of retaining Word's
+        # separate descriptions, which can duplicate attribution on update.
+        xmp = XmpInformation.create()
+        xmp.dc_title = {"x-default": "Neil Mitchell Resume"}
+        xmp.dc_description = {"x-default": "Professional resume"}
+        xmp.xmp_create_date = original_xmp.xmp_create_date
+        xmp.xmpmm_document_id = original_xmp.xmpmm_document_id
+        xmp.xmpmm_instance_id = original_xmp.xmpmm_instance_id
+        xmp.dc_creator = [AUTHOR]
+        xmp.dc_contributor = [AUTHOR]
+        xmp.xmp_creator_tool = AUTHOR
+        xmp.pdf_producer = AUTHOR
+        xmp.xmp_modify_date = modified_at
+        xmp.xmp_metadata_date = modified_at
+        writer.xmp_metadata = xmp
 
     output_path.parent.mkdir(parents=True, exist_ok=True)
     with output_path.open("wb") as output_stream:
