@@ -1,0 +1,51 @@
+.mobile-launch {
+  position: fixed;
+  z-index: 300;
+  top: var(--mobile-launch-top, 0px);
+  left: var(--mobile-launch-left, 0px);
+  display: none;
+  width: var(--mobile-launch-width, 100vw);
+  height: var(--mobile-launch-height, 100dvh);
+  place-items: center;
+  margin: 0;
+  padding: 0;
+  background: #111e1a;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+html[data-mobile-launch="active"] .mobile-launch {
+  display: grid;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  animation: mobile-launch-dismiss 250ms ease-out 1800ms 1 forwards;
+}
+
+.mobile-launch__portrait {
+  display: block;
+  width: 144px;
+  height: 144px;
+  max-width: none;
+  aspect-ratio: 1;
+  border: 0;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: none;
+}
+
+@keyframes mobile-launch-dismiss {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-mobile-launch="active"] .mobile-launch {
+    /* Keep the hold, then dismiss without a fade, including if JavaScript stops. */
+    animation-duration: 0.01ms !important;
+  }
+}
