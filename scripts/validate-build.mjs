@@ -91,6 +91,36 @@ assert(
   "The stable root favicon link is missing.",
 );
 assert(readLink("manifest") === "/manifest.webmanifest", "The manifest link is missing.");
+assert(
+  readLink("apple-touch-icon") === "/icons/apple-touch-v2.png",
+  "The dedicated Apple touch icon is missing.",
+);
+const installManifest = JSON.parse(readFileSync("out/manifest.webmanifest", "utf8"));
+for (const [src, size, purpose] of [
+  ["/icons/install-v2-192.png", 192, "any"],
+  ["/icons/install-v2-512.png", 512, "any"],
+  ["/icons/install-maskable-v2-512.png", 512, "maskable"],
+  ["/icons/apple-touch-v2.png", 180, null],
+]) {
+  if (purpose) {
+    assert(
+      installManifest.icons.some(
+        (icon) => icon.src === src && icon.sizes === `${size}x${size}` && icon.purpose === purpose,
+      ),
+      `Missing install manifest entry: ${src}`,
+    );
+  }
+  const outputPath = `out${src}`;
+  assert(existsSync(outputPath), `Missing install icon: ${src}`);
+  if (existsSync(outputPath)) {
+    const png = readFileSync(outputPath);
+    assert(
+      png.readUInt32BE(16) === size && png.readUInt32BE(20) === size,
+      `Install icon must be square at its declared size: ${src}`,
+    );
+    assert(png[25] === 2, `Install icon must use opaque RGB pixels: ${src}`);
+  }
+}
 assert(worksHtml.length > 0, "The exported works index is missing.");
 assert(caseStudyHtml.length > 0, "The exported project case study is missing.");
 assert(

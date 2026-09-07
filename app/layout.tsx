@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
+import MobileLaunchScreen, { mobileLaunchScript } from "@/components/MobileLaunchScreen";
 import { profile, siteMetadata, siteUrl } from "@/data/profile";
 import "./globals.css";
 import "./redesign.css";
 import "./career.css";
 import "./works-refresh.css";
+import "./mobile-launch.css";
 
 const socialImage = {
   url: new URL(siteMetadata.socialImage.path, siteUrl).toString(),
@@ -17,6 +19,9 @@ export const metadata: Metadata = {
   title: siteMetadata.title,
   description: siteMetadata.description,
   applicationName: siteMetadata.name,
+  icons: {
+    apple: [{ url: "/icons/apple-touch-v2.png", sizes: "180x180", type: "image/png" }],
+  },
   keywords: [
     "Applied AI/ML Engineering",
     "ML Engineering Delivery",
@@ -95,8 +100,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <Script id="theme-preference" strategy="beforeInteractive">
           {themeScript}
         </Script>
+        <script id="mobile-launch" dangerouslySetInnerHTML={{ __html: mobileLaunchScript }} />
       </head>
-      <body>{children}</body>
+      <body>
+        <MobileLaunchScreen />
+        {children}
+      </body>
     </html>
   );
 }

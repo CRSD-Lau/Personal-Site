@@ -7,6 +7,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [3.0.4] - 2026-09-06
+
+### Fixed
+
+- Added opaque install icons, an Android maskable icon, and an Apple touch icon to avoid the
+  platform-added white surround around the transparent headshot favicon.
+- Added a borderless, circular portrait centered in the installed app's launch screen, with an
+  approximately two-second introduction that runs once per session and respects reduced motion.
+
 ## [3.0.3] - 2026-09-06
 
 ### Fixed
