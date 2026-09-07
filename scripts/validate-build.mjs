@@ -51,10 +51,10 @@ function decodeHtml(value) {
 }
 
 function readTags(source, tagName) {
-  return Array.from(source.matchAll(new RegExp(`<${tagName}\\b[^>]*>`, "g")), ([tag]) =>
+  return Array.from(source.matchAll(new RegExp(`<${tagName}(?=[\\s/>])[^>]*>`, "gi")), ([tag]) =>
     Object.fromEntries(
       Array.from(tag.matchAll(/([\w:-]+)=(?:"([^"]*)"|'([^']*)')/g), ([, key, double, single]) => [
-        key,
+        key.toLowerCase(),
         decodeHtml(double ?? single),
       ]),
     ),
@@ -313,10 +313,12 @@ function pngSize(path) {
 
 function readSchemas(source, route) {
   const schemas = [];
-  for (const match of source.matchAll(/<script\b[^>]*>[\s\S]*?<\/script>/g)) {
-    if (readTags(match[0], "script")[0]?.type !== "application/ld+json") continue;
+  for (const [, openingTag, body] of source.matchAll(
+    /(<script(?=[\s>])[^>]*>)([\s\S]*?)<\/script\s*>/gi,
+  )) {
+    if (readTags(openingTag, "script")[0]?.type?.toLowerCase() !== "application/ld+json") continue;
     try {
-      const value = JSON.parse(match[0].replace(/^<script\b[^>]*>/, "").replace(/<\/script>$/, ""));
+      const value = JSON.parse(body);
       assert(value["@context"] === "https://schema.org", `${route}: JSON-LD context is incorrect.`);
       schemas.push(...(value["@graph"] ?? [value]));
     } catch {
@@ -468,9 +470,13 @@ assert(
   "Person structured data identity is incorrect.",
 );
 assert(
-  person?.sameAs?.includes("https://github.com/CRSD-Lau") &&
-    person?.sameAs?.includes("https://www.linkedin.com/in/neil-mitchell-a6038b171"),
-  "Person structured data must include both public profiles.",
+  Array.isArray(person?.sameAs) &&
+    JSON.stringify([...person.sameAs].sort()) ===
+      JSON.stringify([
+        "https://github.com/CRSD-Lau",
+        "https://www.linkedin.com/in/neil-mitchell-a6038b171",
+      ]),
+  "Person structured data must contain exactly the two public profile URLs.",
 );
 assert(
   person?.image === `${productionUrl}/profile.webp` && existsSync("out/profile.webp"),

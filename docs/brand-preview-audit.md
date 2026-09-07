@@ -84,11 +84,15 @@ Repair validation completed locally:
   Generated PNG/JPEG assets identify Neil Mitchell in EXIF and XMP creator/modifier fields.
 - The compatibility image exactly matches the new homepage image; the reviewed Deep Live Cam
   artwork and both resume files are unchanged.
-- The three new cards and refreshed README screenshot were visually reviewed at their native sizes.
+- The three new cards and refreshed README screenshot were visually reviewed at their native sizes; the cards were also reviewed at 390 CSS pixels.
 - Four isolated export mutations were rejected: missing Works locale, wrong image width, malformed
   JSON-LD, and a Works canonical pointing to the homepage. The restored scratch export passed.
 
-Browser and hosted verification are recorded on the proposed pull request after its checks finish.
+- Browser checks passed all 12 local route/viewport/theme combinations (three routes at 390 and 1440 pixels in both themes), plus six hosted preview combinations. No JavaScript errors, failed requests, broken loaded images, horizontal overflow, or theme mismatches were found.
+- All three hosted preview image responses returned PNGs whose dimensions and bytes match source.
+- The public wiki matched the baseline source; all stale references are covered by the five updated pages.
+
+Exact final-commit hosted checks are recorded on the proposed pull request.
 Those checks remain distinct from production publication and third-party cache refresh.
 
 ## Publication and cache status
