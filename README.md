@@ -1,8 +1,10 @@
+<!-- Author: Neil Mitchell | Last modified by: Neil Mitchell -->
+
 <div align="center">
   <h1>Neil Mitchell - Career Portfolio</h1>
+  <p><strong>Complex work. Clear direction.</strong></p>
   <p>
-    Project and delivery leadership for applied AI/ML engineering, grounded in seven years of
-    TD Insurance experience.
+    Applied AI/ML project delivery, grounded in seven years of TD Insurance experience.
   </p>
   <p>
     <a href="https://neilmitchell.ca"><strong>View the live portfolio</strong></a>
@@ -26,7 +28,7 @@
   </p>
 </div>
 
-![Portfolio preview](./docs/assets/portfolio-preview.png)
+[![Current portfolio homepage with Neil's portrait, forest and pale lime colours, and the statement “Complex work. Clear direction.”](./docs/assets/portfolio-preview.png)](https://neilmitchell.ca)
 
 ## About
 
@@ -105,16 +107,17 @@ Open `http://localhost:3000`.
 
 ### Commands
 
-| Command             | Purpose                                                              |
-| ------------------- | -------------------------------------------------------------------- |
-| `npm run dev`       | Start the Next.js development server                                 |
-| `npm run build`     | Create the static export in `out/`                                   |
-| `npm run preview`   | Serve the exported site at `http://localhost:4174`                   |
-| `npm run format`    | Format source, documentation, and repository files                   |
-| `npm run lint`      | Run ESLint with warnings treated as failures                         |
-| `npm run typecheck` | Run the TypeScript compiler without emitting files                   |
-| `npm test`          | Validate career facts, project evidence, links, licences, and assets |
-| `npm run validate`  | Run every release gate, including a production build                 |
+| Command                  | Purpose                                                                   |
+| ------------------------ | ------------------------------------------------------------------------- |
+| `npm run dev`            | Start the Next.js development server                                      |
+| `npm run build`          | Create the static export in `out/`                                        |
+| `npm run preview`        | Serve the exported site at `http://localhost:4174`                        |
+| `npm run previews:build` | Regenerate brand cards and README screenshots from a running local export |
+| `npm run format`         | Format source, documentation, and repository files                        |
+| `npm run lint`           | Run ESLint with warnings treated as failures                              |
+| `npm run typecheck`      | Run the TypeScript compiler without emitting files                        |
+| `npm test`               | Validate career facts, project evidence, links, licences, and assets      |
+| `npm run validate`       | Run every release gate, including a production build                      |
 
 ## Content and assets
 
@@ -127,8 +130,13 @@ Open `http://localhost:3000`.
 | `data/impact.ts`                                | Impact metrics and supporting stories                         |
 | `data/projects.ts`                              | Independent project records, evidence snapshots, and links    |
 | `app/icon.png`                                  | Round headshot favicon                                        |
-| `public/opengraph-image.png`                    | Social preview image for root-page link embeds                |
+| `public/social/portfolio-v3.png`                | Versioned 1200 x 630 homepage social preview                  |
+| `public/social/works-v3.png`                    | Versioned 1200 x 630 Works collection social preview          |
+| `public/opengraph-image.png`                    | Compatibility copy of the current homepage preview            |
 | `public/works/deep-live-cam/social-preview.png` | Reviewed Deep Live Cam Studio repository artwork              |
+| `docs/assets/portfolio-preview.png`             | Current homepage screenshot shown in this README              |
+| `docs/assets/readme-screenshot.jpg`             | Compatibility copy of the current homepage screenshot         |
+| `docs/assets/repository-social-preview.png`     | 1280 x 640 artwork for GitHub's repository social preview     |
 | `app/manifest.ts`                               | Install metadata and app icon declaration                     |
 | `app/robots.ts`                                 | Search crawler policy and sitemap discovery                   |
 | `app/sitemap.ts`                                | Canonical production URL for search indexing                  |
@@ -139,6 +147,18 @@ Open `http://localhost:3000`.
 Follow the evidence and wording rules in the [Content Guide](./docs/content-guide.md) before
 changing career claims, impact figures, or independent-project records. The project preview's
 separate source terms and provenance are recorded in [LICENSE.md](./LICENSE.md).
+
+## Brand and sharing previews
+
+The website, sharing cards, and repository use the same photographic portrait, locally hosted
+Manrope, dark forest canvas, pale lime accents, and “Complex work. Clear direction.” positioning.
+The Works collection has its own card; individual case studies retain their reviewed project artwork.
+
+Website sharing metadata lives in `data/profile.ts` and the route metadata. The GitHub repository's
+social preview is a separate repository setting: committing its image does not upload it to GitHub.
+The [brand and preview audit](./docs/brand-preview-audit.md) records the findings, asset inventory,
+and publication status. Follow [Deployment](./docs/deployment.md#sharing-previews-and-repository-branding)
+when changing cards or refreshing a cached link preview.
 
 ## Résumé workflow
 

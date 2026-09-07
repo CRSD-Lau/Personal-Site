@@ -1,5 +1,8 @@
 # Neil Mitchell Portfolio Wiki
 
+Author: Neil Mitchell
+Last modified by: Neil Mitchell
+
 This wiki documents how the portfolio is structured, edited, validated, released, and deployed.
 
 ## Production
@@ -7,7 +10,7 @@ This wiki documents how the portfolio is structured, edited, validated, released
 - Website: <https://neilmitchell.ca>
 - Repository: <https://github.com/CRSD-Lau/Personal-Site>
 - Production branch: `main`
-- Current release: `v3.0.2`
+- Current release: [GitHub releases](https://github.com/CRSD-Lau/Personal-Site/releases/latest)
 
 ## Guides
 
@@ -16,6 +19,7 @@ This wiki documents how the portfolio is structured, edited, validated, released
 - [[Development]]
 - [[Deployment and Releases]]
 - [[Design System]]
+- [Brand and preview audit](https://github.com/CRSD-Lau/Personal-Site/blob/main/docs/brand-preview-audit.md)
 
 ## Repository principles
 

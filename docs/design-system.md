@@ -5,7 +5,7 @@ Last modified by: Neil Mitchell
 
 ## Creative concept
 
-The v3.0.0 portfolio presents Neil's career as a progression through TD Insurance and into applied
+The portfolio presents Neil's career as a progression through TD Insurance and into applied
 AI/ML delivery. A large delivery statement and Neil's real portrait introduce the person behind
 the work. Thin connection paths frame the portrait; subsequent sections alternate narrative,
 career chronology, independent projects, and a direct contact invitation.
@@ -143,6 +143,29 @@ for the browser matrix and its limits.
 Subtle gradients and dividing lines are decorative. The headshot, role titles, employer context,
 career sequence, delivery stages, metrics, status, and contact information are meaningful and remain
 available as semantic text.
+
+## Sharing and repository surfaces
+
+The homepage, Works collection, and GitHub repository each have a purpose-specific preview.
+They share the hero's fixed forest palette, Manrope, restrained connection-path detail, and
+clear typography. The homepage and repository use Neil's portrait and “Complex work. Clear
+direction.” statement; the Works collection uses its “Ideas, made practical.” introduction.
+These cards introduce the destination rather than repeating every section or metric.
+
+- Website sharing images: 1200 x 630 PNG, with explicit image dimensions and alternative text
+  in route metadata.
+- Repository sharing image: 1280 x 640 PNG with an opaque background, kept under 1 MB for
+  GitHub's upload field.
+- README image: a current rendered homepage screenshot, separate from the cropped sharing cards.
+- Case-study image: the reviewed project artwork, with its existing licence and provenance.
+
+Review cards at their full resolution and at a typical narrow message width. Neil's name,
+headline, portrait, and destination must remain recognisable without relying on fine print.
+Keep all essential content inset from the card edges. Update the versioned public filename
+when replacing a website preview so image caches can fetch a new asset.
+
+See [the audit and asset inventory](brand-preview-audit.md) and
+[the deployment procedure](deployment.md#sharing-previews-and-repository-branding).
 
 ## CSS ownership
 

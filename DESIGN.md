@@ -35,6 +35,18 @@ Keep button and pill links free of arrows. Simple horizontal arrows may accompan
 text links. Omit decorative arrows, the hero scroll prompt, and the standalone
 signature beneath the About heading.
 
+## Sharing and repository identity
+
+Sharing cards carry the same portrait, Manrope typography, dark forest canvas, and pale lime
+emphasis as the hero. The homepage card uses “Complex work. Clear direction.” with Neil's name
+and applied AI/ML project context. The Works collection has a separate card using its own
+“Ideas, made practical.” introduction. Keep text legible at a small message-card size.
+
+Website cards use 1200 x 630 px; the GitHub repository card uses 1280 x 640 px. Use an opaque
+background and keep essential text and the face clear of the outer edges. The README shows
+a real homepage screenshot. Case-study artwork retains its reviewed source terms and provenance.
+See [the asset inventory](docs/brand-preview-audit.md#asset-inventory).
+
 ## Motion and access
 
 Finite CSS entrance motion and a drawn connection path. No scroll interception,

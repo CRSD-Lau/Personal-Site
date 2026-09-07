@@ -6,7 +6,7 @@ import ProjectGrowthChart from "@/components/ProjectGrowthChart";
 import ProjectPreview from "@/components/ProjectPreview";
 import ProjectReleaseFlow from "@/components/ProjectReleaseFlow";
 import { getProjectBySlug, projects } from "@/data/projects";
-import { siteUrl } from "@/data/profile";
+import { siteMetadata, siteUrl } from "@/data/profile";
 
 type ProjectPageProps = {
   params: Promise<{ slug: string }>;
@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   const { slug } = await params;
   const project = getProjectBySlug(slug);
 
-  if (!project) return {};
+  if (!project) notFound();
 
   const title = `${project.title} | Neil Mitchell`;
   return {
@@ -31,6 +31,10 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
     alternates: { canonical: `/works/${project.slug}` },
     openGraph: {
       type: "article",
+      locale: siteMetadata.locale,
+      siteName: siteMetadata.name,
+      authors: [siteUrl],
+      modifiedTime: project.audit.isoDate,
       url: `/works/${project.slug}`,
       title,
       description: project.cardSummary,
@@ -40,10 +44,12 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
           width: project.preview.width,
           height: project.preview.height,
           alt: project.preview.alt,
+          type: "image/png",
         },
       ],
     },
     twitter: {
+      card: "summary_large_image",
       title,
       description: project.cardSummary,
       images: [{ url: project.preview.src, alt: project.preview.alt }],
@@ -61,9 +67,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const projectSchema = {
     "@context": "https://schema.org",
     "@type": "CreativeWork",
+    "@id": `${projectUrl}#case-study`,
     name: project.title,
     url: projectUrl,
-    author: { "@type": "Person", name: "Neil Mitchell", url: siteUrl },
+    author: {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      name: siteMetadata.name,
+      url: siteUrl,
+    },
+    image: `${siteUrl}${project.preview.src}`,
+    inLanguage: "en-CA",
+    isPartOf: { "@id": `${siteUrl}/works#collection` },
     dateCreated: project.date,
     dateModified: project.audit.isoDate,
     description: project.cardSummary,

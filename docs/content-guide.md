@@ -1,19 +1,23 @@
 # Content Guide
 
+Author: Neil Mitchell
+Last modified by: Neil Mitchell
+
 ## Source of truth
 
 Update portfolio content in `data/` first. Avoid placing career facts directly inside React
 components.
 
-| Content               | File                                                            |
-| --------------------- | --------------------------------------------------------------- |
-| Current role and hero | `data/profile.ts` and the current entry in `data/experience.ts` |
-| Career history        | `data/experience.ts`                                            |
-| Delivery approach     | `data/approach.ts`                                              |
-| Expertise             | `data/skills.ts`                                                |
-| Impact measures       | `data/impact.ts`                                                |
-| Independent projects  | `data/projects.ts`                                              |
-| Résumé                | `documents/Neil-Mitchell-Resume.docx` and `public/resume.pdf`   |
+| Content                | File                                                            |
+| ---------------------- | --------------------------------------------------------------- |
+| Current role and hero  | `data/profile.ts` and the current entry in `data/experience.ts` |
+| Career history         | `data/experience.ts`                                            |
+| Delivery approach      | `data/approach.ts`                                              |
+| Expertise              | `data/skills.ts`                                                |
+| Impact measures        | `data/impact.ts`                                                |
+| Independent projects   | `data/projects.ts`                                              |
+| Search and social copy | `data/profile.ts` and route metadata in `app/`                  |
+| Résumé                 | `documents/Neil-Mitchell-Resume.docx` and `public/resume.pdf`   |
 
 ## Voice
 
@@ -73,6 +77,7 @@ When adding or changing a role:
 2. Confirm only one role has `current: true`.
 3. Update résumé source and published PDF.
 4. Review `data/profile.ts` for current-role copy.
+   Review the page title, descriptions, social alternative text, and preview artwork at the same time.
 5. Review tenure and role-count metrics.
 6. Update `CHANGELOG.md`.
 7. Run `npm run validate`.
@@ -98,3 +103,29 @@ Both the DOCX and PDF must contain:
 - Title: `Neil Mitchell Resume`
 
 The helper in `scripts/build-resume.py` applies these values.
+
+## Brand and metadata updates
+
+“Complex work. Clear direction.” is the homepage's current statement. Preserve the professional
+role and applied AI/ML delivery context in search and sharing copy. Collection pages should describe
+the collection; a case study should describe its individual project. Do not inherit employer keywords
+into independent-work metadata.
+
+When changing identity, role, or visual branding:
+
+1. Review document titles, descriptions, canonical URLs, Open Graph, X cards, structured data,
+   manifest names, browser colours, favicon, and installed-app icons.
+2. Update website cards, README screenshot and introduction, package description, and the checked-in
+   repository card together. Use current portrait assets and the palette from `DESIGN.md`.
+   Regenerate them with `npm run previews:build` against a running local static export; see
+   [the generator workflow](deployment.md#regenerating-the-brand-assets).
+3. Give changed website cards a new filename in `public/social/`, then update route metadata.
+   Preserve `public/opengraph-image.png` as a current compatibility copy.
+4. Check GitHub's About description, website, topics, and separate social-preview setting.
+5. Verify generated image and document metadata names `Neil Mitchell` as author/creator and
+   last modifier wherever the format supports those fields.
+6. Run `npm run validate`, review rendered cards and the README, and complete the
+   [sharing-preview deployment checks](deployment.md#sharing-previews-and-repository-branding).
+
+The reviewed Deep Live Cam artwork remains separate from the portfolio's new cards. Do not regenerate
+or alter that source-project image as part of a personal-brand refresh.

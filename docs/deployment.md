@@ -1,5 +1,8 @@
 # Deployment
 
+Author: Neil Mitchell
+Last modified by: Neil Mitchell
+
 ## Production target
 
 - Platform: Vercel
@@ -23,6 +26,7 @@ Confirm:
 - No environment files, credentials, caches, or generated build folders are staged.
 - The résumé opens and its metadata names Neil Mitchell as author and modifier.
 - Visible changes have been reviewed at phone, tablet, desktop, and wide-screen widths.
+- Changed sharing cards have been reviewed at full size and a narrow message-preview size.
 - `CHANGELOG.md`, `VERSION`, and `package.json` agree.
 
 ## GitHub delivery
@@ -46,7 +50,9 @@ After Vercel reports a ready deployment:
 1. Confirm the root page returns HTTP 200.
 2. Confirm `www.neilmitchell.ca` redirects to the canonical apex domain.
 3. Confirm Open Graph and X metadata use `https://neilmitchell.ca`.
-4. Confirm `/opengraph-image.png` returns HTTP 200 as a 1200 x 630 PNG.
+4. Confirm the homepage advertises `/social/portfolio-v3.png`, the Works index advertises
+   `/social/works-v3.png`, and both return HTTP 200 as 1200 x 630 PNGs. Confirm the compatibility
+   `/opengraph-image.png` returns the current homepage image.
 5. Confirm `/robots.txt`, `/sitemap.xml`, and `/manifest.webmanifest` return HTTP 200.
 6. Confirm the page advertises the round headshot favicon and the icon returns `image/png`.
 7. Confirm `/resume.pdf` returns HTTP 200 and `application/pdf`.
@@ -63,6 +69,65 @@ After Vercel reports a ready deployment:
     repository, latest release, licence, compliance notes, and original upstream project.
 16. Confirm the independent project metadata contains no employer keywords and the case study shows
     its fixed snapshot date, attribution, consent guidance, and technical-summary disclaimer.
+
+## Regenerating the brand assets
+
+The generator reads the local site's rendered hero and Works copy and colours, then uses the
+existing portrait and Manrope font to create the cards. It also captures the current homepage
+for both README image formats. Playwright and Sharp are development dependencies.
+
+Install Chromium once and build and serve the export:
+
+```bash
+npx playwright install chromium
+npm run build
+npm run preview
+```
+
+With that server running, use a second terminal:
+
+```bash
+npm run previews:build -- http://127.0.0.1:4174
+npm run validate
+```
+
+The command only accepts a local host. Review the generated images and their diff before staging.
+The public cards have versioned filenames; update the generator, metadata, validators, and guides
+together when introducing the next version. The compatibility homepage image is copied from the
+new homepage card automatically.
+
+## Sharing previews and repository branding
+
+Website Open Graph and X metadata and GitHub's repository social preview are separate surfaces.
+Changing `public/social/` or the README does not change GitHub's uploaded repository image.
+
+After an authorised release:
+
+1. Fetch the live HTML for `/`, `/works`, and each case study. Check the canonical URL, title,
+   description, Open Graph URL/type/image, X card type/image, and structured data. Repeat the root
+   request with a social crawler user agent to check that its initial HTML carries the same metadata.
+2. Fetch each advertised image directly. Confirm status, content type, dimensions, and bytes against
+   the reviewed release. Verify the `www` link redirects to the canonical apex domain.
+3. Review the live repository README. Check its image, live-site and résumé links, release badge,
+   About description, homepage, and topics against the same professional positioning.
+4. Upload `docs/assets/repository-social-preview.png` under repository **Settings → Social preview →
+   Edit**. The image is 1280 x 640 with a solid background and must remain under 1 MB. See
+   [GitHub's social-preview documentation](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview).
+5. Read the public repository page's `og:image`, fetch the resulting repository-hosted image, and
+   verify it is the reviewed new card. A file committed to `docs/assets/` alone does not prove this
+   setting has changed.
+6. Publish the checked-in wiki pages if operating guidance changed, and verify their public content.
+7. For LinkedIn, inspect the live URL using [Post Inspector](https://www.linkedin.com/post-inspector/).
+   LinkedIn states that refreshing affects new posts; existing posts retain their prior preview.
+   See [LinkedIn's cache-refresh guidance](https://www.linkedin.com/help/linkedin/answer/a6233775).
+
+Versioned website image paths avoid reusing the old image URL when a platform next reads the page.
+They cannot guarantee when a third-party service will refresh its cached HTML or rewrite a previously
+sent message. Record the live metadata, GitHub image, and actual platform-preview checks separately;
+do not mark an Instagram or other messaging preview verified from HTTP checks alone.
+
+The current asset inventory and any remaining publication checks are in
+[the brand and preview audit](brand-preview-audit.md).
 
 ## Rollback
 

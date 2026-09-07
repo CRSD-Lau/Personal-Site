@@ -175,7 +175,7 @@ assert(
 );
 assert(
   profileSource.includes(
-    '"Project and delivery leadership for applied AI/ML engineering initiatives."',
+    '"Complex work. Clear direction. I connect business context, technical teams, and the decisions that move applied AI/ML work forward."',
   ),
   "The required social description is missing.",
 );
@@ -220,6 +220,27 @@ assert(existsSync("app/manifest.ts"), "Web app manifest route is missing.");
 assert(existsSync("app/robots.ts"), "Robots route is missing.");
 assert(existsSync("app/sitemap.ts"), "Sitemap route is missing.");
 assert(existsSync("public/opengraph-image.png"), "Social preview image is missing.");
+assert(
+  profileSource.includes('path: "/social/portfolio-v3.png"'),
+  "Home metadata must use the versioned current-brand preview.",
+);
+assert(
+  profileSource.includes('path: "/social/works-v3.png"'),
+  "Works metadata must use its own versioned current-brand preview.",
+);
+assert(
+  !worksPageSource.includes("projects[0].preview"),
+  "The Works index must not borrow the first project's social image.",
+);
+assert(
+  homePageSource.includes('"@type": "ProfilePage"') &&
+    homePageSource.includes('"@type": "WebSite"'),
+  "Home structured data must describe the profile page and website.",
+);
+assert(
+  homePageSource.includes("profile.social.github"),
+  "Person structured data must include the public GitHub profile.",
+);
 assert(existsSync("app/works/page.tsx"), "Works index route is missing.");
 assert(existsSync("app/works/[slug]/page.tsx"), "Project case-study route is missing.");
 assert(existsSync("sections/Works.tsx"), "Home-page Works section is missing.");
@@ -429,6 +450,27 @@ if (existsSync("public/opengraph-image.png")) {
       "Social preview must be exactly 1200 x 630.",
     );
   }
+}
+
+for (const path of ["public/social/portfolio-v3.png", "public/social/works-v3.png"]) {
+  assert(existsSync(path), `Current branded preview is missing: ${path}`);
+  if (!existsSync(path)) continue;
+  const image = readFileSync(path);
+  const isPng =
+    image.length >= 24 &&
+    image.subarray(0, 8).equals(Buffer.from([137, 80, 78, 71, 13, 10, 26, 10]));
+  assert(
+    isPng && image.readUInt32BE(16) === 1200 && image.readUInt32BE(20) === 630,
+    `Current branded preview must be a 1200 x 630 PNG: ${path}`,
+  );
+}
+if (existsSync("public/social/portfolio-v3.png") && existsSync("public/opengraph-image.png")) {
+  assert(
+    readFileSync("public/social/portfolio-v3.png").equals(
+      readFileSync("public/opengraph-image.png"),
+    ),
+    "The compatibility social preview must match the current portfolio artwork.",
+  );
 }
 
 if (existsSync("app/favicon.ico")) {

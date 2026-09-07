@@ -7,13 +7,26 @@ export const siteMetadata = {
   title: "Neil Mitchell | Applied AI/ML Project Manager",
   description:
     "Project Manager II leading applied AI/ML engineering initiatives from planning through production readiness.",
-  socialDescription: "Project and delivery leadership for applied AI/ML engineering initiatives.",
+  socialDescription:
+    "Complex work. Clear direction. I connect business context, technical teams, and the decisions that move applied AI/ML work forward.",
   locale: "en_CA",
   socialImage: {
-    path: "/opengraph-image.png",
+    path: "/social/portfolio-v3.png",
     width: 1200,
     height: 630,
-    alt: "Neil Mitchell, Project Manager II, Applied AI/ML Engineering",
+    alt: "Neil Mitchell. Complex work. Clear direction. Project Manager II, Applied AI/ML Engineering, with Neil's portrait on a dark forest background.",
+  },
+} as const;
+
+export const worksMetadata = {
+  title: "Works | Neil Mitchell",
+  description:
+    "Ideas, made practical. Independent projects by Neil Mitchell, with the decisions, delivery work, and evidence behind them.",
+  socialImage: {
+    path: "/social/works-v3.png",
+    width: 1200,
+    height: 630,
+    alt: "Works by Neil Mitchell. Ideas, made practical. Independent projects and the evidence behind them, on a dark forest background.",
   },
 } as const;
 
