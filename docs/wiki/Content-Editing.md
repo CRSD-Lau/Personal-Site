@@ -1,16 +1,20 @@
 # Content Editing
 
+Author: Neil Mitchell
+Last modified by: Neil Mitchell
+
 ## Where to edit
 
-| Change                | Source                                                        |
-| --------------------- | ------------------------------------------------------------- |
-| Current role and hero | `data/profile.ts` and `data/experience.ts`                    |
-| Career history        | `data/experience.ts`                                          |
-| Delivery approach     | `data/approach.ts`                                            |
-| Expertise             | `data/skills.ts`                                              |
-| Impact figures        | `data/impact.ts`                                              |
-| Independent projects  | `data/projects.ts`                                            |
-| Résumé                | `documents/Neil-Mitchell-Resume.docx` and `public/resume.pdf` |
+| Change                 | Source                                                        |
+| ---------------------- | ------------------------------------------------------------- |
+| Current role and hero  | `data/profile.ts` and `data/experience.ts`                    |
+| Career history         | `data/experience.ts`                                          |
+| Delivery approach      | `data/approach.ts`                                            |
+| Expertise              | `data/skills.ts`                                              |
+| Impact figures         | `data/impact.ts`                                              |
+| Independent projects   | `data/projects.ts`                                            |
+| Search and social copy | `data/profile.ts` and route metadata in `app/`                |
+| Résumé                 | `documents/Neil-Mitchell-Resume.docx` and `public/resume.pdf` |
 
 ## Copy rules
 
@@ -41,8 +45,22 @@ decorative page or hero element.
 1. Update the website and résumé together.
 2. Confirm role dates and organisations.
 3. Confirm every impact figure and project evidence label.
+   Review title, description, social images, structured data, and image alternative text when identity
+   or role copy changes.
 4. Run `npm run validate`.
 5. Review the static export on phone and desktop.
+
+## Brand and sharing previews
+
+Use the current photographic hero, Manrope, forest canvas, pale lime accents, and
+“Complex work. Clear direction.” statement across homepage and repository artwork. The Works
+collection has a separate “Ideas, made practical.” card. Retain the reviewed project image for
+its individual case study.
+
+Update the README screenshot and introduction, package description, website cards, and repository
+upload asset together. Review GitHub's About text, homepage, and topics. Website image changes need
+a new versioned path; GitHub's social preview needs a separate upload after release authorisation.
+Generated image and document metadata must name `Neil Mitchell` as author/creator and modifier.
 
 See the
 [full content guide](https://github.com/CRSD-Lau/Personal-Site/blob/main/docs/content-guide.md).

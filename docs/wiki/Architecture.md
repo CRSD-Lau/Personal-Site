@@ -4,7 +4,7 @@ Author: Neil Mitchell
 Last modified by: Neil Mitchell
 
 The portfolio is a Next.js 16 application exported as static HTML, CSS, and JavaScript.
-This page describes the v3.0.0 portfolio.
+This page describes the current photographic portfolio.
 
 ## Data flow
 
@@ -32,7 +32,11 @@ Vercel
 - `app/career.css` owns career, approach, and expertise presentation.
 - `app/works-refresh.css` owns the project feature, Works index, and case study.
 - `app/icon.png` provides the round headshot favicon.
-- `public/opengraph-image.png` provides the 1200 x 630 root-page social preview.
+- `public/social/portfolio-v3.png` and `public/social/works-v3.png` provide separate 1200 x 630
+  homepage and Works collection previews. `public/opengraph-image.png` retains a compatibility copy
+  of the homepage card.
+- `docs/assets/repository-social-preview.png` is a separate 1280 x 640 GitHub upload asset. Updating
+  that file does not update the repository's social-preview setting.
 - `public/works/` contains reviewed project preview assets with provenance recorded in the repository
   licence and content guide.
 - `public/fonts/` contains the locally hosted Manrope WOFF2 and its SIL Open Font License.
@@ -40,6 +44,8 @@ Vercel
 - `scripts/validate-content.mjs` protects high-risk career facts, project evidence, external targets,
   and publication boundaries.
 - `scripts/build-resume.py` creates the résumé source and finalizes document metadata.
+- `scripts/build-brand-previews.mjs` uses Playwright and Sharp to generate sharing cards and README
+  screenshots from the local static export, applying Neil Mitchell's image metadata.
 
 ## Toolchain
 

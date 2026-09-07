@@ -1,5 +1,8 @@
 # Architecture
 
+Author: Neil Mitchell
+Last modified by: Neil Mitchell
+
 ## Purpose
 
 The portfolio is a statically exported Next.js application. It keeps career content separate from
@@ -47,7 +50,14 @@ The production artifact is the `out/` directory created by `npm run build`.
   contact, and accessibility states. `app/career.css` and `app/works-refresh.css` provide
   the career and project presentation layers.
 - `app/icon.png` provides the round headshot favicon.
-- `public/opengraph-image.png` provides the 1200 x 630 root-page social preview.
+- `public/social/portfolio-v3.png` and `public/social/works-v3.png` provide distinct 1200 x 630
+  homepage and Works collection previews. `public/opengraph-image.png` is a compatibility copy
+  of the homepage card.
+- `docs/assets/repository-social-preview.png` is the separate GitHub repository upload asset;
+  GitHub's repository setting is not controlled by Next.js metadata.
+- `scripts/build-brand-previews.mjs` renders cards and README screenshots with Playwright and Sharp,
+  taking brand copy and colours from a running local static export and using the existing portrait
+  and Manrope font. It also applies Neil Mitchell's author and modifier metadata.
 - `app/manifest.ts`, `app/robots.ts`, and `app/sitemap.ts` emit static discovery metadata.
 
 ### Content model
@@ -119,6 +129,11 @@ no runtime dependency on an external font service.
 The content validator protects high-risk facts such as current role dates, organisation labels,
 career tenure, impact figures, résumé availability, project evidence labels, exact external targets,
 preview provenance, licensing boundaries, and prohibited employer claims in independent work.
+
+The static-build validator also checks the exported metadata and referenced image assets. Inspect
+the generated HTML when changing route metadata: metadata inherited from the application shell can
+otherwise give an independent-work page career keywords or a generic card. Current brand and preview
+coverage is recorded in [the audit](brand-preview-audit.md).
 
 ## Accessibility
 

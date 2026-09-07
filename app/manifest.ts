@@ -5,9 +5,12 @@ export const dynamic = "force-static";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
+    id: "/",
     name: siteMetadata.name,
     short_name: siteMetadata.name,
     description: siteMetadata.description,
+    lang: "en-CA",
+    dir: "ltr",
     start_url: "/",
     scope: "/",
     display: "standalone",

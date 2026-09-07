@@ -13,6 +13,7 @@ const socialImage = {
   width: siteMetadata.socialImage.width,
   height: siteMetadata.socialImage.height,
   alt: siteMetadata.socialImage.alt,
+  type: "image/png",
 };
 
 export const metadata: Metadata = {

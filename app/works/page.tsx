@@ -1,33 +1,34 @@
 import type { Metadata } from "next";
 import ProjectCard from "@/components/ProjectCard";
 import { projects } from "@/data/projects";
-import { siteUrl } from "@/data/profile";
+import { siteMetadata, siteUrl, worksMetadata } from "@/data/profile";
 
 export const metadata: Metadata = {
-  title: "Works | Neil Mitchell",
-  description:
-    "Independent technical work demonstrating practical AI/ML delivery, release, and governance skills.",
+  title: worksMetadata.title,
+  description: worksMetadata.description,
   alternates: { canonical: "/works" },
   openGraph: {
     type: "website",
+    locale: siteMetadata.locale,
+    siteName: siteMetadata.name,
     url: "/works",
-    title: "Works | Neil Mitchell",
-    description:
-      "Independent technical work demonstrating practical AI/ML delivery, release, and governance skills.",
+    title: worksMetadata.title,
+    description: worksMetadata.description,
     images: [
       {
-        url: projects[0].preview.src,
-        width: projects[0].preview.width,
-        height: projects[0].preview.height,
-        alt: projects[0].preview.alt,
+        url: worksMetadata.socialImage.path,
+        width: worksMetadata.socialImage.width,
+        height: worksMetadata.socialImage.height,
+        alt: worksMetadata.socialImage.alt,
+        type: "image/png",
       },
     ],
   },
   twitter: {
-    title: "Works | Neil Mitchell",
-    description:
-      "Independent technical work demonstrating practical AI/ML delivery, release, and governance skills.",
-    images: [{ url: projects[0].preview.src, alt: projects[0].preview.alt }],
+    card: "summary_large_image",
+    title: worksMetadata.title,
+    description: worksMetadata.description,
+    images: [{ url: worksMetadata.socialImage.path, alt: worksMetadata.socialImage.alt }],
   },
 };
 
@@ -35,10 +36,28 @@ export default function WorksPage() {
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
+    "@id": `${siteUrl}/works#collection`,
     name: "Works by Neil Mitchell",
     url: `${siteUrl}/works`,
-    description:
-      "Independent technical work demonstrating practical AI/ML delivery, release, and governance skills.",
+    description: worksMetadata.description,
+    image: `${siteUrl}${worksMetadata.socialImage.path}`,
+    inLanguage: "en-CA",
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    author: {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      name: siteMetadata.name,
+      url: siteUrl,
+    },
+    mainEntity: {
+      "@type": "ItemList",
+      itemListElement: projects.map((project, index) => ({
+        "@type": "ListItem",
+        position: index + 1,
+        name: project.title,
+        url: `${siteUrl}/works/${project.slug}`,
+      })),
+    },
   };
 
   return (

@@ -7,6 +7,24 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [3.0.5] - 2026-09-06
+
+### Fixed
+
+- Replaced the previous homepage sharing card with the current photographic forest-and-lime
+  branding and gave the Works collection its own preview and introduction.
+- Completed Open Graph and X metadata on every public route, including image alternative text,
+  locale, site name, and large-image cards; strengthened structured data and manifest identity.
+- Refreshed README screenshots, prepared a separate GitHub repository card, and corrected preview
+  maintenance guidance and stale wiki release references.
+
+### Added
+
+- A reproducible browser-based preview generator using the exported site's typography, colours,
+  portrait, and heading copy, with Neil Mitchell embedded as creator and modifier.
+- Build checks for complete route metadata, structured data, social image dimensions, compatibility
+  copies, crawler assets, and preserved project artwork.
+
 ## [3.0.4] - 2026-09-06
 
 ### Fixed

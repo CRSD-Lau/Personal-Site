@@ -3,7 +3,7 @@
 Author: Neil Mitchell
 Last modified by: Neil Mitchell
 
-The v3.0.0 portfolio combines a photographic opening with an editorial career narrative.
+The portfolio combines a photographic opening with an editorial career narrative.
 Neil's portrait and a large delivery statement introduce the site, followed by a featured current
 role, a concise career chronology, independent work, and a direct contact invitation.
 
@@ -60,6 +60,12 @@ labels are part of the shared system. No scroll interception, custom cursor, per
 animation framework is used.
 
 ## Brand boundary
+
+Sharing cards carry the same portrait, Manrope, forest canvas, and pale lime accents as the hero.
+The homepage and repository use “Complex work. Clear direction.”; the Works collection uses
+“Ideas, made practical.”. Website cards are 1200 x 630 PNGs and the separate repository card is
+1280 x 640, under 1 MB. Review their essential text and portrait at a narrow message-card width.
+The README shows a rendered homepage screenshot instead of the cropped sharing artwork.
 
 The site is personal and does not reproduce the TD design system. Official TD employer markers
 appear only beside actual career roles.
