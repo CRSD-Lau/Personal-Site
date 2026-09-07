@@ -11,10 +11,13 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ### Fixed
 
-- Aligned the Works, Approach, Expertise, Impact, and Contact menu destinations with
+- Aligned the About, Experience, Works, Approach, Expertise, Impact, and Contact menu destinations with
   their introductions below the sticky header, matching the requested mobile positions.
 - Preserved normal section spacing, native hash navigation, and the larger navigation
   fallback when JavaScript is disabled.
+- Aligned mobile delivery-step headings and list copy with their numbered, round, and square markers.
+- Centered hamburger and close icons and evenly spaced the right-aligned mobile header controls.
+- Centered the footer title, removed the LinkedIn icon border, and added a GitHub profile link.
 
 ## [3.0.2] - 2026-09-06
 

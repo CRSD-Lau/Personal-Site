@@ -87,7 +87,8 @@ section[id] {
 }
 /* Land on the section introduction without changing the spacing between sections.
    Native anchors add the root scroll padding to this margin. */
-:where(body:not(:has(.no-script-nav))) :is(#works, #approach, #expertise, #impact, #contact) {
+:where(body:not(:has(.no-script-nav)))
+  :is(#about, #experience, #works, #approach, #expertise, #impact, #contact) {
   --section-landing-gap: 0.5rem;
   --section-content-inset: var(--space-section);
   scroll-margin-top: calc(
@@ -183,7 +184,11 @@ section[id] {
   height: 2px;
 }
 .site-nav__actions {
+  flex-shrink: 0;
   gap: 0.9rem;
+}
+.site-nav__actions > * {
+  flex-shrink: 0;
 }
 .menu-toggle {
   display: none;
@@ -204,6 +209,7 @@ section[id] {
 .menu-toggle {
   width: 44px;
   height: 44px;
+  padding: 0;
   border: 0;
   border-radius: 50%;
 }
@@ -602,6 +608,9 @@ section[id] {
   font-size: 0.9rem;
   line-height: 1.8;
 }
+.impact-story li::before {
+  top: calc(0.75rem + 0.5lh - 0.18rem);
+}
 
 .contact {
   --contact-padding-top: clamp(4rem, 6vw, 6rem);
@@ -719,6 +728,30 @@ section[id] {
 .site-footer p {
   max-width: 45ch;
   font-size: 0.68rem;
+}
+.site-footer__identity {
+  text-align: center;
+}
+.site-footer__identity p {
+  margin-inline: auto;
+}
+.site-footer__social {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.site-footer__social a {
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 50%;
+}
+.site-footer__social a:hover {
+  background: var(--color-signal-soft);
+}
+.site-footer__social svg {
+  width: 24px;
+  height: 24px;
 }
 .site-footer nav a {
   font-size: 0.7rem;
@@ -844,17 +877,17 @@ section[id] {
     --site-nav-height: 4.5rem;
   }
   .site-nav {
-    gap: 1rem;
+    gap: 0.5rem;
   }
   .site-nav__links {
     display: none;
   }
   .site-nav__actions {
     margin-left: auto;
-    gap: 0.25rem;
+    gap: 0.5rem;
   }
   .menu-toggle {
-    display: inline-flex;
+    display: grid;
   }
   .nav-contact {
     display: inline-flex;
@@ -1002,11 +1035,6 @@ section[id] {
   }
   .nav-contact {
     font-size: 0.67rem;
-  }
-  .theme-toggle,
-  .menu-toggle {
-    width: 38px;
-    height: 44px;
   }
   .hero__actions {
     gap: 0.5rem;

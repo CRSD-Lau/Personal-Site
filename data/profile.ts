@@ -68,6 +68,7 @@ export const profile = {
   ],
   social: {
     linkedin: "https://www.linkedin.com/in/neil-mitchell-a6038b171",
+    github: "https://github.com/CRSD-Lau",
     email: "neil_mitchell89@hotmail.com",
   },
   resume: {

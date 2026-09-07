@@ -133,7 +133,7 @@
 }
 .career-responsibilities li::before {
   position: absolute;
-  top: 0.72em;
+  top: calc(0.5lh - 0.14rem);
   left: 0;
   width: 0.28rem;
   height: 0.28rem;
@@ -327,7 +327,7 @@
 }
 .expertise-row__list li::before {
   position: absolute;
-  top: 1.2rem;
+  top: calc(0.65rem + 0.5lh - 0.125rem);
   left: 0;
   width: 0.25rem;
   height: 0.25rem;
@@ -629,11 +629,11 @@
     height: 2.5rem;
   }
   .delivery-path__copy {
-    margin-top: 0.5rem;
+    margin-top: calc((2.5rem - 1.2rem * 1.2) / 2);
   }
   .delivery-path .delivery-path__copy h3 {
     min-height: 0;
-    margin-bottom: 0.65rem;
+    margin: 0 0 0.65rem;
   }
   .delivery-path .delivery-path__copy p {
     font-size: 0.85rem;

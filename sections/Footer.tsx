@@ -1,11 +1,11 @@
-import { LinkedInIcon } from "@/components/Icons";
+import { GitHubIcon, LinkedInIcon } from "@/components/Icons";
 import { navigation, profile } from "@/data/profile";
 
 export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="shell site-footer__layout">
-        <div>
+        <div className="site-footer__identity">
           <p className="site-footer__name">{profile.name}</p>
           <p>{profile.headline}</p>
         </div>
@@ -21,14 +21,24 @@ export default function Footer() {
         </nav>
 
         <div className="site-footer__meta">
-          <a
-            href={profile.social.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="Neil Mitchell on LinkedIn"
-          >
-            <LinkedInIcon />
-          </a>
+          <div className="site-footer__social">
+            <a
+              href={profile.social.linkedin}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Neil Mitchell on LinkedIn"
+            >
+              <LinkedInIcon />
+            </a>
+            <a
+              href={profile.social.github}
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Neil Mitchell on GitHub"
+            >
+              <GitHubIcon />
+            </a>
+          </div>
           <p>© {new Date().getFullYear()} Neil Mitchell</p>
         </div>
       </div>
