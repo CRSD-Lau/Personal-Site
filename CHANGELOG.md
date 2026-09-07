@@ -7,6 +7,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [3.0.3] - 2026-09-06
+
+### Fixed
+
+- Aligned the Works, Approach, Expertise, Impact, and Contact menu destinations with
+  their introductions below the sticky header, matching the requested mobile positions.
+- Preserved normal section spacing, native hash navigation, and the larger navigation
+  fallback when JavaScript is disabled.
+
 ## [3.0.2] - 2026-09-06
 
 ### Fixed

@@ -28,6 +28,7 @@
   --font-mono: "Manrope", "Segoe UI", sans-serif;
   --radius-large: 24px;
   --space-section: clamp(4.5rem, 7.5vw, 7.5rem);
+  --site-nav-height: 5.5rem;
   --shell-gutter: clamp(1.25rem, 4.5vw, 5rem);
   --hero-canvas: #111e1a;
   --hero-ink: #f1f6eb;
@@ -84,6 +85,26 @@ main:focus {
 section[id] {
   scroll-margin-top: 6.5rem;
 }
+/* Land on the section introduction without changing the spacing between sections.
+   Native anchors add the root scroll padding to this margin. */
+:where(body:not(:has(.no-script-nav))) :is(#works, #approach, #expertise, #impact, #contact) {
+  --section-landing-gap: 0.5rem;
+  --section-content-inset: var(--space-section);
+  scroll-margin-top: calc(
+    var(--site-nav-height) + 1px + var(--section-landing-gap) - var(--scroll-padding-top) -
+      var(--section-content-inset)
+  );
+}
+#approach {
+  --section-landing-gap: 1rem;
+}
+#impact {
+  --section-landing-gap: 0.25rem;
+}
+#contact {
+  --section-landing-gap: 1.5rem;
+  --section-content-inset: calc(var(--contact-padding-top) + var(--contact-layout-padding));
+}
 ::selection {
   background: #c8ed9a;
   color: #14251c;
@@ -125,7 +146,7 @@ section[id] {
   backdrop-filter: none;
 }
 .site-nav {
-  min-height: 5.5rem;
+  min-height: var(--site-nav-height);
   gap: 2rem;
 }
 .wordmark__portrait {
@@ -583,7 +604,9 @@ section[id] {
 }
 
 .contact {
-  padding-block: clamp(4rem, 6vw, 6rem) 0;
+  --contact-padding-top: clamp(4rem, 6vw, 6rem);
+  --contact-layout-padding: clamp(3.5rem, 7vw, 7rem);
+  padding-block: var(--contact-padding-top) 0;
   background: var(--hero-canvas);
   color: var(--hero-ink);
 }
@@ -602,6 +625,7 @@ section[id] {
   grid-template-columns: 1.2fr 0.8fr;
   gap: 3rem;
   align-items: end;
+  padding-block: var(--contact-layout-padding);
 }
 .contact .eyebrow {
   color: var(--hero-muted);
@@ -816,8 +840,10 @@ section[id] {
 }
 
 @media (max-width: 760px) {
+  :root {
+    --site-nav-height: 4.5rem;
+  }
   .site-nav {
-    min-height: 4.5rem;
     gap: 1rem;
   }
   .site-nav__links {

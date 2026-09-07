@@ -23,6 +23,7 @@
   --space-section: clamp(5.5rem, 9vw, 9rem);
   --shell-gutter: clamp(1rem, 3.5vw, 3.5rem);
   --shell: 1280px;
+  --scroll-padding-top: 5.5rem;
   --font-primary: "Segoe UI Variable", "Aptos", "Helvetica Neue", Arial, sans-serif;
   --font-mono: "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
   color-scheme: light;
@@ -59,7 +60,7 @@
 html {
   overflow-x: clip;
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
+  scroll-padding-top: var(--scroll-padding-top);
   background: var(--color-canvas);
   line-height: 1.5;
   -webkit-text-size-adjust: 100%;
