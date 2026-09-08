@@ -358,7 +358,7 @@ assert(
   "Project social preview is missing from the case study.",
 );
 assert(
-  projectPreviewSource.includes("project.preview.src"),
+  projectPreviewSource.includes("project.preview.displayBase"),
   "Reusable project preview is missing.",
 );
 assert(

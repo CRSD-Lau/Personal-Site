@@ -17,6 +17,9 @@ export default function Footer() {
                 <a href={item.href === "#works" ? "/works" : `/${item.href}`}>{item.label}</a>
               </li>
             ))}
+            <li>
+              <a href="/privacy">Privacy</a>
+            </li>
           </ul>
         </nav>
 

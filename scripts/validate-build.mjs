@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
+import sharp from "sharp";
 
 const productionUrl = "https://neilmitchell.ca";
 const title = "Neil Mitchell | Applied AI/ML Project Manager";
@@ -30,6 +31,79 @@ const caseStudyOutput = ["out/works/deep-live-cam/index.html", "out/works/deep-l
 const worksHtml = worksOutput ? readFileSync(worksOutput, "utf8") : "";
 const caseStudyHtml = caseStudyOutput ? readFileSync(caseStudyOutput, "utf8") : "";
 const failures = [];
+
+// Validate responsive display assets independently of the preserved social PNG.
+for (const [name, widths, ratio, budget] of [
+  ["portrait", [320, 480, 640, 960], 0.75, 50_000],
+  ["deep-live-cam", [400, 640, 960, 1280], 2, 50_000],
+]) {
+  for (const width of widths) {
+    const path = `out/images/${name}-${width}.webp`;
+    assert(existsSync(path), `Missing display image: ${path}`);
+    if (!existsSync(path)) continue;
+    const bytes = readFileSync(path);
+    const metadata = await sharp(bytes).metadata();
+    assert(
+      metadata.format === "webp" && metadata.width === width,
+      `Incorrect image format/width: ${path}`,
+    );
+    assert(Math.abs(metadata.height - width / ratio) < 1, `Incorrect image aspect ratio: ${path}`);
+    assert(bytes.length < budget, `Display image exceeds its byte budget: ${path}`);
+    assert(
+      metadata.exif?.includes(Buffer.from("Neil Mitchell")) &&
+        metadata.xmp?.includes(
+          Buffer.from("<portfolio:LastModifiedBy>Neil Mitchell</portfolio:LastModifiedBy>"),
+        ),
+      `Missing author/modifier metadata: ${path}`,
+    );
+  }
+}
+for (const [source, name] of [
+  [html, "Home"],
+  [worksHtml, "Works"],
+  [caseStudyHtml, "Case study"],
+]) {
+  const displayImages = readTags(source, "img").filter((image) =>
+    image.src?.startsWith("/images/"),
+  );
+  assert(displayImages.length > 0, `${name}: responsive images are missing.`);
+  for (const image of displayImages) {
+    assert(
+      Boolean(image.sizes) && Boolean(image.width) && Boolean(image.height),
+      `${name}: image sizes/dimensions are missing.`,
+    );
+    assert(Boolean(image.alt), `${name}: image alternative text is missing.`);
+    for (const candidate of (image.srcset ?? "").split(",")) {
+      const match = candidate.trim().match(/^(\/images\/[^ ]+\.webp) (\d+)w$/);
+      assert(
+        Boolean(match) && existsSync(`out${match?.[1]}`),
+        `${name}: invalid responsive image candidate.`,
+      );
+    }
+  }
+  assert(
+    !readTags(source, "img").some(
+      (image) => image.src === "/works/deep-live-cam/social-preview.png",
+    ),
+    `${name}: the original PNG must not be loaded as a display image.`,
+  );
+}
+assert(existsSync("out/privacy.html"), "Privacy notice must be exported.");
+const notFoundHtml = readFileSync("out/404.html", "utf8");
+assert(
+  !readLinkFrom(notFoundHtml, "canonical"),
+  "404 pages must not advertise a public-page canonical.",
+);
+assert(
+  notFoundHtml.includes("Back to home") && notFoundHtml.includes('href="/works"'),
+  "404 recovery links are missing.",
+);
+assert(
+  readTags(notFoundHtml, "meta").some(
+    (meta) => meta.name === "robots" && meta.content?.includes("noindex"),
+  ),
+  "The 404 page must not be indexed.",
+);
 
 function assert(condition, message) {
   if (!condition) failures.push(message);
@@ -230,7 +304,7 @@ assert(
   "Private analysis path leaked into the exported case study.",
 );
 assert(
-  html.includes('id="works"') && html.includes(projectImageUrl.replace(productionUrl, "")),
+  html.includes('id="works"') && html.includes("/images/deep-live-cam-"),
   "The exported home page is missing the integrated Works preview.",
 );
 assert(

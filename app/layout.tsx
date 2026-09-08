@@ -7,6 +7,7 @@ import "./redesign.css";
 import "./career.css";
 import "./works-refresh.css";
 import "./mobile-launch.css";
+import "./information.css";
 
 const socialImage = {
   url: new URL(siteMetadata.socialImage.path, siteUrl).toString(),
@@ -91,6 +92,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en-CA" data-scroll-behavior="smooth" suppressHydrationWarning>
       <head>
+        <link
+          rel="preload"
+          as="image"
+          href="/icon.png"
+          media="(display-mode: standalone)"
+          fetchPriority="high"
+        />
         <link
           rel="preload"
           href="/fonts/manrope-latin-variable.woff2"

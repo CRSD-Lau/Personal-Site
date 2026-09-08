@@ -56,7 +56,8 @@ const server = createServer(async (request, response) => {
       }
     }
 
-    if (!filePath) throw new Error("Static file not found");
+    const status = filePath ? 200 : 404;
+    if (!filePath) filePath = resolve(root, "404.html");
     const body = await readFile(filePath);
     const contentType = contentTypes[extname(filePath)] ?? "application/octet-stream";
     const acceptsGzip = (request.headers["accept-encoding"] ?? "")
@@ -69,7 +70,7 @@ const server = createServer(async (request, response) => {
       body.length > 1024 &&
       /^(text\/|application\/(javascript|json|xml|manifest\+json))/.test(contentType);
     const responseBody = shouldCompress ? await compress(body) : body;
-    response.writeHead(200, {
+    response.writeHead(status, {
       "Cache-Control": "no-store",
       "Content-Type": contentType,
       Vary: "Accept-Encoding",

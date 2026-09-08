@@ -24,6 +24,7 @@ export type Project = {
   technologies: readonly string[];
   preview: {
     src: string;
+    displayBase: string;
     alt: string;
     width: number;
     height: number;
@@ -71,6 +72,7 @@ export const projects: readonly Project[] = [
     technologies: ["Python", "PySide6", "ONNX Runtime", "CUDA", "DirectML", "OBS"],
     preview: {
       src: "/works/deep-live-cam/social-preview.png",
+      displayBase: "/images/deep-live-cam",
       alt: "Deep Live Cam Studio preview showing a dark desktop interface illustration with CUDA, DirectML, and OBS Live Output labels.",
       width: 1280,
       height: 640,
