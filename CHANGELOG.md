@@ -7,6 +7,22 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [3.0.6] - 2026-09-08
+
+### Added
+
+- A privacy notice with footer navigation, route metadata, structured data, and sitemap coverage.
+- A branded 404 with home and Works recovery links and noindex metadata.
+- Browser accessibility checks with rendered-background measurements for text over gradients,
+  plus validation of responsive image files, byte budgets, and author/modifier metadata.
+
+### Improved
+
+- Replaced on-page project PNG downloads with responsive WebP copies and added smaller portrait
+  variants, while preserving original artwork, social cards, and licensing attribution.
+- Limited the installed-app introduction portrait download to installed-app visits.
+- Made the local static preview serve the exported custom 404 with the correct status.
+
 ## [3.0.5] - 2026-09-06
 
 ### Fixed

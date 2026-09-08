@@ -31,8 +31,14 @@ html[data-mobile-launch="active"] .mobile-launch {
   aspect-ratio: 1;
   border: 0;
   border-radius: 50%;
-  object-fit: cover;
+  background-position: center;
+  background-size: cover;
   box-shadow: none;
+}
+
+/* Ordinary browser visits do not download the installed-app-only portrait. */
+html[data-mobile-launch="active"] .mobile-launch__portrait {
+  background-image: url("/icon.png");
 }
 
 @keyframes mobile-launch-dismiss {

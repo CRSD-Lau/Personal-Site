@@ -16,6 +16,9 @@ repository at commit `255fab3`. It is excluded from the all-rights-reserved term
 the terms that apply in that AGPL-3.0 project. Its inclusion here does not change the licence of
 either repository.
 
+The resized WebP display copies at `public/images/deep-live-cam-*.webp` are derived from that
+same image and retain the same licensing and attribution. The original PNG is unchanged.
+
 - [Source repository](https://github.com/CRSD-Lau/deep-live-cam)
 - [AGPL-3.0 licence](https://github.com/CRSD-Lau/deep-live-cam/blob/windows-obs-virtualcam-runtime/LICENSE)
 - [Compliance and attribution notes](https://github.com/CRSD-Lau/deep-live-cam/blob/windows-obs-virtualcam-runtime/COMPLIANCE.md)

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ResponsiveImage from "./ResponsiveImage";
 import { profile } from "@/data/profile";
 
 export default function SystemGraph() {
@@ -18,13 +18,14 @@ export default function SystemGraph() {
         </svg>
       </div>
       <div className="portrait-scene__image">
-        <Image
-          src="/profile.webp"
+        <ResponsiveImage
+          base="/images/portrait"
+          widths={[320, 480, 640, 960]}
           alt="Portrait of Neil Mitchell"
-          fill
+          width={960}
+          height={1280}
           sizes="(max-width: 560px) 280px, (max-width: 900px) 380px, 460px"
           preload
-          fetchPriority="high"
         />
       </div>
       <span className="portrait-scene__label portrait-scene__label--context">Business context</span>

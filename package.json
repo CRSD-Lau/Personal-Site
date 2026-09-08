@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Neil Mitchell's career portfolio for applied AI/ML project delivery, independent work, and TD experience.",
   "author": "Neil Mitchell",
   "private": true,
@@ -32,7 +32,10 @@
     "typecheck": "node node_modules/@typescript/native/bin/tsc --noEmit",
     "test": "node scripts/validate-content.mjs",
     "validate": "npm run format:check && npm run lint && npm run typecheck && npm test && npm run build",
-    "previews:build": "node scripts/build-brand-previews.mjs"
+    "previews:build": "node scripts/build-brand-previews.mjs",
+    "images:build": "node scripts/build-display-images.mjs",
+    "test:browser": "node scripts/validate-browser.mjs",
+    "test:interactions": "node scripts/validate-interactions.mjs"
   },
   "dependencies": {
     "next": "^16.3.4",
@@ -46,6 +49,7 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@typescript/native": "npm:typescript@^7.0.2",
+    "axe-core": "4.13.0",
     "eslint": "^10.9.1",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.12.0",

@@ -37,3 +37,12 @@ jobs:
 
       - name: Validate release
         run: npm run validate
+
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Check rendered pages and contrast
+        run: |
+          node scripts/serve-static.mjs 4176 &
+          npm run test:browser
+          npm run test:interactions

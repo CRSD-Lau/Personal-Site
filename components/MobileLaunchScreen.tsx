@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 // Activate before hydration; dismissal never depends on React mounting.
 export const mobileLaunchScript = `
   (function () {
@@ -60,16 +58,7 @@ export const mobileLaunchScript = `
 export default function MobileLaunchScreen() {
   return (
     <div className="mobile-launch" aria-hidden="true">
-      <Image
-        className="mobile-launch__portrait"
-        src="/icon.png"
-        alt=""
-        width={144}
-        height={144}
-        loading="eager"
-        fetchPriority="high"
-        draggable={false}
-      />
+      <span className="mobile-launch__portrait" />
     </div>
   );
 }

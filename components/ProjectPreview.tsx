@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ResponsiveImage from "./ResponsiveImage";
 
 import type { Project } from "@/data/projects";
 
@@ -14,13 +14,18 @@ export default function ProjectPreview({
   priority = false,
 }: ProjectPreviewProps) {
   const image = (
-    <Image
-      src={project.preview.src}
+    <ResponsiveImage
+      base={project.preview.displayBase}
+      widths={[400, 640, 960, 1280]}
       alt={project.preview.alt}
       width={project.preview.width}
       height={project.preview.height}
-      sizes="(max-width: 820px) 100vw, 66vw"
-      priority={priority}
+      sizes={
+        linked
+          ? "(max-width: 820px) 90vw, (max-width: 1422px) 53vw, 746px"
+          : "(max-width: 1422px) 90vw, 1280px"
+      }
+      preload={priority}
     />
   );
 

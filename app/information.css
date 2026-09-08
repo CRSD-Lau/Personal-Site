@@ -1,0 +1,68 @@
+.information-page {
+  padding-block: clamp(3rem, 7vw, 7rem);
+  min-height: calc(100svh - var(--site-nav-height));
+}
+.information-page__header {
+  max-width: 52rem;
+  margin-bottom: 3rem;
+}
+.information-page h1 {
+  margin-block: 1rem 1.5rem;
+  font-size: clamp(2.6rem, 6vw, 5.5rem);
+  line-height: 1.08;
+  letter-spacing: -0.06em;
+  font-weight: 600;
+}
+.information-page__lead {
+  max-width: 50ch;
+  font-size: 1.12rem;
+  color: var(--color-ink-secondary);
+}
+.information-page__updated {
+  margin-top: 1.5rem;
+  color: var(--color-ink-muted);
+  font-size: 0.8rem;
+}
+.information-page__body {
+  max-width: 46rem;
+}
+.information-page__body section {
+  padding-block: 2rem;
+  border-top: 1px solid var(--color-border);
+}
+.information-page h2 {
+  font-size: 1.45rem;
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  margin-bottom: 1rem;
+}
+.information-page__body p + p {
+  margin-top: 1rem;
+}
+.information-page__body p {
+  color: var(--color-ink-secondary);
+  overflow-wrap: anywhere;
+}
+.information-page__body a,
+.information-page__back {
+  color: var(--color-signal);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+}
+.information-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 44px;
+  font-weight: 650;
+}
+.information-page__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem 2rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+.information-page__error {
+  padding-block: clamp(1rem, 3vw, 3rem);
+}

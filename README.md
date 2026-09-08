@@ -107,17 +107,23 @@ Open `http://localhost:3000`.
 
 ### Commands
 
-| Command                  | Purpose                                                                   |
-| ------------------------ | ------------------------------------------------------------------------- |
-| `npm run dev`            | Start the Next.js development server                                      |
-| `npm run build`          | Create the static export in `out/`                                        |
-| `npm run preview`        | Serve the exported site at `http://localhost:4174`                        |
-| `npm run previews:build` | Regenerate brand cards and README screenshots from a running local export |
-| `npm run format`         | Format source, documentation, and repository files                        |
-| `npm run lint`           | Run ESLint with warnings treated as failures                              |
-| `npm run typecheck`      | Run the TypeScript compiler without emitting files                        |
-| `npm test`               | Validate career facts, project evidence, links, licences, and assets      |
-| `npm run validate`       | Run every release gate, including a production build                      |
+| Command                     | Purpose                                                                     |
+| --------------------------- | --------------------------------------------------------------------------- |
+| `npm run dev`               | Start the Next.js development server                                        |
+| `npm run build`             | Create the static export in `out/`                                          |
+| `npm run preview`           | Serve the exported site at `http://localhost:4174`                          |
+| `npm run previews:build`    | Regenerate brand cards and README screenshots from a running local export   |
+| `npm run images:build`      | Regenerate responsive display images while preserving social artwork        |
+| `npm run test:browser`      | Check rendered accessibility and gradient contrast against a running export |
+| `npm run test:interactions` | Check responsive layouts, navigation, recovery, and installed-app behavior  |
+| `npm run format`            | Format source, documentation, and repository files                          |
+| `npm run lint`              | Run ESLint with warnings treated as failures                                |
+| `npm run typecheck`         | Run the TypeScript compiler without emitting files                          |
+| `npm test`                  | Validate career facts, project evidence, links, licences, and assets        |
+| `npm run validate`          | Run source and build checks; browser checks run separately in CI            |
+
+The [launch checklist](./docs/launch-checklist.md) records the current privacy, performance,
+accessibility, and optional-feature decisions, with instructions for repeating the browser checks.
 
 ## Content and assets
 
