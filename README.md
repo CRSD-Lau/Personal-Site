@@ -48,7 +48,7 @@ The portfolio is personal and unofficial. It is not a TD Bank Group or TD Insura
 | Expertise | Delivery strengths, platform experience, and hands-on technical practice          |
 | Impact    | Career measures with count-up animation and supporting context                    |
 | Works     | Independent technical case studies with clear evidence and attribution boundaries |
-| Contact   | Direct contact options and a clear personal-site disclaimer                       |
+| Contact   | Email, copy, résumé, LinkedIn, and GitHub icons with a personal-site disclaimer   |
 
 ## Technology
 

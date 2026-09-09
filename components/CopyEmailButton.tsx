@@ -31,10 +31,11 @@ export default function CopyEmailButton({ email }: CopyEmailButtonProps) {
       type="button"
       className="contact-action contact-action--copy"
       onClick={copyEmail}
+      title={copied ? "Email copied" : "Copy email"}
       aria-live="polite"
     >
       {copied ? <CheckIcon /> : <CopyIcon />}
-      <span>{copied ? "Email copied" : "Copy email"}</span>
+      <span className="sr-only">{copied ? "Email copied" : "Copy email"}</span>
     </button>
   );
 }

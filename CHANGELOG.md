@@ -7,6 +7,15 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and
 
 ## [Unreleased]
 
+## [3.0.7] - 2026-09-09
+
+### Improved
+
+- Replaced the visible contact email address and pill buttons with accessible icons ordered as
+  email, copy email, résumé, LinkedIn, and GitHub.
+- Removed duplicate social icons from the footer and centered the copyright beneath its content.
+- Kept contact icons on one row across phone, tablet, and desktop layouts, with 48px touch targets.
+
 ## [3.0.6] - 2026-09-08
 
 ### Added
