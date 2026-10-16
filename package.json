@@ -38,23 +38,23 @@
     "test:interactions": "node scripts/validate-interactions.mjs"
   },
   "dependencies": {
-    "next": "^16.3.8",
+    "next": "^16.4.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@next/eslint-plugin-next": "^16.3.8",
-    "@types/node": "^24.19.1",
+    "@next/eslint-plugin-next": "^16.4.0",
+    "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@typescript/native": "npm:typescript@^7.0.2",
-    "axe-core": "4.13.0",
+    "axe-core": "4.14.0",
     "eslint": "^10.11.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "globals": "^17.12.0",
     "playwright": "1.63.0",
-    "prettier": "^3.9.9",
+    "prettier": "^3.9.10",
     "sharp": "0.35.5",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.71.0"
