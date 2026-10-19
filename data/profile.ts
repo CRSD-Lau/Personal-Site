@@ -65,7 +65,7 @@ export const profile = {
   aboutHeading: "Applied AI/ML delivery grounded in insurance experience.",
   about: [
     "My career at TD has moved through claims, vendor operations, digital servicing, product and regulatory work, and now applied AI/ML engineering. Each chapter has added a practical view of how customer needs, operations, data, technology, and implementation decisions connect.",
-    "Today, I create structure around complicated engineering work. That means keeping priorities visible, clarifying ownership, coordinating dependencies, surfacing risk, and helping technical and business partners make the decisions that move work forward.",
+    "Today, I create structure around complicated engineering work. That means keeping priorities visible, clarifying ownership, coordinating dependencies, surfacing risk, and influencing how technical and business partners make the decisions that move the work forward.",
   ],
   progression: [
     "Claims",
