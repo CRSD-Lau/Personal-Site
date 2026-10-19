@@ -41,7 +41,7 @@
     "test:interactions": "node scripts/validate-interactions.mjs"
   },
   "dependencies": {
-    "next": "^16.4.0",
+    "next": "^16.4.2",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   },
