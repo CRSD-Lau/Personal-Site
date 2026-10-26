@@ -13,7 +13,7 @@
     "url": "https://github.com/CRSD-Lau/Personal-Site/issues"
   },
   "overrides": {
-    "@next/eslint-plugin-next@16.4.2": {
+    "@next/eslint-plugin-next@16.4.3": {
       "fast-glob": "$fast-glob"
     },
     "postcss": "8.5.24",
@@ -41,26 +41,26 @@
     "test:interactions": "node scripts/validate-interactions.mjs"
   },
   "dependencies": {
-    "next": "^16.4.2",
+    "next": "^16.4.3",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
-    "@next/eslint-plugin-next": "16.4.2",
+    "@next/eslint-plugin-next": "16.4.3",
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@typescript/native": "npm:typescript@^7.0.2",
     "axe-core": "4.14.0",
-    "eslint": "^10.11.0",
+    "eslint": "^10.13.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "fast-glob": "file:vendor/next-eslint-glob",
     "globals": "^17.13.0",
-    "playwright": "1.63.0",
+    "playwright": "1.64.1",
     "prettier": "^3.9.10",
     "sharp": "0.35.5",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.71.2"
+    "typescript-eslint": "^8.72.0"
   }
 }
