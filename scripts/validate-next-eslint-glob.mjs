@@ -33,6 +33,10 @@ try {
   assert.ok(descendants.includes("./roots/beta"));
   assert.ok(descendants.includes("./roots/linked"));
 
+  assert.throws(() => globSync(["roots/*"], { onlyDirectories: true }), TypeError);
+  assert.throws(() => globSync("roots/*", { onlyDirectories: false }), TypeError);
+  assert.throws(() => globSync("roots/*", { onlyDirectories: true, absolute: true }), TypeError);
+
   console.log("Next ESLint glob adapter contract validation passed.");
 } finally {
   process.chdir(originalDirectory);

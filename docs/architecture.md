@@ -89,7 +89,7 @@ current-role card.
   or build pipeline.
 - Next.js's transitive PostCSS dependency is pinned to a patched release through npm overrides.
 - The pinned Next ESLint plugin uses the local `fast-glob` adapter, verified by
-  `validate-next-eslint-glob.mjs`; its override is version-paired with the plugin.
+  `validate-next-eslint-glob.mjs`; its unversioned parent override applies across compatible plugin patches.
 
 ### Client behaviour
 
