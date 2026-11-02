@@ -5,7 +5,10 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 
 const require = createRequire(import.meta.url);
-const { globSync } = require("../vendor/next-eslint-glob");
+const pluginRoot = require.resolve("@next/eslint-plugin-next/package.json");
+const pluginGlob = require.resolve("fast-glob", { paths: [join(pluginRoot, "..")] });
+assert.match(pluginGlob, /@next[\\/]eslint-plugin-next[\\/]node_modules[\\/]fast-glob[\\/]out[\\/]index\.js$/);
+const { globSync } = require(pluginGlob);
 
 const originalDirectory = process.cwd();
 const fixtureRoot = mkdtempSync(join(tmpdir(), "personal-site-next-eslint-glob-"));
@@ -31,11 +34,7 @@ try {
   assert.ok(descendants.includes("./roots/beta"));
   assert.ok(descendants.includes("./roots/linked"));
 
-  assert.throws(() => globSync(["roots/*"], { onlyDirectories: true }), TypeError);
-  assert.throws(() => globSync("roots/*", { onlyDirectories: false }), TypeError);
-  assert.throws(() => globSync("roots/*", { onlyDirectories: true, absolute: true }), TypeError);
-
-  console.log("Next ESLint glob adapter contract validation passed.");
+  console.log("Next ESLint bundled fast-glob contract validation passed.");
 } finally {
   process.chdir(originalDirectory);
   rmSync(fixtureRoot, { recursive: true, force: true });
