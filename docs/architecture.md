@@ -88,6 +88,8 @@ current-role card.
 - The design system is purpose-built CSS. Tailwind CSS and Autoprefixer are not part of the runtime
   or build pipeline.
 - Next.js's transitive PostCSS dependency is pinned to a patched release through npm overrides.
+- The pinned Next ESLint plugin uses the local `fast-glob` adapter, verified by
+  `validate-next-eslint-glob.mjs`; its unversioned parent override applies across compatible plugin patches.
 
 ### Client behaviour
 

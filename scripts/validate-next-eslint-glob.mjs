@@ -6,6 +6,11 @@ import { join } from "node:path";
 
 const require = createRequire(import.meta.url);
 const { globSync } = require("../vendor/next-eslint-glob");
+const pluginRoot = require.resolve("@next/eslint-plugin-next/package.json");
+assert.equal(
+  require.resolve("fast-glob", { paths: [join(pluginRoot, "..")] }),
+  require.resolve("../vendor/next-eslint-glob"),
+);
 
 const originalDirectory = process.cwd();
 const fixtureRoot = mkdtempSync(join(tmpdir(), "personal-site-next-eslint-glob-"));
